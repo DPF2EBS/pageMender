@@ -1,0 +1,52 @@
+{
+	"name":"Page Mender",
+	"description":"extension for developers and test engineers",
+	"version":"0.1",
+	/**icons*/
+	"icons":{
+		"128": "icons/DPTools-128.png",
+		"64": "icons/DPTools-64.png",
+		"48": "icons/DPTools-48.png",
+		"32": "icons/DPTools-32.png",
+		"16": "icons/DPTools-16.png"
+	},
+
+	"permissions":[
+   		// "tabs",      	
+     	"browsingData",
+      	// "proxy",
+   		// "contextMenus",
+
+   		"cookies",
+   		"http://*/*",
+      	"https://*/*"
+
+   		// "background"
+   	],
+
+	/**browser actions*/
+	"browser_action": {
+    	"default_icon": "icons/DPTools-19.png",
+    	"default_popup": "pages/popup.html",
+    	"default_title": "page Mender"
+   	},
+
+   	/**background page*/
+   	"background":{
+   		"scripts":["scripts/background.js"]
+   	},
+
+   	/**content scripts*/
+   	"content_scripts":[{
+   		"matches": ["http://*/*","https://*/*"],
+    	"run_at":"document_start",
+    	"js": [
+    		"scripts/contentscripts.js"
+    	]
+   	}],
+
+    "options_page": "pages/options.html",
+
+	"devtools_page": "pages/devtools.html",
+	"manifest_version": 2
+}
