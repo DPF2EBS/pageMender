@@ -50,3 +50,5 @@ function bindEvents(){
 		introPage.show();
 	});
 }
+
+if($('section').length>0){bindEvents();}
