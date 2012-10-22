@@ -2,102 +2,67 @@
 <html lang="en-US">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="../styles/pageMender.css">
+	<link rel="stylesheet" href="../styles/myra.css">
 	<title>devtools panel</title>
 </head>
 
 <body>
-	<div class="bar top-bar">
-		<div class="row-fluid">
-			<div class="span2">
-				<a class="button" href="#" id="intro">简介</a>
-				<a class="button" href="#" id="report">反馈</a>
-			</div>
-			<h2 class="span10">
-				<img src="../icons/DPTools-32.png" alt="dptools">
-				<span>Page Mender</span>
-			</h2>  			
-		</div>
-	</div>
-
-	<aside class="left">
-		<dl class="item-lists">
-			<dt><i class="arrow-right"></i>页面分析</dt>
-			<dd>
-				<ul>
-					<li><a href="#">DOM节点</a></li>
-					<li><a href="#">请求数</a></li>
-					<li><a href="#">加载时间</a></li>
-					<li><a href="#">标准验证</a></li>
-				</ul>
-			</dd>		
-			<dt><i class="arrow-right"></i>系统工具</dt>
-			<dd>
-				<ul>
-					<li><a href="#">Cookies管理</a></li>
-					<li><a href="#">代理设置</a></li>
-					<li><a href="#">缓存控制</a></li>
-				</ul>
-			</dd>
-			<dt><i class="arrow-right"></i>测试工具</dt>
-			<dd>
-				<ul>
-					<li><a href="#">Ajax测试</a></li>
-					<li><a href="#">重置窗口尺寸</a></li>
-					<li><a href="#">禁用CSS</a></li>
-					<li><a href="#">禁用JavaScript</a></li>
+	<div class="Left">
+        <h3>Page Mender</h3>
+        <div class="sidebar-menu">
+            <h4 class="toggler h-1">
+                <a>页面分析</a>
+            </h4>
+            <div class="accordion">
+                <ul>
+                    <li><a href="#" class="hover">dom节点数</a></li>
+                    <li><a href="#">请求数</a></li>
+                    <li><a href="#">加载时间</a></li>
+                </ul>
+            </div>
+            <h4 class="toggler h-2">
+                <a>系统工具</a>
+            </h4>
+            <div class="accordion">
+                <ul>
+                    <li><a href="#">cookie管理</a></li>
+                    <li><a href="#">代理设置</a></li>
+                    <li><a href="#">缓存控制</a></li>
+                </ul>
+            </div>
+			
+			<h4 class="toggler h-3">
+                <a>测试工具</a>
+            </h4>
+			<div class="accordion">
+                <ul>
+                    <li><a href="#">ajax测试</a></li>
+                    <li><a href="#">重置窗口尺寸</a></li>
+                    <li><a href="#">禁用css</a></li>
+					<li><a href="#">禁用javascript</a></li>
 					<li><a href="#">参考线</a></li>
 					<li><a href="#">测量工具</a></li>
-				</ul>
-			</dd>
-			<dt><i class="arrow-right"></i>自动工具</dt>
-			<dd>
-				<ul>
-					<li><a href="#">自动刷新</a></li>
-					<li><a href="#">填充表单</a></li>
-					<li><a href="#">清除表单</a></li>
+                </ul>
+            </div>
+			<h4 class="toggler h-4">
+                <a>自动工具</a>
+            </h4>
+			<div class="accordion">
+                <ul>
+                    <li><a href="#">自动刷新</a></li>
+                    <li><a href="#">填充表单</a></li>
+                    <li><a href="#">清除表单</a></li>
 					<li><a href="#">自动点击</a></li>
-				</ul>
-			</dd>
-		</dl>
-	</aside>
-
-	<article class="right">
-		<div class="welcome" id="intro-page">
-			欢迎信息！
-		</div>
-		<section>DOM节点</section>
-		<section>请求数</section>
-		<section>加载时间</section>
-		<section>标准验证</section>
-
-		<section>Cookies管理</section>
-		<section>代理设置</section>
-		<section>
-			<a href="chrome://cache" target="_blank">查看缓存</a> |
-			<a href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a><br/><br/>
-			<select name="" id="">
-				<option value="1">过去一小时</option>
-				<option value="24">最近一天</option>
-				<option value="168">最近一周</option>
-				<option value="672">最近四周</option>
-			</select>
-			<button>清理缓存</button>			
-			<p></p>
-		</section>
-
-		<section>Ajax测试</section>
-		<section>重置窗口尺寸</section>
-		<section>禁用CSS</section>
-		<section>禁用JavaScript</section>
-		<section>参考线</section>
-		<section>测量工具</section>
-
-		<section>自动刷新</section>
-		<section>填充表单</section>
-		<section>清除表单</section>
-		<section>自动点击</section>
-	</article>
+                </ul>
+            </div>
+			<h4 class="toggler h-5">
+                <a>关于我们</a>
+            </h4>
+        </div>
+    </div>
+    <div class="Right">
+    	<div class="header"><h3>Dom节点</h3></div>
+    </div>
 
 	<script type="text/javascript" src="../scripts/jquery.js"></script>
 	<script type="text/javascript" src="../scripts/devtoolPanel.js"></script>

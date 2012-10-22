@@ -45,7 +45,7 @@
     	]
    	}],
 
-    "options_page": "pages/options.html",
+    "options_page": "pages/devtoolPanelSkin.html",
 
 	"devtools_page": "pages/devtools.html",
 	"manifest_version": 2

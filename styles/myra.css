@@ -1,0 +1,37 @@
+/* ======== Css Reset ========= */
+body,ul,li,dl,dd,dt,aside,article,section,p,h1,h2,h3,h4{margin:0px; padding:0px;}
+body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; color:#2d2d2d;}
+h1, h2, h3, h4, h5 { font-size:14px; line-height:20px;font-weight:normal;}
+ul, li {list-style:none;}
+
+
+.accordion a { background-image:url(../icons/sprite.png); background-repeat:no-repeat;}
+.h-1 { background-image:url(../icons/sprite1.png); background-repeat:no-repeat;}
+.h-2 { background-image:url(../icons/sprite2.png); background-repeat:no-repeat;}
+.h-3 { background-image:url(../icons/sprite3.png); background-repeat:no-repeat;}
+.h-4 { background-image:url(../icons/sprite4.png); background-repeat:no-repeat;}
+.h-5 { background-image:url(../icons/sprite5.png); background-repeat:no-repeat;}
+/* ======== Css Left ========= */
+.Hide { display:none; }
+a { text-decoration:none; cursor:pointer;}
+.Left { position:fixed; width:245px; top:0; background-color:#f1f4f6; height:100%; overflow: auto; z-index: 20;-webkit-box-shadow: 1px 0px 15px #999;box-shadow: 1px 0px 15px #999;}
+.Right { position: fixed; width:100%; right:0px; top:0; height: 100%; overflow: auto; z-index: 10; line-height: 180%; color:#2d2d2d; font-family:"Courier New", Courier, monospace;} 
+.Left h3 {font-size:24px; line-height:80px;text-align:center; color:#666666; text-shadow:1px 1px 0 #FFFFFF;}
+.sidebar-menu h4 { margin: 12px 20px;height:32px;line-height:32px;background-color:#FFF;}
+.sidebar-menu h4 a { display:block;padding-left:52px;}
+.accordion { margin: 0 20px;visibility: hidden;height:0; }
+.accordion li { line-height:26px; }
+.accordion a { display:block; color:#444; padding-left:74px;background-position:50px 8px;} 
+.accordion .hovern, .accordion a:hover { background-color:#dee2e2; }
+
+.h-1, .h-2, .h-3, .h-4, .h-5 { background-position:30px 8px;}
+.sidebar-menu h4.active { background-color:#ff8a00;color:#FFF;background-position:30px -47px;}
+
+.Right div.header { margin-left: 246px;height:44px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f0f3f6), color-stop(100%,#dfe0e4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #f0f3f6 0%,#dfe0e4 100%); /* Chrome10+,Safari5.1+ */
+	background: linear-gradient(to bottom,  #f0f3f6 0%,#dfe0e4 100%); /* W3C */ 
+}
+.header h3 {line-height:44px;text-align:center;text-shadow:1px 1px 0 #FFFFFF;color:#6c6c6c;font-weight:bold;font-size:16px;}
+
+
