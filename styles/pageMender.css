@@ -90,10 +90,7 @@ article.right section, article.right .welcome {display: none; margin-left: 220px
 article.right .welcome{display: block;}
 article section a{text-decoration: none;}
 article section a:hover{text-decoration:underline;}
-article .document{color:#2F69BF;}
-article .stylesheet{color:#A22FBF;}
-article .script{color:#BF2F2F;}
-article .image{color:#2FBF69;}
+
 
 /*-------------------scroll-bar[by Google]------------------------*/
 
@@ -188,3 +185,26 @@ article .image{color:#2FBF69;}
 .dom-tags:hover{text-decoration: none;}
 .red-dot{text-align:center; color:#444444; min-width:20px;margin-right:10px;background-color:#D6DDE5;padding:8px 14px 9px 9px;border-right:1px solid #cfcfcf;}
 .cont-wrap { margin:30px;}
+
+/* ------------------------- 网络请求 -------------------------- */
+article .document{color:#2F69BF;font-weight:bold;}
+article .stylesheet{color:#A22FBF;font-weight:bold;}
+article .script{color:#BF2F2F;font-weight:bold;}
+article .image{color:#FF8800;font-weight:bold;}
+
+.com {margin:20px 30px;
+    border: 1px solid #CCC;
+    padding-bottom:24px;
+    overflow:hidden;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
+}
+.com p {line-height:32px;border-bottom:1px dotted #CCC;}
+.com a {color:#08c;margin-left:20px;}
+.com a:hover {background-color:#08C; color:#FFF;text-decoration:none;}
+.index { padding:0 5px 0 20px;width:30px;display:inline-block;}
+.document-block {  }
+.css-block { }
+.js-block { }
+.img-block { }
+.other-block { }
