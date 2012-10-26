@@ -1,7 +1,7 @@
 /*-----------rest-------------*/
 body,ul,li,dl,dd,dt,aside,article,section,p,h1,h2,h3,h4{margin:0px; padding:0px;}
 body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; color:#2d2d2d;}
-h3{margin:6px;}
+
 
 /*-----------common-------------*/
 .wrapper{padding: 5px;}
@@ -23,20 +23,18 @@ i{
 .arrow-right{background-position: -24px 3px;}
 .arrow-down{background-position: -22px -12px;}
 
-.red-dot{background-color: #9d9d9d; text-align:center; color:#fff; border-radius: 6px; position: absolute; right: -6px; top: -6px; min-width:20px; height: 16px; line-height: 16px;}
-
 .button {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f5f5f5), color-stop(1, #e0e0e0) );
 	background-color:#f5f5f5;
 	-webkit-border-radius:4px;
-	border-radius:4px;
+	border-radius:0px;
 	border:1px solid #cfcfcf;
 	display:inline-block;
-	color:#2d2d2d;
+	color:#444;
 	font-size:12px;
-	padding:5px 10px;
+	padding:5px 10px 5px 0;
 	text-decoration:none;
-	margin:0px 6px;
+	margin:10px 10px;
 }.button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #e0e0e0), color-stop(1, #f5f5f5) );
 	background-color:#e0e0e0;
@@ -68,7 +66,8 @@ i{
 /*-----------------------------------content------------------------------*/
 
 /*-----------aside-------------*/
-aside.left{position:fixed; top:0px;width:220px; background-color:#D6DDE5; height:100%; overflow: auto; z-index: 20;  border-right:#adadad 1px solid;}
+aside.left{position:fixed; top:0px;width:220px; background-color:#D6DDE5; height:100%; overflow: auto; z-index: 20;  border-right:#adadad 1px solid;-webkit-box-shadow: 1px 0px 15px #999;box-shadow: 1px 0px 15px #999;
+}
 
 .item-lists{padding:0px 0px 10px;}
 .item-lists ul{list-style: none;}
@@ -86,8 +85,8 @@ aside.left{position:fixed; top:0px;width:220px; background-color:#D6DDE5; height
     margin-right:-16px;  font-weight: bold;}
 
 /*-----------article-------------*/
-article.right{position: fixed; width:100%; right:0px; top:42px; height: 100%; overflow: auto; z-index: 10; line-height: 180%; color:#2d2d2d; font-family:"Courier New", Courier, monospace;}
-article.right section,article.right .welcome{display: none; margin-left: 240px; padding:10px 10px 40px;}
+article.right{position: fixed; width:100%; right:0px; top:0px; height: 100%; overflow: auto; z-index: 10; line-height: 180%; color:#2d2d2d; font-family:"Courier New", Courier, monospace;}
+article.right section, article.right .welcome {display: none; margin-left: 220px;}
 article.right .welcome{display: block;}
 article section a{text-decoration: none;}
 article section a:hover{text-decoration:underline;}
@@ -95,10 +94,6 @@ article .document{color:#2F69BF;}
 article .stylesheet{color:#A22FBF;}
 article .script{color:#BF2F2F;}
 article .image{color:#2FBF69;}
-
-.dom-tags{position: relative; min-width:40px; font-size: 14px; text-align: center; margin:10px; font-weight: bold;}
-.dom-tags:hover{text-decoration: none;}
-
 
 /*-------------------scroll-bar[by Google]------------------------*/
 
@@ -181,3 +176,15 @@ article .image{color:#2FBF69;}
   -webkit-box-shadow: inset 1px 0px 0px  rgba(0,0,0,0.14),
                       inset -1px -1px 0px  rgba(0,0,0,0.07);
 }
+
+/* ----------------------- DOM节点数  ------------------------- */
+.right-topic { height:44px;text-align:center;line-height:44px;text-shadow:1px 1px 1px #FFFFFF;-webkit-box-shadow: 0px 1px 10px #999;box-shadow: 0px 1px 8px #999;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,204,204,1)), color-stop(100%,rgba(238,238,238,1)));
+    background: -webkit-linear-gradient(top,  rgba(204,204,204,1) 0%,rgba(238,238,238,1) 100%);
+}
+.right-topic strong { font-weight:bold;color:#cf0404;}
+
+.dom-tags{ min-width:40px; font-size: 14px; text-align: center; margin:10px; font-weight: bold; }
+.dom-tags:hover{text-decoration: none;}
+.red-dot{text-align:center; color:#444444; min-width:20px;margin-right:10px;background-color:#D6DDE5;padding:8px 14px 9px 9px;border-right:1px solid #cfcfcf;}
+.cont-wrap { margin:30px;}
