@@ -17,14 +17,15 @@ function bindEvents(){
 		//each dt menu item click event
 		$(this).toggle(
 			function(){
+
 				//show sub menus
-				panelDd.eq(i).show();
+				panelDd.eq(i).slideDown();
 				//change menu arrow direction
 				arrow.removeClass('arrow-right').addClass('arrow-down');
 			},
 			function(){
 				//show sub menus
-				panelDd.eq(i).hide();
+				panelDd.eq(i).slideUp();
 				//change menu arrow direction
 				arrow.removeClass('arrow-down').addClass('arrow-right');
 			}
@@ -37,10 +38,10 @@ function bindEvents(){
 			subMenu.removeClass('active');
 			$(this).addClass('active');
 
-			sections.hide();
-			sections.eq(i).show();
+			sections.slideUp();
+			sections.eq(i).slideDown();
 
-			introPage.hide();
+			introPage.slideUp();
 		});
 	});
 
