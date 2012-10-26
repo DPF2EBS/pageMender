@@ -12,14 +12,16 @@
 	},
 
 	"permissions":[
-   		// "tabs",      	
+   		"tabs",      	
      	"browsingData",
+      "contentSettings",
+      // "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
       	// "proxy",
    		// "contextMenus",
 
    		"cookies",
    		"http://*/*",
-      	"https://*/*"
+      "https://*/*"
 
    		// "background"
    	],

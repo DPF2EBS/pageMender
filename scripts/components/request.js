@@ -5,7 +5,7 @@ define(function(require, exports, module) {
 		win.subMenu.eq(index).click(function(e){
 		e.preventDefault();
 
-			chrome.devtools.inspectedWindow.getResources(function(resources){						
+			chrome.devtools.inspectedWindow.getResources(function(resources){			
 				var count=resources.length,R,res={},html=[],resHTML=[];					
 
 				for(var i=0;i<count;i++){

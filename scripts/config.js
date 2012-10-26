@@ -28,7 +28,7 @@ var config={
 				{
 					"name":"缓存控制",
 					"module":"cache",
-					"contentHTML":'<a href="chrome://cache" target="_blank">查看缓存</a> | <a href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a><br/><br/> <select name="" id=""> <option value="1">过去一小时</option> <option value="24">最近一天</option> <option value="168">最近一周</option> <option value="672">最近四周</option> </select> <button>清理缓存</button> <p></p>'
+					"contentHTML":'<a href="chrome://cache" target="_blank" class="button">查看缓存</a> | <a href="chrome://chrome/settings/clearBrowserData" target="_blank" class="button">更多选项</a><br/><br/> <select name="" id=""> <option value="1">过去一小时</option> <option value="24">最近一天</option> <option value="168">最近一周</option> <option value="672">最近四周</option> </select> <button>清理缓存</button> <p></p>'
 				},
 				{
 					"name":"代理设置",
@@ -36,7 +36,7 @@ var config={
 				},
 				{
 					"name":"脚本禁用",
-					"module":"standardValidator"
+					"module":"contentSettings"
 				}
 			]
 		},

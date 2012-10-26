@@ -3,7 +3,7 @@ define(function(require, exports, module) {
 	return function(win,index){
 		var section=win.sections.eq(index);
 		win.subMenu.eq(index).click(function(){
-			chrome.extension.sendMessage({from:'devtools',get:['nodeTags','nodeLength']}, function(response) {
+			chrome.extension.sendMessage({from:'devtools', action:'get', getContent:['nodeTags','nodeLength']}, function(response) {
 				var html=[];
 				
 				if(typeof response['nodeLength']!=='undefined'){
