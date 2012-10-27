@@ -11,13 +11,13 @@ define(function(require, exports, module) {
                         cookieTemp.push('<div class="ck-list">');
 						for(var key in cookie){
 							if(key==='expirationDate'){
-								cookieTemp.push('<div class="ck-item"><span class="c-gray">' + key + '</span> : <span class="c-red">' + new Date(cookie[key]*1000)+'</span></div>');
+								cookieTemp.push('<div class="ck-item"><span class="c-gray">' + key + '</span> : <span class="c-blue">' + new Date(cookie[key]*1000)+'</span></div>');
 							}else{
-								cookieTemp.push('<div class="ck-item"><span class="c-gray">' + decodeURIComponent(key) + '</span> : <span class="c-red">' + decodeURIComponent(cookie[key])+'</span></div>');
+								cookieTemp.push('<div class="ck-item"><span class="c-gray">' + decodeURIComponent(key) + '</span> : <span class="c-blue">' + decodeURIComponent(cookie[key])+'</span></div>');
 							}
 						}
                         cookieTemp.push('</div>');
-						html.push('<h3 class="right-topic">Cookie name：「<span class="c-blue">' + cookie['name'] + '</span>」</h3>' + cookieTemp.join(''));
+						html.push('<h3 class="right-topic">Cookie name：「<span class="c-red">' + cookie['name'] + '</span>」</h3>' + cookieTemp.join(''));
 					});
 				}else{
 					html.push('没有匹配的Cookies数据!');

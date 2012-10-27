@@ -183,7 +183,10 @@ article section a:hover{text-decoration:underline;}
 
 .dom-tags{ min-width:40px; font-size: 14px; text-align: center; margin:10px; font-weight: bold; }
 .dom-tags:hover{text-decoration: none;}
-.red-dot{text-align:center; color:#444444; min-width:20px;margin-right:10px;background-color:#D6DDE5;padding:8px 14px 9px 9px;border-right:1px solid #cfcfcf;}
+.red-dot{text-align:center; color:#444; min-width:20px;margin-right:10px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(222,239,255,1)), color-stop(100%,rgba(152,190,222,1)));
+    background: -webkit-linear-gradient(top,  rgba(222,239,255,1) 0%,rgba(152,190,222,1) 100%);
+    padding:8px 14px 9px 9px;border-right:1px solid #cfcfcf;}
 .cont-wrap { margin:30px;}
 
 /* ------------------------- 网络请求 -------------------------- */
@@ -221,12 +224,46 @@ article .image{color:#FF8800;font-weight:bold;}
 .load-name {border-bottom: 1px solid #CCC;color:#444;}
 .load-time {color:#08c;}
 /* ---------------------------- COOkie管理 -------------------------------*/
-.ck-list .ck-item { margin:10px;display:inline-block;height:40px;line-height:40px;border:1px solid #CCC;padding:10px;
+.ck-list .ck-item { margin:5px;display:block;height:20px;line-height:20px;border:1px solid #CCC;padding:5px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
 }
-.c-gray {color:#444;}
+.c-gray {color:#666;}
 .c-blue {color:#08c;}
 .c-red {color:#D20909;}
+.btn {
+    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+    *display: inline-block;
+    vertical-align: baseline;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    font: 14px/100% Arial, Helvetica, sans-serif;
+    padding: 8px 15px;
+    text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.btn:hover {
+    text-decoration: none;
+}
+.orange {
+    color: #fef4e9;
+    border: solid 1px #da7c0c;
+    background: #f78d1d;
+    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
+}
+.orange:hover {
+    background: #f47c20;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
+}
+.cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:30px;border-radius: 20px;
+    -webkit-border-radius: 20px;}
+.cache-link:hover,.sv-link:hover {text-decoration:none;}
+.cache-btn {padding:6px 10px;}
+.cache-clear { margin-left:28px;margin-top:20px;}
+.cache-clear select {padding:2px;}
+.sv-link {float:left;height:30px;line-height:30px;}
 
 
