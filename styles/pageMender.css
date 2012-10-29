@@ -268,4 +268,8 @@ article .image{color:#FF8800;font-weight:bold;}
 .cache-clear select {padding:2px;}
 .sv-link {float:left;height:30px;line-height:30px;}
 
+.script-line {height:30px; line-height: 30px;margin:30px;vertical-align: baseline;float:left;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);border:1px solid #CCC;padding:10px;text-shadow: 1px 1px 1px #FFF;color:#08c;font-weight: bold;}
+
+
 
