@@ -31,6 +31,9 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
             case 'get':
                 returnBack=devtoolsAction.getContent(sendResponse,request.getContent);
             break;
+            case 'set':
+                returnBack=devtoolsAction.setContent(sendResponse,request.settingsConfig);
+            break;
             case 'clean':
                 returnBack=devtoolsAction.cleanCache(sendResponse,request.cleanConfig);
             break;
@@ -42,7 +45,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
             break;
             case 'contentSettings':
                 returnBack=devtoolsAction.contentSet(sendResponse,request.settingsConfig);
-            break;
+            break;           
         }
 
         if(returnBack===true){
@@ -61,11 +64,24 @@ var devtoolsAction={
     getContent:function(sendResponse,arrayGet){
         if(arrayGet&&arrayGet[0]==='cookies'){
             chrome.cookies.getAll({url:contentData.tabURL}, function (cookies) {
-                console.log(cookies);
+                // console.log(cookies);
                 sendResponse(cookies);
             });
             return true;
-        }        
+        }
+
+        if(arrayGet&&arrayGet[0]==='proxy'){
+            chrome.proxy.settings.get(
+                {
+                    'incognito' : false
+                },
+                function (config) {
+                    sendResponse(config);
+                    // console.log(config);
+                }
+            );
+            return true;
+        }     
 
         if(contentData.tabURL!==contentData.dataURL){
             sendResponse({});
@@ -77,6 +93,23 @@ var devtoolsAction={
             data[element]=contentData[element];
         });
         sendResponse(data);
+    },
+
+    //set content
+    setContent:function(sendResponse,settingsConfig){
+        switch(settingsConfig.target){
+            case 'proxy':
+                // console.log('proxySetting',settingsConfig.options);
+                
+                chrome.proxy.settings.set(
+                    settingsConfig.options,
+                    function() {
+                        sendResponse({proxySetting:'success'});
+                    }
+                );
+                return true;
+            break;
+        }
     },
 
     //clear cache
