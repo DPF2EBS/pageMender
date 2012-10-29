@@ -8,14 +8,16 @@ define(function(require, exports, module) {
 				if(response&&response.constructor===Array&&response.length>0){
 					response.forEach(function(cookie, index){
 						cookieTemp=[];
+                        cookieTemp.push('<div class="ck-list">');
 						for(var key in cookie){
 							if(key==='expirationDate'){
-								cookieTemp.push(key+' : '+new Date(cookie[key]*1000)+'<br />');
+								cookieTemp.push('<div class="ck-item"><span class="c-gray">' + key + '</span> : <span class="c-blue">' + new Date(cookie[key]*1000)+'</span></div>');
 							}else{
-								cookieTemp.push(decodeURIComponent(key)+' : '+decodeURIComponent(cookie[key])+'<br />');
+								cookieTemp.push('<div class="ck-item"><span class="c-gray">' + decodeURIComponent(key) + '</span> : <span class="c-blue">' + decodeURIComponent(cookie[key])+'</span></div>');
 							}
 						}
-						html.push('<h3>Cookie['+(index+1)+']</h3>'+cookieTemp.join(''));
+                        cookieTemp.push('</div>');
+						html.push('<h3 class="right-topic">Cookie name：「<span class="c-red">' + cookie['name'] + '</span>」</h3>' + cookieTemp.join(''));
 					});
 				}else{
 					html.push('抱歉，没找到与本页匹配的Cookies!');
