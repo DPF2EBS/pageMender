@@ -61,7 +61,7 @@ var devtoolsAction={
     getContent:function(sendResponse,arrayGet){
         if(arrayGet&&arrayGet[0]==='cookies'){
             chrome.cookies.getAll({url:contentData.tabURL}, function (cookies) {
-                console.log(cookies);
+                // console.log(cookies);
                 sendResponse(cookies);
             });
             return true;
