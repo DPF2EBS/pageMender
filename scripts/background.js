@@ -188,7 +188,6 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
 });
 
 chrome.tabs.onActivated.addListener(function(activeInfo) {
-    console.log(activeInfo);
     contentData.tab=activeInfo;
     chrome.tabs.get(contentData.tab.tabId, function callback(tabInfo){
         checkExtensionError();

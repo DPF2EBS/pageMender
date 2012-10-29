@@ -12,13 +12,32 @@ define(function(require, exports, module) {
 					for(var key in response['nodeTags']){
   						html.push('<a class="button dom-tags"><span class="red-dot">' + response['nodeTags'][key] + '</span>' + key + '</a>');
   					}
-  					
+
                     html.push('</div>');
   				}else{
-  					html.push('<h3 class="right-topic">请刷新页面！</h3>');
+  					html.push('<h3 class="right-topic"><a href="#" id="reload">点击刷新页面</a>！</h3>');
   				}
 	
   				section.html(html.join(''));
+
+  				section.find('#reload').click(function(){
+					chrome.extension.sendMessage(
+  						{
+  							from:'devtools', 
+  							action:'reload', 
+  							reloadConfig:{
+  								useCache:true,
+  								needResponse:true
+  							}
+  						},
+  						function(response) {
+  							if(response==='reloaded'){
+  								// setTimeout(function(){win.subMenu.eq(index).click();},2000);
+  								// alert("刷新成功!");
+  							}
+  						}
+  					);	
+				});
 			});
 		});
 	}

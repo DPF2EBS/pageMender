@@ -10,11 +10,16 @@ define(function(require, exports, module) {
   					html.push('<div class="metro-box"><div class="load-name">' + key + '</div><div class="load-time">' + (response[key] + '(秒)' || 'waiting...') + '</div></div>');
   				}
 
-  				html=['<h3 class="right-topic">'+(html.length<1?'请刷新页面':'加载时间统计')+'<h3>'].concat(html);
+  				html=['<h3 class="right-topic">'+(html.length<1?'<a href="#" id="reload">点击刷新页面</a>':'加载时间统计')+'<h3>'].concat(html);
   				if(html.length<2){					
   					html.push('<div class="metro-box"><div class="load-name">domReady</div><div class="load-time">无数据</div></div>');
   					html.push('<div class="metro-box"><div class="load-name">loadTime</div><div class="load-time">无数据</div></div>');
-  					/*chrome.extension.sendMessage(
+  				};
+  				
+  				section.html(html.join(''));
+
+  				section.find('#reload').click(function(){
+					chrome.extension.sendMessage(
   						{
   							from:'devtools', 
   							action:'reload', 
@@ -24,15 +29,13 @@ define(function(require, exports, module) {
   							}
   						},
   						function(response) {
-  							reloading=true;
   							if(response==='reloaded'){
-  								setTimeout(function(){win.subMenu.eq(index).click();},500);
+  								// setTimeout(function(){win.subMenu.eq(index).click();},2000);
+  								// alert("刷新成功!");
   							}
   						}
-  					);*/			
-  				};
-  				
-  				section.html(html.join(''));
+  					);	
+				});
 			});
 		});
 	}
