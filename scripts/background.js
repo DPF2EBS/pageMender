@@ -83,6 +83,7 @@ var devtoolsAction={
             return true;
         }     
 
+        console.log(contentData.tabURL,contentData.dataURL);
         if(contentData.tabURL!==contentData.dataURL){
             sendResponse({});
             return true;
@@ -91,7 +92,7 @@ var devtoolsAction={
         var data={};
         arrayGet.forEach(function(element,index){
             data[element]=contentData[element];
-        });
+        });        
         sendResponse(data);
     },
 
@@ -182,7 +183,12 @@ var devtoolsAction={
     }
 };
 
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    contentData.tabURL=tab.url;
+});
+
 chrome.tabs.onActivated.addListener(function(activeInfo) {
+    console.log(activeInfo);
     contentData.tab=activeInfo;
     chrome.tabs.get(contentData.tab.tabId, function callback(tabInfo){
         checkExtensionError();
