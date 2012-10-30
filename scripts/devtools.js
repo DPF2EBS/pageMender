@@ -7,7 +7,7 @@
 	//create "PageMender" panel
 	chrome.devtools.panels.create("PageMender", "icons/DPTools-dev.png", "pages/devtoolPanel.html", function(panel, info) {
 		//bind events handler
-		panel.onShown.addListener(function(win) {			
+		panel.onShown.addListener(function(win) {		
 			//create menu
 			var menuData=config.data;
 			if(!menuData||menuData.constructor!==Array){return false;}

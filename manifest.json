@@ -1,7 +1,7 @@
 {
-	"name":"Page Mender",
-	"description":"extension for developers and test engineers",
-	"version":"0.1",
+	"name":"Page Mender(Alpha)",
+	"description":"extension for developers and test engineers.",
+	"version":"1.0",
 	/**icons*/
 	"icons":{
 		"128": "icons/DPTools-128.png",
@@ -12,14 +12,16 @@
 	},
 
 	"permissions":[
-   		// "tabs",      	
+   		"tabs",      	
      	"browsingData",
-      	// "proxy",
+      "contentSettings",
+      // "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
+      "proxy",
    		// "contextMenus",
 
    		"cookies",
    		"http://*/*",
-      	"https://*/*"
+      "https://*/*"
 
    		// "background"
    	],

@@ -17,7 +17,7 @@ a { text-decoration:none; cursor:pointer;}
 .Left { position:fixed; width:245px; top:0; background-color:#f1f4f6; height:100%; overflow: auto; z-index: 20;-webkit-box-shadow: 1px 0px 15px #999;box-shadow: 1px 0px 15px #999;}
 .Right { position: fixed; width:100%; right:0px; top:0; height: 100%; overflow: auto; z-index: 10; line-height: 180%; color:#2d2d2d; font-family:"Courier New", Courier, monospace;} 
 .Left h3 {font-size:24px; line-height:80px;text-align:center; color:#666666; text-shadow:1px 1px 0 #FFFFFF;}
-.sidebar-menu h4 { margin: 12px 20px;height:32px;line-height:32px;background-color:#FFF;}
+.sidebar-menu h4 { margin: 2px 20px;height:32px;line-height:32px;background-color:#FFF;border:1px solid #CCC;}
 .sidebar-menu h4 a { display:block;padding-left:52px;}
 .accordion { margin: 0 20px;visibility: hidden;height:0; }
 .accordion li { line-height:26px; }

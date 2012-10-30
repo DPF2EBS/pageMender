@@ -11,7 +11,7 @@ define(function(require, exports, module) {
 			var el=links.eq(i);
 			el.click(function(e){
 				e.preventDefault();
-				chrome.extension.sendMessage({from:'devtools',get:[],open:[el.attr('href')]});
+				chrome.extension.sendMessage({from:'devtools',action:'open',openConfig:{url:el.attr('href'), active:true}});
 			});
 		});
 
@@ -20,12 +20,26 @@ define(function(require, exports, module) {
 	
 			status.html('清理中，请耐心等待<img src="../icons/loader.gif" />');
 			btn.attr("disabled",true);
-			chrome.extension.sendMessage({from:'devtools',get:[],clean:['cache'],since:new Date().getTime()-1000*60*60*parseInt(cleanTime.val(),10)}, function(response) {
-				if(response&&response==='finished'){
-					btn.removeAttr("disabled");
-					status.html('清理完成！');
+			chrome.extension.sendMessage(
+				{
+					from:'devtools',
+					action:'clean',
+					cleanConfig:{
+						removeOptions: {
+                			"since": new Date().getTime()-1000*60*60*parseInt(cleanTime.val(),10)
+            			},
+            			removeData:{
+                			"cache": true
+            			}
+            		}
+            	},
+            	function(response) {
+					if(response&&response==='finished'){
+						btn.removeAttr("disabled");
+						status.html('清理完成！');
+					}
 				}
-			});		
+			);		
 		});
 	}
 });

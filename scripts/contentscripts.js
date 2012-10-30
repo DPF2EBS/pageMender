@@ -15,7 +15,7 @@
     		'loadTime':0,
 			'nodeTags':0,
 			'nodeLength':0,
-			'tabURL':window.location.href,
+			'dataURL':window.location.href,
 			'domain':window.location.host
 		}
 	});	
@@ -24,6 +24,9 @@
 		pageLoadTime["domReady"]=new Date().getTime();
 
 		allElements=document.getElementsByTagName('*');
+
+		var styles=document.styleSheets;
+		
 
 		sendMessage({
 			'from':'contentscript',
@@ -47,9 +50,12 @@
 	});
 
 	function sendMessage(message){
-		chrome.extension.sendMessage(message/*, function(response) {
+		chrome.extension.sendMessage(message, function(response) {
   			// console.log('response from->', response.from);
-		}*/);
+  			if (chrome.extension.lastError) {
+        		console.log('Error: ' + chrome.extension.lastError.message);
+      		}
+		});
 	}
 
 
@@ -80,3 +86,30 @@
 		return tagResult;
 	}
 })();
+
+
+chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+	// console.log(request,sender,sendResponse);
+	if(request.from==='background'){
+        var returnBack;
+        switch(request.action){
+            case 'disable':
+                returnBack=contentAction.disable(sendResponse,{value:request.value});
+            break;
+        }
+
+        if(returnBack===true){
+            return true;
+        }
+    }
+});
+
+var contentAction={
+	disable:function(sendResponse,disableConfig){
+		var styles=document.styleSheets;
+		for(var i=0,L=styles.length;i<L;i++){
+			styles[i].disabled=disableConfig.value;
+		}
+		sendResponse({disabled:true});
+	}
+};
