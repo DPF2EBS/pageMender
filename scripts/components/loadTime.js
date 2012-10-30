@@ -7,7 +7,7 @@ define(function(require, exports, module) {
 			chrome.extension.sendMessage({from:'devtools', action:'get', getContent:['domReadyTime','loadTime']}, function(response) {
 				var html=[];				             
 				for(var key in response){					
-  					html.push('<div class="metro-box"><div class="load-name">' + key + '</div><div class="load-time">' + (response[key] + '(秒)' || 'waiting...') + '</div></div>');
+  					html.push('<div class="metro-box"><div class="load-name">' + key + '</div><div class="load-time">' + (response[key]?response[key]+'(秒)':'waiting...') + '</div></div>');
   				}
 
   				html=['<h3 class="right-topic">'+(html.length<1?'<a href="#" id="reload">点击刷新页面</a>':'加载时间统计')+'<h3>'].concat(html);

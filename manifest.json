@@ -1,7 +1,7 @@
 {
 	"name":"Page Mender",
-	"description":"extension for developers and test engineers",
-	"version":"0.1",
+	"description":"extension for developers and test engineers.",
+	"version":"V1.0(Alpha)",
 	/**icons*/
 	"icons":{
 		"128": "icons/DPTools-128.png",

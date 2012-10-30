@@ -280,7 +280,7 @@ article .image{color:#FF8800;font-weight:bold;}
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
 }
 .field-set legend {color:#08c;font-size:14px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;}
-.proxy-sel { margin:30px 10px 15px 60px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;font-size:14px;background:#EFEFEF;width:240px;border:1px solid #CCC;height:30px;line-height:30px;padding-left:12px;}
+.proxy-sel { margin:30px 10px 15px 20px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;font-size:14px;background:#EFEFEF;width:286px;border:1px solid #CCC;height:30px;line-height:30px;padding-left:12px;}
 .proxy-sty { margin:10px 60px;}
 .select-stl {padding:2px;}
 
