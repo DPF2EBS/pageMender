@@ -22,7 +22,7 @@ define(function(require, exports, module) {
 
 		chrome.extension.sendMessage({from:'devtools',action:'set', settingsConfig:{target:'proxy',options:config}}, function(response) {
 			if(response&&response.proxySetting==='success'){
-				section.find('#enable-proxy-result').html('代理设置成功!').fadeIn().delay(2000).fadeOut();
+				section.find('#enable-proxy-result').html('代理设置成功!').fadeIn().delay(1000).fadeOut();
 			};
 		});
 	}
@@ -44,7 +44,7 @@ define(function(require, exports, module) {
 				if(t){
 					html.push('<h3 class="right-topic">当前代理模式：「<span class="c-red">' + mode[t.mode] + '</span>」</h3>');
 					
-					html.push('<div><input type="checkbox" value="" id="enable-proxy" '+(t.mode==='system'?'':'checked')+' />自定义代理<span id="enable-proxy-result" style="color:red;text-indent:2em;"></span></div>');									
+					html.push('<div class="proxy-sel"><input type="checkbox" value="" id="enable-proxy" '+(t.mode==='system'?'':'checked')+' />自定义代理<span id="enable-proxy-result" style="color:red;text-indent:2em;margin-left:20px;"></span></div>');
 					
 					if(!t.rules){
 						t.rules={
@@ -56,25 +56,24 @@ define(function(require, exports, module) {
     						bypassList: ["<local>"]
 						};
 					}
-
-					html.push('<fieldset style="display:'+(t.mode==='system'?'none':'block')+';"><legend>Proxy Setting</legend>');
+					html.push('<fieldset class="field-set" style="display:'+(t.mode==='system'?'none':'block')+';"><legend>代理设置</legend>');
 					var tt=t.rules,selects=[];
 					//rules
 					for(var k in tt){
 						if(k==='bypassList'){continue;}
-						html.push('<h4>'+k+'<input type="hidden" value="'+k+' name="proxyRule"/></h4><ul>');
+						html.push('<h4><input type="hidden" value="'+k+' name="proxyRule"/></h4><ul>');
 						//Properties of ProxyRules
 						selects=[];
 						for(var sc=0,scL=schemes.length;sc<scL;sc++){
 							selects.push('<option value="'+schemes[sc]+'" '+(tt[k]['scheme']===schemes[sc]?'selected':'')+'>'+schemes[sc]+'</option>');
 						}						
-						html.push('<li class="ck-item"><label class="c-gray">Scheme<select name="scheme">'+selects.join('')+'</select></label></li>');
-						html.push('<li class="ck-item"><label class="c-gray">Host<input name="host" type="text" value="'+tt[k]['host']+'" /></label></li>');
-						html.push('<li class="ck-item"><label class="c-gray">Port<input name="port" type="text" value="'+tt[k]['port']+'" /></label></li>');
+						html.push('<li class="proxy-item"><label>传输协议:</label><select class="select-stl" name="scheme">'+selects.join('')+'</select></li>');
+						html.push('<li class="proxy-item"><label>主机:</label><input name="host" type="text" value="'+tt[k]['host']+'" /></li>');
+						html.push('<li class="proxy-item"><label>端口:</label><input name="port" type="text" value="'+tt[k]['port']+'" /></li>');
 						html.push('</ul>');
 					}
-					html.push('<div class="ck-item"><label class="c-gray">bypassList<textarea name="bypassList">'+tt['bypassList']+'</textarea></label></div>');
-					html.push('<div class="ck-item"><button id="save-proxy">Save</button></div>');
+					html.push('<div><label style="vertical-align: middle;">旁路列表:<textarea cols="23" rows="4" name="bypassList" style="vertical-align: middle;margin-left:6px;">'+tt['bypassList']+'</textarea></label></div>');
+					html.push('<div class="proxy-sty"><button class="btn orange" id="save-proxy">保存</button></div>');
 					html.push('</fieldset>');		
 				}
 			}else{
@@ -88,10 +87,10 @@ define(function(require, exports, module) {
 			enableProxy.change(function(){
 				if(this.checked){
 					// setProxy(section);
-					section.find('fieldset').show();
+					section.find('fieldset').slideDown();
 				}else{
 					resetProxy(section);
-					section.find('fieldset').hide();
+					section.find('fieldset').slideUp();
 				};
 			});
 
@@ -121,11 +120,10 @@ define(function(require, exports, module) {
   				mode: "system"  				
 			}, 
 			scope: 'regular'
-		};		
-
+		};
 		chrome.extension.sendMessage({from:'devtools',action:'set', settingsConfig:{target:'proxy',options:config}}, function(response) {
 			if(response&&response.proxySetting==='success'){				
-				section.find('#enable-proxy-result').html('取消代理成功!').fadeIn().delay(2000).fadeOut();
+				section.find('#enable-proxy-result').html('取消代理成功!').fadeIn().delay(1000).fadeOut();
 			};
 		});
 	}

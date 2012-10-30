@@ -1,7 +1,7 @@
 /*-----------rest-------------*/
 body,ul,li,dl,dd,dt,aside,article,section,p,h1,h2,h3,h4{margin:0px; padding:0px;}
 body{font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 13px; color:#2d2d2d;}
-
+ul, li {list-style: none;}
 
 /*-----------common-------------*/
 .wrapper{padding: 5px;}
@@ -176,6 +176,7 @@ article section a:hover{text-decoration:underline;}
                       inset -1px -1px 0px  rgba(0,0,0,0.07);
 }
 
+.welcome {margin:60px auto;font-size:20px;color:#FF4400;text-shadow: 1px 1px 1px #FFF;text-align: center;}
 /* ----------------------- DOM节点数  ------------------------- */
 .right-topic { height:44px;text-align:center;line-height:44px;text-shadow:1px 1px 1px #FFFFFF;-webkit-box-shadow: 0px 1px 10px #999;box-shadow: 0px 1px 8px #999;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(204,204,204,1)), color-stop(100%,rgba(238,238,238,1)));
@@ -186,8 +187,7 @@ article section a:hover{text-decoration:underline;}
 .dom-tags{ min-width:40px; font-size: 14px; text-align: center; margin:10px; font-weight: bold; }
 .dom-tags:hover{text-decoration: none;}
 .red-dot{text-align:center; color:#444; min-width:20px;margin-right:10px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(222,239,255,1)), color-stop(100%,rgba(152,190,222,1)));
-    background: -webkit-linear-gradient(top,  rgba(222,239,255,1) 0%,rgba(152,190,222,1) 100%);
+    background:#EFEFEF;
     padding:8px 14px 9px 9px;border-right:1px solid #cfcfcf;}
 .cont-wrap { margin:30px;}
 
@@ -268,8 +268,21 @@ article .image{color:#FF8800;font-weight:bold;}
 .cache-clear select {padding:2px;}
 .sv-link {float:left;height:30px;line-height:30px;}
 
-.script-line {height:30px; line-height: 30px;margin:30px;vertical-align: baseline;float:left;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
-    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);border:1px solid #CCC;padding:10px;text-shadow: 1px 1px 1px #FFF;color:#08c;font-weight: bold;}
+.script-line {height:30px; line-height: 30px;margin:30px;vertical-align: baseline;float:left;
+    background:#EFEFEF;
+    border:1px solid #CCC;padding:10px;text-shadow: 1px 1px 1px #FFF;color:#444;font-weight: bolder;}
+
+.proxy-item { height:36px; line-height:36px;}
+.proxy-item label {display:inline-block;width:65px;}
+.proxy-item input {padding:4px 3px;height:18px;}
+.field-set { margin:4px 20px;border:1px solid #A4C7F7;padding:10px 30px;width:240px;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
+}
+.field-set legend {color:#08c;font-size:14px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;}
+.proxy-sel { margin:30px 10px 15px 60px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;font-size:14px;background:#EFEFEF;width:240px;border:1px solid #CCC;height:30px;line-height:30px;padding-left:12px;}
+.proxy-sty { margin:10px 60px;}
+.select-stl {padding:2px;}
 
 
 
