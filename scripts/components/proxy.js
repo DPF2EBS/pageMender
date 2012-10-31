@@ -23,6 +23,7 @@ define(function(require, exports, module) {
 		chrome.extension.sendMessage({from:'devtools',action:'set', settingsConfig:{target:'proxy',options:config}}, function(response) {
 			if(response&&response.proxySetting==='success'){
 				section.find('#enable-proxy-result').html('代理设置成功!').fadeIn().delay(1000).fadeOut();
+				section.find('h3>span').html('用户设置');
 			};
 		});
 	}
@@ -124,6 +125,7 @@ define(function(require, exports, module) {
 		chrome.extension.sendMessage({from:'devtools',action:'set', settingsConfig:{target:'proxy',options:config}}, function(response) {
 			if(response&&response.proxySetting==='success'){				
 				section.find('#enable-proxy-result').html('取消代理成功!').fadeIn().delay(1000).fadeOut();
+				section.find('h3>span').html('系统设置');
 			};
 		});
 	}

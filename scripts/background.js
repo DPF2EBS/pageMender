@@ -83,6 +83,7 @@ var devtoolsAction={
             return true;
         }     
 
+        console.log(contentData.tabURL,contentData.dataURL);
         if(contentData.tabURL!==contentData.dataURL){
             sendResponse({});
             return true;
@@ -91,7 +92,7 @@ var devtoolsAction={
         var data={};
         arrayGet.forEach(function(element,index){
             data[element]=contentData[element];
-        });
+        });        
         sendResponse(data);
     },
 
@@ -181,6 +182,10 @@ var devtoolsAction={
         return true;
     }
 };
+
+chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    contentData.tabURL=tab.url;
+});
 
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     contentData.tab=activeInfo;
