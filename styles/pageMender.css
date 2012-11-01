@@ -31,7 +31,7 @@ i{
 	display:inline-block;
 	color:#555;
 	font-size:12px;
-	padding:6px 10px 6px 0;
+	padding:6px 10px 6px 10px;
 	text-decoration:none;
 	margin:10px 10px;
     background-color: #E0E0E0;
@@ -166,7 +166,10 @@ article section a:hover{text-decoration:underline;}
                       inset -1px -1px 0px  rgba(0,0,0,0.07);
 }
 
-.welcome {margin:60px auto;font-size:20px;color:#FF4400;text-shadow: 1px 1px 1px #FFF;text-align: center;}
+.welcome {margin:60px auto;text-align: center;}
+.welcome p {height:30px;line-height:30px;color:#666;text-shadow: 1px 1px 1px #FFF;}
+.main-title {font-size:16px;}
+.main-intro {font-size:14px;}
 .center {text-align: center;}
 /* ----------------------- DOM节点数  ------------------------- */
 .right-topic { height:34px;text-align:center;line-height:34px;text-shadow:1px 1px 1px #FFFFFF;-webkit-box-shadow: 0px 1px 10px #999;box-shadow: 0px 1px 10px #999;
@@ -177,19 +180,12 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 .dom-tags{ min-width:40px; font-size: 14px; text-align: center; margin:10px; font-weight: bold; }
 .dom-tags:hover{text-decoration: none;}
 .red-dot{text-align:center; color:#444; min-width:20px;margin-right:10px;background:transparent;
-    padding:8px 14px 8px 9px;border-right:1px solid #bbb;}
+    padding:8px 14px 9px 9px;border-right:1px solid #bbb;}
 .cont-wrap { margin:30px;}
 
 /* ------------------------- 网络请求 -------------------------- */
 
-/*
-article .document{color:#2F69BF;font-weight:bold;}
-article .stylesheet{color:#A22FBF;font-weight:bold;}
-article .script{color:#BF2F2F;font-weight:bold;}
-article .image{color:#FF8800;font-weight:bold;}
-*/
-
-.req-inner-link { padding-left:15px; margin:20px 30px;cursor: pointer;}
+.req-inner-link { margin:20px 30px;cursor: pointer;}
 .com {margin:10px 30px;
     border: 1px solid #CCC;
     padding:20px 0;
@@ -197,23 +193,17 @@ article .image{color:#FF8800;font-weight:bold;}
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
 }
-.com p {line-height:32px;border-bottom: 1px solid #EFEFEF;}
+.com p {line-height:32px;border-bottom:1px solid #EFEFEF;font-size:14px;}
 .com a {color:#08c;margin-left:5px;}
-.com a:hover {background-color:#08C; color:#FFF;text-decoration:none;}
+.com a:hover {background-color:#1f5db1;color:#FFF;text-decoration:none;}
 .index { padding:0 5px 0 20px;width:30px;display:inline-block;font-weight:bold;color:#F60;}
+
 /* ---------------------------- 加载时间 -------------------------------*/
-.metro-box {margin:20px 30px;width:150px;float:left;text-align:center;height:80px;line-height:40px;color:#444;
-    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f5f5f5), color-stop(1, #e0e0e0) );
-    background-color:#f5f5f5;
-    -webkit-border-radius:4px;
-    border-radius:4px;
-    border:1px solid #cfcfcf;
-    padding: 0 20px;
-    text-shadow:1px 1px 1px #FFFFFF;
-}
-.load-name {border-bottom: 1px solid #CCC;color:#444;}
-.load-time {color:#08c;}
-/* ---------------------------- COOkie管理 -------------------------------*/
+.load-name {border-bottom:1px solid #BBB;color:#666;font-size:14px;}
+.load-time {color:#F60;font-size:14px;}
+.load-desc {padding: 20px 30px;margin-top:30px;margin-right:60px;}
+
+/* ---------------------------- Cookie管理 -------------------------------*/
 .ck-list .ck-item { margin:5px;display:block;height:20px;line-height:20px;border:1px solid #CCC;padding:5px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
@@ -221,56 +211,28 @@ article .image{color:#FF8800;font-weight:bold;}
 .c-gray {color:#666;}
 .c-blue {color:#08c;}
 .c-red {color:#D20909;}
-.btn {
-    zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
-    *display: inline-block;
-    vertical-align: baseline;
-    outline: none;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    font: 14px/100% Arial, Helvetica, sans-serif;
-    padding: 8px 15px;
-    text-shadow: 0 1px 1px rgba(0,0,0,.3);
-}
-.btn:hover {
-    text-decoration: none;
-}
-.orange {
-    color: #fef4e9;
-    border: solid 1px #da7c0c;
-    background: #f78d1d;
-    background: -webkit-gradient(linear, left top, left bottom, from(#faa51a), to(#f47a20));
-}
-.orange:hover {
-    background: #f47c20;
-    background: -webkit-gradient(linear, left top, left bottom, from(#f88e11), to(#f06015));
-}
-.cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:30px;border-radius: 20px;
-    -webkit-border-radius: 20px;}
+.c-orange {color:#F60;}
+/* ---------------------------- 缓存管理 -------------------------------*/
+.cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:30px;}
 .cache-link:hover,.sv-link:hover {text-decoration:none;}
 .cache-btn {padding:6px 10px;}
 .cache-clear { margin-left:28px;margin-top:20px;}
 .cache-clear select {padding:2px;}
 .sv-link {float:left;height:30px;line-height:30px;}
-
+/* ---------------------------- 脚本禁用 -------------------------------*/ 
 .script-line {height:30px; line-height: 30px;margin:30px;vertical-align: baseline;float:left;
-    background:#EFEFEF;
-    border:1px solid #CCC;padding:10px;text-shadow: 1px 1px 1px #FFF;color:#444;font-weight: bolder;}
-
+	padding:10px;text-shadow: 1px 1px 1px #FFF;color:#666;font-size:14px;font-weight:500;
+}
+/* ---------------------------- 代理设置 -------------------------------*/
 .proxy-item { height:36px; line-height:36px;}
 .proxy-item label {display:inline-block;width:65px;}
 .proxy-item input {padding:4px 3px;height:18px;}
-.field-set { margin:4px 20px;border:1px solid #A4C7F7;padding:10px 30px;width:240px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
-    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
-}
-.field-set legend {color:#08c;font-size:14px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;}
-.proxy-sel { margin:30px 10px 15px 20px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;font-size:14px;background:#EFEFEF;width:286px;border:1px solid #CCC;height:30px;line-height:30px;padding-left:12px;}
+.field-set {float:left;margin:20px;border:1px solid #CCC;padding:10px 30px;width:240px;}
+.field-set legend {color:#666;font-size:14px;text-shadow: 1px 1px 1px #FFF;}
+.proxy-sel { float:left;margin:30px 10px 15px 30px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;font-size:14px;width:280px;border:1px solid #CCC;height:30px;line-height:30px;padding-left:30px;}
 .proxy-sty { margin:10px 60px;}
 .select-stl {padding:2px;}
+.status-msg {margin-left:15px;color:#F60;}
 
 
 

@@ -19,7 +19,7 @@ define(function(require, exports, module) {
                 html.push('<h3 class="right-topic">脚本禁用<h3>');
 				types.forEach(function(element,index){
 					re=response[element]?response[element].setting:'unknown';
-					index<4?html.push('<p class="script-line"><input style="vertical-align: middle;" type="checkbox" '+(re==='allow'?'checked':'')+' value="'+element+'"><label style="vertical-align: middle;">'+element+'</label></p>'):html.push('<p class="script-line"><label>'+element+'</label>:'+re+'</p>');
+					index<4?html.push('<p class="button script-line"><input style="vertical-align: middle;" type="checkbox" '+(re==='allow'?'checked':'')+' value="'+element+'">&nbsp;<label style="vertical-align: middle;">'+element+'</label></p>'):html.push('<p class="button script-line"><label>'+element+'</label>:'+re+'</p>');
 				});
 				section.html(html.join(''));
 
