@@ -1,6 +1,6 @@
 //get requests
 define(function(require, exports, module) {
-	return function(win,index){
+	return function(win,index,tabId){
 		var section=win.sections.eq(index);
 
         // 转化为汉字

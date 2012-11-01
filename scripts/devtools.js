@@ -4,10 +4,19 @@
 		return false;
 	}
 
+	if(config.debug){
+		localStorage.pageMenderDebug=1;
+	}else{
+		localStorage.pageMenderDebug=0;
+	}
+
 	//create "PageMender" panel
 	chrome.devtools.panels.create("PageMender", "icons/DPTools-dev.png", "pages/devtoolPanel.html", function(panel, info) {
 		//bind events handler
-		panel.onShown.addListener(function(win) {		
+		panel.onShown.addListener(function(win) {
+			//get current tabId
+			var tabId=chrome.devtools.inspectedWindow.tabId;
+					
 			//create menu
 			var menuData=config.data;
 			if(!menuData||menuData.constructor!==Array){return false;}
@@ -42,7 +51,7 @@
 			seajs.use(components, function(){
 				for(var i=0,L=arguments.length;i<L;i++){
 					if(arguments[i].constructor===Function){
-						arguments[i](win,i);
+						arguments[i](win,i,tabId);
 					}					
 				}
 			});

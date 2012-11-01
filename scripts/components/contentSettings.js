@@ -1,12 +1,13 @@
 //cache control
 define(function(require, exports, module) {
-	return function(win,index){
+	return function(win,index,tabId){
 		var section=win.sections.eq(index),
 			types=['javascript','styleSheets','images','cookies','notifications','popups','plugins'];
 
 		chrome.extension.sendMessage(
 			{
 				from:'devtools',
+				tabId:tabId,
 				action:'contentSettings',
 				settingsConfig:{
 					method:'get',
@@ -27,6 +28,7 @@ define(function(require, exports, module) {
 					chrome.extension.sendMessage(
 						{
 							from:'devtools',
+							tabId:tabId,
 							action:'contentSettings',
 							settingsConfig:{
 								method:'set',

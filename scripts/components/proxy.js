@@ -131,7 +131,7 @@ define(function(require, exports, module) {
 		});
 	}
 
-	return function(win,index){
+	return function(win,index,tabId){
 		var section=win.sections.eq(index);
 		win.subMenu.eq(index).click(function(){
 			getProxy(section);

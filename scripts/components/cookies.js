@@ -1,7 +1,7 @@
 //cookies manage
 define(function(require, exports, module) {
-	function getCookies(section){
-		chrome.extension.sendMessage({from:'devtools',action:'get', getContent:['cookies']}, function(response) {	
+	function getCookies(section,tabId){
+		chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'get', getContent:['cookies']}, function(response) {	
 			var html=[],cookieTemp=[],cookiesKey=['domain','name','value','expirationDate','path','hostOnly','httpOnly','secure','session','storeId'];
 			if(response&&response.constructor===Array&&response.length>0){
 				response.forEach(function(cookie, index){
@@ -38,10 +38,10 @@ define(function(require, exports, module) {
 
 	}
 
-	return function(win,index){
+	return function(win,index,tabId){
 		var section=win.sections.eq(index);
 		win.subMenu.eq(index).click(function(){
-			getCookies(section);
+			getCookies(section,tabId);
 		});
 	}
 });

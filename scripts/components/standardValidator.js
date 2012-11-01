@@ -1,9 +1,9 @@
 //get standard validation
 define(function(require, exports, module) {
-	return function(win,index){
+	return function(win,index,tabId){
 		var section=win.sections.eq(index);
 		win.subMenu.eq(index).click(function(){
-			chrome.extension.sendMessage({from:'devtools',action:'get',getContent:['tabURL']}, function(response) {
+			chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'get',getContent:['tabURL']}, function(response) {
 				var html=[];
                 html.push('<h3 class="right-topic">脚本禁用<h3>');
 				html.push('<p class="sv-link"><a class="btn orange" href="http://jigsaw.w3.org/css-validator/validator?profile=css3&warning=0&uri='+response.tabURL+'" target="_blank">CSS Validator</a></p>');

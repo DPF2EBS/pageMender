@@ -1,18 +1,42 @@
-var contentData={};
+var contentData={
+    /*tabId:{
+        domReady:Number,
+        onload:Number,
+        dataURL:String(URL),
+        //domain:String(Domain),
+        nodeTags:Object(JSON),
+        nodeLength:Number,
+    }*/
+},
 
-function saveContentData(data){
-    if(typeof data==='undefined'){return;}
+debugMode=true;
+// localStorage.pageMenderDebug;
+
+
+
+function saveContentData(tabId, data){
+    if(typeof data==='undefined'||tabId.constructor!==Number){return;}
+
+    var d;
+    if(typeof contentData[tabId]!=='object'){
+        contentData[tabId]={};
+    };
+    d=contentData[tabId];
 
     if(typeof data==='object'){
         for(var key in data){
-            contentData[key]=data[key];
+            d[key]=data[key];
         }
+    }
+
+    if(debugMode&&data.domReadyTime){
+        console.log('contentData:', 'tabId:', tabId,contentData);
     }
 }
 
 //check extension error
 function checkExtensionError(){
-    if (chrome.extension.lastError) {
+    if (debugMode&&chrome.extension.lastError) {
         console.error('Error: ' + chrome.extension.lastError.message);
     }
 }
@@ -21,15 +45,38 @@ function checkExtensionError(){
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
     //request from content script
     if(request.from==='contentscript'){
-        saveContentData(request.data);
+        //set windowId and tabURL
+        request.data.windowId=sender.tab.windowId;
+        request.data.tabURL=sender.tab.url;
+
+        saveContentData(sender.tab.id, request.data);
+
         // sendResponse({from: "background"});
 
     //request from devtools             
     }else if(request.from==='devtools'){
+        if(debugMode){
+            console.log('data from devtools:', request);
+        }
+
+        //get tab info
+        if(request.tabId&&!contentData[request.tabId]){
+            chrome.tabs.get(request.tabId, function(tabInfo){
+                if(debugMode){
+                    console.log('chrome.tabs.get(tabId)===>',tabInfo);
+                }
+
+                contentData[request.tabId]={
+                    tabURL:tabInfo.url,
+                    windowId:tabInfo.windowId
+                };
+            });
+        }        
+
         var returnBack;
         switch(request.action){
             case 'get':
-                returnBack=devtoolsAction.getContent(sendResponse,request.getContent);
+                returnBack=devtoolsAction.getContent(sendResponse,request.getContent,request.tabId);
             break;
             case 'set':
                 returnBack=devtoolsAction.setContent(sendResponse,request.settingsConfig);
@@ -41,10 +88,10 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
                 returnBack=devtoolsAction.openURL(sendResponse,request.openConfig);
             break;
             case 'reload':
-                returnBack=devtoolsAction.reload(sendResponse,request.reloadConfig);
+                returnBack=devtoolsAction.reload(sendResponse,request.reloadConfig,request.tabId);
             break;
             case 'contentSettings':
-                returnBack=devtoolsAction.contentSet(sendResponse,request.settingsConfig);
+                returnBack=devtoolsAction.contentSet(sendResponse,request.settingsConfig,request.tabId);
             break;           
         }
 
@@ -61,9 +108,9 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
 //devtools get content
 var devtoolsAction={
     //get contents
-    getContent:function(sendResponse,arrayGet){
+    getContent:function(sendResponse,arrayGet,tabId){
         if(arrayGet&&arrayGet[0]==='cookies'){
-            chrome.cookies.getAll({url:contentData.tabURL}, function (cookies) {
+            chrome.cookies.getAll({url:contentData[tabId].tabURL}, function (cookies) {
                 // console.log(cookies);
                 sendResponse(cookies);
             });
@@ -81,18 +128,25 @@ var devtoolsAction={
                 }
             );
             return true;
-        }     
+        }
 
-        console.log(contentData.tabURL,contentData.dataURL);
-        if(contentData.tabURL!==contentData.dataURL){
+        if(arrayGet[0]==='nodeTags'&&!contentData[tabId].nodeTags){
+            chrome.tabs.sendMessage(tabId, {from:'background',action:'get',getContent:['dom']}, function(response){
+                // console.log('dom from cotent:',response);
+                saveContentData(tabId, response.data);
+                checkExtensionError();
+            });
+        }   
+        
+        if(typeof contentData[tabId]!=='object'){
             sendResponse({});
             return true;
         }
-        
+
         var data={};
         arrayGet.forEach(function(element,index){
-            data[element]=contentData[element];
-        });        
+            data[element]=contentData[tabId][element];
+        });     
         sendResponse(data);
     },
 
@@ -128,15 +182,15 @@ var devtoolsAction={
     },
 
     //contentSettings
-    contentSet:function(sendResponse,settingsConfig){
+    contentSet:function(sendResponse,settingsConfig,tabId){
         var settings={},
             method=settingsConfig.method,
             opt=settingsConfig.options,
             lastElement=settingsConfig.type.length-1;
 
-        if(contentData['tabURL']){
+        if(contentData[tabId]&&contentData[tabId].tabURL){
             if(method==='get'){
-                opt.primaryUrl=contentData['tabURL'];
+                opt.primaryUrl=contentData[tabId].tabURL;
             }          
         }
 
@@ -147,7 +201,7 @@ var devtoolsAction={
                 if(method==='get'){
                     settings[element]={setting:'allow'};
                 }else if(method==='set'){
-                    chrome.tabs.sendMessage(contentData.tab.tabId, {from:'background',action:'disable',value:opt.setting==='block'?true:false}, function(response){
+                    chrome.tabs.sendMessage(tabId, {from:'background',action:'disable',value:opt.setting==='block'?true:false}, function(response){
                         // console.log(response);
                         checkExtensionError();
                     });
@@ -173,8 +227,8 @@ var devtoolsAction={
     },
 
     //reload page
-    reload:function(sendResponse,reloadConfig){
-        chrome.tabs.reload(contentData.tab.tabId,{bypassCache:reloadConfig.useCache},function(){
+    reload:function(sendResponse,reloadConfig,tabId){
+        chrome.tabs.reload(tabId,{bypassCache:reloadConfig.useCache},function(){
             checkExtensionError();
 
             reloadConfig.needResponse&&sendResponse('reloaded');
@@ -183,10 +237,13 @@ var devtoolsAction={
     }
 };
 
-chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+//tab page update
+/*chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    //tab.id and tab.windowId will not change
     contentData.tabURL=tab.url;
 });
 
+//tab page active
 chrome.tabs.onActivated.addListener(function(activeInfo) {
     contentData.tab=activeInfo;
     chrome.tabs.get(contentData.tab.tabId, function callback(tabInfo){
@@ -194,4 +251,15 @@ chrome.tabs.onActivated.addListener(function(activeInfo) {
 
         contentData.tabURL=tabInfo.url;
     });
+});*/
+
+//tab page remove
+chrome.tabs.onRemoved.addListener(function(tabId,removeInfo) {
+    //remove contentData tab info
+    delete contentData[tabId];
 });
+
+//window foucs changed
+/*chrome.windows.onFocusChanged.addListener(function(windowId) {
+    console.log(windowId);
+});*/
