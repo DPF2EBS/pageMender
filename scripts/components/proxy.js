@@ -43,9 +43,9 @@ define(function(require, exports, module) {
 					t=response.value;
 
 				if(t){
-					html.push('<h3 class="right-topic">当前代理模式：「<span class="c-red">' + mode[t.mode] + '</span>」</h3>');
+					html.push('<h3 class="right-topic">当前代理模式：<span class="c-orange">' + mode[t.mode] + '</span></h3>');
 					
-					html.push('<div class="proxy-sel"><input type="checkbox" value="" id="enable-proxy" '+(t.mode==='system'?'':'checked')+' />自定义代理<span id="enable-proxy-result" style="color:red;text-indent:2em;margin-left:20px;"></span></div>');
+					html.push('<div class="button proxy-sel"><input type="checkbox" value="" id="enable-proxy" '+(t.mode==='system'?'':'checked')+' />&nbsp;自定义代理<span id="enable-proxy-result" class="status-msg"></span></div>');
 					
 					if(!t.rules){
 						t.rules={
@@ -57,7 +57,7 @@ define(function(require, exports, module) {
     						bypassList: ["<local>"]
 						};
 					}
-					html.push('<fieldset class="field-set" style="display:'+(t.mode==='system'?'none':'block')+';"><legend>代理设置</legend>');
+					html.push('<fieldset class="button field-set" style="display:'+(t.mode==='system'?'none':'block')+';"><legend>代理设置</legend>');
 					var tt=t.rules,selects=[];
 					//rules
 					for(var k in tt){
@@ -73,8 +73,8 @@ define(function(require, exports, module) {
 						html.push('<li class="proxy-item"><label>端口:</label><input name="port" type="text" value="'+tt[k]['port']+'" /></li>');
 						html.push('</ul>');
 					}
-					html.push('<div><label style="vertical-align: middle;">旁路列表:<textarea cols="23" rows="4" name="bypassList" style="vertical-align: middle;margin-left:6px;">'+tt['bypassList']+'</textarea></label></div>');
-					html.push('<div class="proxy-sty"><button class="btn orange" id="save-proxy">保存</button></div>');
+					html.push('<div><label style="vertical-align: middle;">旁路:<textarea cols="23" rows="4" name="bypassList" style="vertical-align: middle;margin-left:24px;">'+tt['bypassList']+'</textarea></label></div>');
+					html.push('<div class="proxy-sty"><button class="button" id="save-proxy">保存</button></div>');
 					html.push('</fieldset>');		
 				}
 			}else{
@@ -88,6 +88,7 @@ define(function(require, exports, module) {
 			enableProxy.change(function(){
 				if(this.checked){
 					// setProxy(section);
+					section.find('#enable-proxy-result').html('设置您所希望的代理吧!').fadeIn().delay(1000).fadeOut();
 					section.find('fieldset').slideDown();
 				}else{
 					resetProxy(section);

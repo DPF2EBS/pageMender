@@ -6,9 +6,8 @@ $(document).ready(function(){
 		$(this).click(function(){
 			li.removeClass('active');
 			$(this).addClass('active');
-
-			section.hide();
-			section.eq(i).show();
+			section.slideUp();
+			section.eq(i).slideDown();
 		});
 	});
 });
