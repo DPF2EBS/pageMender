@@ -166,45 +166,51 @@ article section a:hover{text-decoration:underline;}
                       inset -1px -1px 0px  rgba(0,0,0,0.07);
 }
 
-.welcome {margin:60px auto;text-align: center;}
+.welcome {margin:30px auto;text-align: center;}
 .welcome p {height:30px;line-height:30px;color:#666;text-shadow: 1px 1px 1px #FFF;}
 .main-title {font-size:16px;}
 .main-intro {font-size:14px;}
 .center {text-align: center;}
 /* ----------------------- DOM节点数  ------------------------- */
-.right-topic { height:34px;text-align:center;line-height:34px;text-shadow:1px 1px 1px #FFFFFF;-webkit-box-shadow: 0px 1px 10px #999;box-shadow: 0px 1px 10px #999;
+.right-topic { height:30px;text-align:center;line-height:30px;text-shadow:1px 1px 1px #FFFFFF;-webkit-box-shadow: 0px 1px 10px #999;box-shadow: 0px 1px 10px #999;
 background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.08) 1px, rgba(0, 0, 0, 0.08) 1px, transparent 30px, transparent 100%) repeat scroll 0 0 transparent;
 }
 .right-topic strong { font-weight:bold;color:#EB651A;}
+.right-topic a {color:#444;}
+.right-topic a:hover { text-decoration:none;color:#EB651A;}
 
-.dom-tags{ min-width:40px; font-size: 14px; text-align: center; margin:10px; font-weight: bold; }
+.dom-tags{ min-width:40px; font-size: 14px; text-align: center; margin:5px; font-weight: bold; }
 .dom-tags:hover{text-decoration: none;}
 .red-dot{text-align:center; color:#444; min-width:20px;margin-right:10px;background:transparent;
     padding:8px 14px 9px 9px;border-right:1px solid #bbb;}
-.cont-wrap { margin:30px;}
+.cont-wrap { margin:10px;}
 
 /* ------------------------- 网络请求 -------------------------- */
 
-.req-inner-link { margin:20px 30px;cursor: pointer;}
-.com {margin:10px 30px;
+.req-inner-link { margin:10px 30px;cursor: pointer;}
+.com {margin:0px 30px 10px 30px;
     border: 1px solid #CCC;
-    padding:20px 0;
+    padding:10px 0;
     overflow:hidden;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
 }
-.com p {line-height:32px;border-bottom:1px solid #EFEFEF;font-size:14px;}
+.com p {line-height:24px;border-bottom:1px solid #EFEFEF;font-size:14px;}
 .com a {color:#08c;margin-left:5px;}
 .com a:hover {background-color:#1f5db1;color:#FFF;text-decoration:none;}
-.index { padding:0 5px 0 20px;width:30px;display:inline-block;font-weight:bold;color:#F60;}
+.index { padding:0 5px 0 10px;width:30px;display:inline-block;font-weight:bold;color:#F60;}
 
 /* ---------------------------- 加载时间 -------------------------------*/
 .load-name {border-bottom:1px solid #BBB;color:#666;font-size:14px;}
 .load-time {color:#F60;font-size:14px;}
-.load-desc {padding: 20px 30px;margin-top:30px;margin-right:60px;}
+.load-desc {padding: 15px 30px;margin-top:30px;margin-right:60px;}
 
 /* ---------------------------- Cookie管理 -------------------------------*/
-.ck-list .ck-item { margin:5px;display:block;height:20px;line-height:20px;border:1px solid #CCC;padding:5px;
+.ck-list {width:100%;}
+.ck-wrap { float:left;width:45%;margin-left:20px;}
+.ck-wrap a {cursor: pointer;}
+.ck-wrap .ck-link {width:240px;text-align: center;margin:10px 0px 0px -1px;}
+.ck-list .ck-item { margin:-1px;display:block;height:20px;line-height:20px;border:1px solid #CCC;padding:5px;padding-left:15px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
 }
@@ -212,27 +218,29 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 .c-blue {color:#08c;}
 .c-red {color:#D20909;}
 .c-orange {color:#F60;}
+.c-black {color:#444;font-size: 14px;}
 /* ---------------------------- 缓存管理 -------------------------------*/
-.cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:30px;}
+.cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:20px;}
 .cache-link:hover,.sv-link:hover {text-decoration:none;}
 .cache-btn {padding:6px 10px;}
-.cache-clear { margin-left:28px;margin-top:20px;}
+.cache-clear { margin-left:28px;margin-top:5px;}
 .cache-clear select {padding:2px;}
 .sv-link {float:left;height:30px;line-height:30px;}
 /* ---------------------------- 脚本禁用 -------------------------------*/ 
-.script-line {height:30px; line-height: 30px;margin:30px;vertical-align: baseline;float:left;
-	padding:10px;text-shadow: 1px 1px 1px #FFF;color:#666;font-size:14px;font-weight:500;
+.script-line {height:30px; line-height: 30px;margin:20px;vertical-align: baseline;
+	padding:5px 10px;text-shadow: 1px 1px 1px #FFF;color:#666;font-size:14px;font-weight:500;font-weight: bold;
 }
 /* ---------------------------- 代理设置 -------------------------------*/
-.proxy-item { height:36px; line-height:36px;}
-.proxy-item label {display:inline-block;width:65px;}
-.proxy-item input {padding:4px 3px;height:18px;}
-.field-set {float:left;margin:20px;border:1px solid #CCC;padding:10px 30px;width:240px;}
+.proxy-sel { float:left;margin:10px 10px 15px 30px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;font-size:14px;width:280px;border:1px solid #CCC;height:30px;line-height:30px;padding-left:20px;}
+.field-set {float:left;margin:5px;border:1px solid #CCC;padding:10px 30px;}
 .field-set legend {color:#666;font-size:14px;text-shadow: 1px 1px 1px #FFF;}
-.proxy-sel { float:left;margin:30px 10px 15px 30px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;font-size:14px;width:280px;border:1px solid #CCC;height:30px;line-height:30px;padding-left:30px;}
-.proxy-sty { margin:10px 60px;}
-.select-stl {padding:2px;}
+.proxy-btn { margin:0 80px;}
+.select-stl {padding:1px;}
 .status-msg {margin-left:15px;color:#F60;}
+
+.proxy-item { height:32px; line-height:32px; display: inline-table;margin-right:20px;}
+.proxy-item label {padding-right:10px;}
+.proxy-item input {padding:2px 3px;height:18px;}
 
 
 

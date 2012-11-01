@@ -72,20 +72,21 @@ define(function(require, exports, module) {
 
                 // resource types and count
                 html.push('<div class="center">');
+                html.push('<a title="点击查看' + key + '详情" class="button req-inner-link"><span class="b font14">' + resources.length + '</span>&nbsp;|&nbsp;<span>所有</span></a>');
                 for(var key in res) {
                     if (key == 'script') {
-                        html.push('<a title="点击查看' + key + '详情" class="button req-inner-link active ' + key + '><span class="b font14">' + res[key] + '</span>&nbsp;|&nbsp;<span class="'+ key +'">' + transforHZ(key) + '</span></a>');
+                        html.push('<a title="点击查看' + key + '详情" class="button req-inner-link ' + key + '><span class="b font14">' + res[key] + '</span>&nbsp;|&nbsp;<span class="'+ key +'">' + transforHZ(key) + '</span></a>');
                     } else {
                         html.push('<a title="点击查看' + key + '详情" class="button req-inner-link ' + key + '><span class="b font14">' + res[key] + '</span>&nbsp;|&nbsp;<span class="'+ key +'">' + transforHZ(key) + '</span></a>');
                     }
                 }
                 html.push('</div>');
-                html.push(('<div class="com Hide">' + documentHtml + '</div>') || '');
-                html.push(('<div class="com Hide">' + styleHtml + '</div>') || '');
-                html.push(('<div class="com">' + scriptHtml + '</div>') || '');
-                html.push(('<div class="com Hide">' + imageHtml + '</div>') || '');
-                html.push(('<div class="com Hide">' + xhrHtml + '</div>') || '');
-                html.push(('<div class="com Hide">' + otherHtml + '</div>') || '');
+                documentHtml && html.push(('<div class="com">' + documentHtml + '</div>') || '');
+                styleHtml && html.push(('<div class="com">' + styleHtml + '</div>') || '');
+                scriptHtml && html.push(('<div class="com">' + scriptHtml + '</div>') || '');
+                imageHtml && html.push(('<div class="com">' + imageHtml + '</div>') || '');
+                xhrHtml && html.push(('<div class="com">' + xhrHtml + '</div>') || '');
+                otherHtml && html.push(('<div class="com">' + otherHtml + '</div>') || '');
 
 
 				html=["<h3 class='right-topic'>网络请求数：<strong>" + resources.length + '</strong>&nbsp;个</h3>'].concat(html);
