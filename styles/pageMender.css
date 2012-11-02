@@ -176,8 +176,8 @@ article section a:hover{text-decoration:underline;}
 background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 0, 0.08) 1px, rgba(0, 0, 0, 0.08) 1px, transparent 30px, transparent 100%) repeat scroll 0 0 transparent;
 }
 .right-topic strong { font-weight:bold;color:#EB651A;}
-.right-topic a {color:#444;}
-.right-topic a:hover { text-decoration:none;color:#EB651A;}
+.right-topic a, .pop-link {color:#444;}
+.right-topic a:hover, .pop-link:hover { text-decoration:none;color:#EB651A;}
 
 .dom-tags{ min-width:40px; font-size: 14px; text-align: center; margin:5px; font-weight: bold; }
 .dom-tags:hover{text-decoration: none;}
