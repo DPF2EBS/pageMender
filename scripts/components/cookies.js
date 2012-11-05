@@ -8,14 +8,24 @@ define(function(require, exports, module) {
 					cookieTemp=[];
                     cookieTemp.push('<div class="ck-list">');
                     cookiesKey.forEach(function(key,kindex){
-                        if(key==='expirationDate'){
-							cookieTemp.push('<div class="ck-item"><span class="c-black">' + key + '</span> : <span class="c-blue">' + new Date(cookie[key]*1000)+'</span></div>');
-						}else{
-							cookieTemp.push('<div class="ck-item"><span class="c-black">' + decodeURIComponent(key) + '</span> : <span class="c-blue">' + decodeURIComponent(cookie[key])+'</div>');
-						}
+                    	switch(key){
+                    		case 'expirationDate':
+                    			cookieTemp.push('<div class="ck-item"><span class="c-black">' + key + '</span> : <input type="text" class="c-blue" value="' + new Date(cookie[key]*1000)+'"></div>');
+                    		break;
+                    		case 'name':
+                    		case 'domain':
+                    			cookieTemp.push('<div class="ck-item"><span class="c-black">' + decodeURIComponent(key) + '</span> : <input type="text" class="c-blue" value="' + decodeURIComponent(cookie[key])+'" /></div>');
+                    		break;
+                    		case 'value':
+                    			cookieTemp.push('<div class="ck-item"><span class="c-black">' + decodeURIComponent(key) + '</span> : <textarea cols="60" rows="1" class="c-blue">' + decodeURIComponent(cookie[key])+'</textarea></div>');
+                    		break;
+                    		default:
+                    			cookieTemp.push('<div class="ck-item" style="display:none;"><span class="c-black">' + decodeURIComponent(key) + '</span> : <span class="c-blue">' + decodeURIComponent(cookie[key])+'</span></div>');
+                    		break;
+                    	}
                     });
                     cookieTemp.push('</div>');
-					html.push('<div class="ck-wrap"><a class="button ck-link"><span class="c-black">' + cookie['name'] + '</span></a>' + cookieTemp.join('') + '</div>');
+					html.push('<div class="ck-wrap"><a class="button ck-link"><span class="c-black">' + cookie['name'] + '</span></a><a class="button">Edit</a><a class="button">Delete</a>' + cookieTemp.join('') + '</div>');
 				});
 			}else{
 				html.push('抱歉，没找到与本页匹配的Cookies!');

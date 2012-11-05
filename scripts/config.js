@@ -41,40 +41,55 @@ var config={
 				}
 			]
 		},
-		{
-		  "name": "关于我们"
-		},
-
+		
 		//version 2.0 features
 		{
 			"name":"测试工具",
-			"disabled":true,
 			"submenu":[
 				{
-					"name":"Ajax测试"
+					"name":"Ajax测试",
+					"module":"ajaxTester"
 				},
 				{
-					"name":"标准验证"
+					"name":"标准验证",
+					"module":"standardValidator"
 				},
 				{
-					"name":"统计检查"
+					"name":"统计检查",
+					"module":"GAValidator"
 				},
 				{
-					"name":"压缩检查"
+					"name":"压缩检查",
+					"module":"compressCheck"
 				},
 				{
-					"name":"表单清除"
+					"name":"表单清除",
+					"module":"clearForm"
 				}
 			]
 		},
 		{
 			"name":"自动工具",
-			"disabled":true,
 			"submenu":[
 				{
-					"name":"自动刷新"
+					"name":"自动刷新",
+					"module":"autoReload"
 				}
 			]
+		},
+		
+		{
+		  "name": "关于",
+		  "submenu":[
+			{
+				"name":"插件简介",
+				"contentHTML":'<p class="main-title">欢迎您使用PageMender 1.1版本!</p><p class="main-intro">项目一期主要包含页面分析工具和系统工具，您可以利用它分析页面的一些基本特征，<br/>并且可以更加便捷地操作Chrome浏览器的一些默认设置，方便我们的测试和工作。<br/></p>'
+			},
+			{
+				"name":"联系我们",
+				"contentHTML":'<p class="main-title">开发者：王鑫威（主开发），李永亮（UI设计）</p><p class="main-intro">可以通过Email与我们联系:<br /><a href="mailto:wxwdesign@dianping.com">程序BUG</a><br /><a href="mailto:yongliang.li@dianping.com">UI问题</a></p>'
+			}
+		  ]
 		}
 	],
 

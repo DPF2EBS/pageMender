@@ -29,7 +29,7 @@
 					if(subM&&subM.constructor===Array){
 						for(var j=0,LL=subM.length;j<LL;j++){
 							if(!subM[j]["disabled"]){
-								components.push(subM[j]["module"]);
+								subM[j]["module"]&&components.push(subM[j]["module"]);
 								menuHTML.push('<li><a href="#">'+subM[j]["name"]+'</a></li>');
 								sectionHTML.push('<section>'+(subM[j]["contentHTML"]||subM[j]["name"])+'</section>');
 							}
