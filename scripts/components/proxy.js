@@ -68,13 +68,12 @@ define(function(require, exports, module) {
 						for(var sc=0,scL=schemes.length;sc<scL;sc++){
 							selects.push('<option value="'+schemes[sc]+'" '+(tt[k]['scheme']===schemes[sc]?'selected':'')+'>'+schemes[sc]+'</option>');
 						}						
-						html.push('<li class="proxy-item"><label>传输协议:</label><select class="select-stl" name="scheme">'+selects.join('')+'</select></li>');
+						html.push('<li class="proxy-item"><label>协议:</label><select class="select-stl" name="scheme">'+selects.join('')+'</select></li>');
 						html.push('<li class="proxy-item"><label>主机:</label><input name="host" type="text" value="'+tt[k]['host']+'" /></li>');
 						html.push('<li class="proxy-item"><label>端口:</label><input name="port" type="text" value="'+tt[k]['port']+'" /></li>');
-						html.push('</ul>');
 					}
-					html.push('<div><label style="vertical-align: middle;">旁路:<textarea cols="23" rows="4" name="bypassList" style="vertical-align: middle;margin-left:24px;">'+tt['bypassList']+'</textarea></label></div>');
-					html.push('<div class="proxy-sty"><button class="button" id="save-proxy">保存</button></div>');
+					html.push('<li><label style="vertical-align: middle;">旁路:</label>&nbsp;<textarea cols="23" rows="2" name="bypassList" style="vertical-align: middle;margin-left:5px;">'+tt['bypassList']+'</textarea></li></ul>');
+					html.push('<div class="proxy-btn"><button class="button" id="save-proxy">保存</button></div>');
 					html.push('</fieldset>');		
 				}
 			}else{
