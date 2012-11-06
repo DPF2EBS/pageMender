@@ -17,7 +17,7 @@ define(function(require, exports, module) {
                     			cookieTemp.push('<div class="ck-item"><span class="c-black">' + decodeURIComponent(key) + '</span> : <input type="text" class="c-blue" value="' + decodeURIComponent(cookie[key])+'" /></div>');
                     		break;
                     		case 'value':
-                    			cookieTemp.push('<div class="ck-item"><span class="c-black">' + decodeURIComponent(key) + '</span> : <textarea cols="60" rows="1" class="c-blue">' + decodeURIComponent(cookie[key])+'</textarea></div>');
+                    			cookieTemp.push('<div class="ck-item"><span class="c-black">' + decodeURIComponent(key) + '</span> : <input class="c-blue" value="' + decodeURIComponent(cookie[key])+'" /></div>');
                     		break;
                     		default:
                     			cookieTemp.push('<div class="ck-item" style="display:none;"><span class="c-black">' + decodeURIComponent(key) + '</span> : <span class="c-blue">' + decodeURIComponent(cookie[key])+'</span></div>');

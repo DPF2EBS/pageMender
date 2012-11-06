@@ -68,10 +68,10 @@ define(function(require, exports, module) {
                 tabs.each(function(index){
                     tabs.eq(index).click(function(){
                         if(index===0){
-                            com.show();
+                            com.slideDown();
                         }else{
-                            com.hide();
-                            com.eq(index-1).show();
+                            com.slideUp();
+                            com.eq(index-1).slideDown();
                         }
                     });                    
                 });

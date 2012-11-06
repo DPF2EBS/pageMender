@@ -207,13 +207,14 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 
 /* ---------------------------- Cookie管理 -------------------------------*/
 .ck-list {width:100%;}
-.ck-wrap { float:left;width:45%;margin-left:20px;}
+.ck-wrap { float:left;width:45%;margin-left:20px;background-color:#FFF;border:1px solid #CCC;margin:5px;padding:10px;}
 .ck-wrap a {cursor: pointer;}
 .ck-wrap .ck-link {width:240px;text-align: center;margin:10px 0px 0px -1px;}
-.ck-list .ck-item { margin:-1px;display:block;height:20px;line-height:20px;border:1px solid #CCC;padding:5px;padding-left:15px;
+.ck-list .ck-item { margin:-1px;display:block;height:30px;line-height:30px;border:1px solid #CCC;padding:5px;padding-left:15px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
 }
+.ck-list .ck-item input { padding:3px;border:1px solid #CCC;min-width:200px;line-height: 18px;color:#F48307;font-size: 14px;}
 .c-gray {color:#666;}
 .c-blue {color:#08c;}
 .c-red {color:#D20909;}
