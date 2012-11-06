@@ -30,7 +30,7 @@
 						for(var j=0,LL=subM.length;j<LL;j++){
 							if(!subM[j]["disabled"]){
 								subM[j]["module"]&&components.push(subM[j]["module"]);
-								menuHTML.push('<li><i class="menu-item">-</i><a href="#">'+subM[j]["name"]+'</a></li>');
+								menuHTML.push('<li><i class="menu-item"></i><a href="#">'+subM[j]["name"]+'</a></li>');
 								sectionHTML.push('<section>'+(subM[j]["contentHTML"]||subM[j]["name"])+'</section>');
 							}
 						}
