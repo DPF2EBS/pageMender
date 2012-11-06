@@ -90,16 +90,38 @@ var config={
 				"contentHTML":'<div class="center" style="margin-top:30px;"><p class="main-title">开发者：王鑫威（主开发），李永亮（UI设计）</p><p class="main-intro">可以通过Email与我们联系:<br /><a href="mailto:wxwdesign@dianping.com">程序BUG</a><br /><a href="mailto:yongliang.li@dianping.com">UI问题</a></p></div>'
 			}
 		  ]
+		},
+
+		{
+			"name":"其它",
+			"dataType":1,
+			"submenu":[
+				{
+					"name":"桌面提醒"
+				},
+				{
+					"name":"语音功能"
+				}
+			]
 		}
 	],
 
 	//get config data
 	getData:function(){
+		var d=JSON.parse(localStorage.pageMenderConfig||"{}"),
+			result;
 
+		if(!d.data){
+			result=this.data;
+		}else{
+			result=d.data;
+		}
+
+		return result;
 	},
 
 	//set config data
-	setData:function(){
-
+	setData:function(data){
+		localStorage.pageMenderConfig=JSON.stringify(data);
 	}
 };
