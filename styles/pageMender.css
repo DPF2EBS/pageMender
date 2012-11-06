@@ -17,6 +17,14 @@ i{
   height: 14px;
 }
 
+.menu-item { 
+	float:left;
+	margin-left: 40px;
+	margin-right:5px;
+	width:24px;
+	height: 24px;
+}
+
 .arrow-right,.arrow-down,.arrow-left,.arrow-up{
   background-image: url(../icons/arrow_new.png);
   background-repeat: no-repeat;
@@ -214,7 +222,7 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
 }
-.ck-list .ck-item input { padding:3px;border:1px solid #CCC;min-width:200px;line-height: 18px;color:#F48307;font-size: 14px;}
+.ck-list .ck-item input { padding:3px;border:1px solid #CCC;min-width:200px;line-height: 18px;color:#444;font-size: 14px;}
 .c-gray {color:#666;}
 .c-blue {color:#08c;}
 .c-red {color:#D20909;}

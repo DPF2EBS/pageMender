@@ -83,11 +83,11 @@ var config={
 		  "submenu":[
 			{
 				"name":"插件简介",
-				"contentHTML":'<p class="main-title">欢迎您使用PageMender 1.1版本!</p><p class="main-intro">项目一期主要包含页面分析工具和系统工具，您可以利用它分析页面的一些基本特征，<br/>并且可以更加便捷地操作Chrome浏览器的一些默认设置，方便我们的测试和工作。<br/></p>'
+				"contentHTML":'<div class="center" style="margin-top:30px;"><p class="main-title">欢迎您使用PageMender 1.1版本!</p><p class="main-intro">项目一期主要包含页面分析工具和系统工具，您可以利用它分析页面的一些基本特征，<br/>并且可以更加便捷地操作Chrome浏览器的一些默认设置，方便我们的测试和工作。<br/></p></div>'
 			},
 			{
 				"name":"联系我们",
-				"contentHTML":'<p class="main-title">开发者：王鑫威（主开发），李永亮（UI设计）</p><p class="main-intro">可以通过Email与我们联系:<br /><a href="mailto:wxwdesign@dianping.com">程序BUG</a><br /><a href="mailto:yongliang.li@dianping.com">UI问题</a></p>'
+				"contentHTML":'<div class="center" style="margin-top:30px;"><p class="main-title">开发者：王鑫威（主开发），李永亮（UI设计）</p><p class="main-intro">可以通过Email与我们联系:<br /><a href="mailto:wxwdesign@dianping.com">程序BUG</a><br /><a href="mailto:yongliang.li@dianping.com">UI问题</a></p></div>'
 			}
 		  ]
 		}

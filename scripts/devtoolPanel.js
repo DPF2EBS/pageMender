@@ -17,7 +17,6 @@ function bindEvents(){
 		//each dt menu item click event
 		$(this).toggle(
 			function(){
-
 				//show sub menus
 				panelDd.eq(i).slideDown();
 				//change menu arrow direction
