@@ -259,8 +259,8 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 /* ---------------------------- 个性化功能设置 -------------------------------*/
 .features-block {width:800px;margin:0 auto;margin-top:30px;}
 .features-block h4 {width: 150px;text-align:center;height:40px;line-height:40px;background-color:#FFF;border:1px solid #CCC;border-bottom:0 none;z-index:9999;-webkit-box-shadow: 0px 0px 5px #ccc;box-shadow: 0px 0px 5px #ccc;font-size:14px;}
-.features-block fieldset {border:1px solid #CCC;border-top:0 none;background-color:#FFF;padding:10px;padding-top:12px;margin:18px 0px;margin-top:0;box-shadow: 0px 3px 5px #ccc;}
-.features-block legend {background-color:transparent; font-size:14px;text-shadow: 1px 1px 1px #FFF;color:#666;margin:0; padding:0;font-weight:bold;}
+.features-block fieldset {border:1px solid #CCC;background-color:#FFF;padding:10px;padding-top:12px;margin:18px 0px;margin-top:0;box-shadow: 0px 1px 6px #CCC;border-radius:4px;}
+.features-block legend {background-color:#FFF;padding:10px 20px;font-size:14px;text-shadow: 1px 1px 1px #FFF;color:#666;font-weight:bold;border-radius:4px;box-shadow: 0px -2px 2px #CCC;}
 .features-block input {vertical-align:middle;}
 .features-block label {font-size:14px;color:#888;}
 .personel-btns { padding:20px 30px;}

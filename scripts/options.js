@@ -6,8 +6,8 @@ $(document).ready(function(){
 
 	configData.forEach(function(dataGroup, index){
 		if(dataGroup.dataType){return false;}
-		featuresHTML.push('<h4><input type="checkbox" name="" id="" '+(!dataGroup.disabled?"checked":"")+'/>' + dataGroup.name + '</h4>');
-		featuresHTML.push('<fieldset><ul>');
+		//featuresHTML.push('');
+		featuresHTML.push('<fieldset><legend><input type="checkbox" name="" id="" '+(!dataGroup.disabled?"checked":"")+'/>' + dataGroup.name + '</legend><ul>');
 		dataGroup.submenu.forEach(function(f,fIndex){
 			featuresHTML.push('<li class="button"><input type="checkbox" name="" id="" '+((!dataGroup.disabled&&!f.disabled)?"checked":"")+'/><label for="">'+f.name+'</label></li>');
 		});
