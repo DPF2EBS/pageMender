@@ -18,12 +18,12 @@
 			var tabId=chrome.devtools.inspectedWindow.tabId;
 					
 			//create menu
-			var menuData=config.data;
+			var menuData=config.getData();
 			if(!menuData||menuData.constructor!==Array){return false;}
 
 			var menuHTML=['<dl class="item-lists">'],sectionHTML=[],subM,components=[];
 			for(var i=0,L=menuData.length;i<L;i++){
-				if(!menuData[i]["disabled"]){
+				if(!menuData[i]["disabled"]&&!menuData[i]["dataType"]){
 					menuHTML.push('<dt><i class="arrow-right"></i>'+menuData[i]["name"]+'</dt><dd><ul>');
 					subM=menuData[i]["submenu"];
 					if(subM&&subM.constructor===Array){
