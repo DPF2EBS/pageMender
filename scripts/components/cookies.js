@@ -45,18 +45,19 @@ define(function(require, exports, module) {
 				_this.mouseleave(function() {
 					_this.find('a.operate').addClass('Hide');
 				});
+				var look = _this.find('a.ck-look .c-black');
 				_this.find('a.ck-look').click(function() {
-					var look = _this.find('a.c-black');
 					if(ckList.css('display') == 'block') {
-						look.html(look.html().replace(/收起/g, '查看'));
+						look.text(look.text().replace(/收起/g, '查看'));
 						ckList.slideUp();
 					} else {
-						look.html(look.html().replace(/查看/g, '收起'));
+						look.text(look.text().replace(/查看/g, '收起'));
 						ckList.slideDown();
 					}
 				});
 				_this.find('a.ck-edit').click(function() {
 					if(ckList.css('display') == 'none') { 
+						look.text(look.text().replace(/查看/g, '收起'));
 						ckList.slideDown();
 					}
 				});

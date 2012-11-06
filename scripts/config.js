@@ -93,7 +93,7 @@ var config={
 			{
 				"name":"联系我们",
 				"contentHTML":'<div class="center"><br /><p class="main-intro">可以通过Email与我们联系:<br /><a href="mailto:wxwdesign@dianping.com">程序BUG(wxwdesign@dianping.com)</a><br /><a href="mailto:yongliang.li@dianping.com">UI问题(yongliang.li@dianping.com)</a></p></div>'
-			}
+			},
 		  ]
 		},
 

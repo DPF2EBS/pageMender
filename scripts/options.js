@@ -7,9 +7,9 @@ $(document).ready(function(){
 	configData.forEach(function(dataGroup, index){
 		if(dataGroup.dataType){return false;}
 
-		featuresHTML.push('<fieldset><legend>'+dataGroup.name+'<input type="checkbox" name="" id="" '+(!dataGroup.disabled?"checked":"")+'/></legend><ul>');
+		featuresHTML.push('<fieldset><legend><input type="checkbox" name="" id="" '+(!dataGroup.disabled?"checked":"")+'/>' + dataGroup.name + '</legend><ul>');
 		dataGroup.submenu.forEach(function(f,fIndex){
-			featuresHTML.push('<li><label for="">'+f.name+'</label><input type="checkbox" name="" id="" '+((!dataGroup.disabled&&!f.disabled)?"checked":"")+'/></li>');
+			featuresHTML.push('<li class="button"><input type="checkbox" name="" id="" '+((!dataGroup.disabled&&!f.disabled)?"checked":"")+'/><label for="">'+f.name+'</label></li>');
 		});
 		featuresHTML.push('</ul></fieldset>');
 	});
