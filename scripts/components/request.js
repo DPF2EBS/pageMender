@@ -48,7 +48,7 @@ define(function(require, exports, module) {
 					resData[R.type].html.push('<p><span class="index">('+res[R.type]+')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>');
 				}
 
-				html.push("<h3 class='right-topic'>网络请求数：<strong>" + resourcesCount + '</strong>&nbsp;个</h3>');
+				html.push("<h3 class='right-topic'>网页加载资源：<strong>" + resourcesCount + '</strong>&nbsp;个</h3>');
                 html.push('<div class="center">');
                 html.push('<a title="点击查看全部详情" class="button req-inner-link"><span class="b font14">' + resourcesCount + '</span>&nbsp;|&nbsp;<span>所有</span></a>');
                 for(var key in resData) {
