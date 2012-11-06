@@ -6,7 +6,7 @@ define(function(require, exports, module) {
 			if(response&&response.constructor===Array&&response.length>0){
 				response.forEach(function(cookie, index){
 					cookieTemp=[];
-                    cookieTemp.push('<div class="ck-list">');
+                    cookieTemp.push('<div class="ck-list Hide">');
                     cookiesKey.forEach(function(key,kindex){
                     	switch(key){
                     		case 'expirationDate':
@@ -25,13 +25,43 @@ define(function(require, exports, module) {
                     	}
                     });
                     cookieTemp.push('</div>');
-					html.push('<div class="ck-wrap"><a class="button ck-link"><span class="c-black">' + cookie['name'] + '</span></a><a class="button">Edit</a><a class="button">Delete</a>' + cookieTemp.join('') + '</div>');
+					html.push('<div class="ck-wrap"><a class="button ck-look"><span class="c-black">查看' + cookie['name'] + '</span></a><a class="button ck-edit operate Hide">编辑</a><a class="button ck-del operate Hide">删除</a>' + cookieTemp.join('') + '</div>');
 				});
 			}else{
 				html.push('抱歉，没找到与本页匹配的Cookies!');
 			}
 
 			section.html(html.join(''));
+
+			// some interaction
+
+			var cookieItem = section.find('div.ck-wrap');
+			cookieItem.each(function(index) {
+				var _this = cookieItem.eq(index),
+					ckList = _this.find('div.ck-list');
+				_this.mouseenter(function() {
+					_this.find('a.operate').removeClass('Hide');
+				});
+				_this.mouseleave(function() {
+					_this.find('a.operate').addClass('Hide');
+				});
+				_this.find('a.ck-look').click(function() {
+					var look = _this.find('a.c-black');
+					if(ckList.css('display') == 'block') {
+						look.html(look.html().replace(/收起/g, '查看'));
+						ckList.slideUp();
+					} else {
+						look.html(look.html().replace(/查看/g, '收起'));
+						ckList.slideDown();
+					}
+				});
+				_this.find('a.ck-edit').click(function() {
+					if(ckList.css('display') == 'none') { 
+						ckList.slideDown();
+					}
+				});
+			});
+
 		});
 
 	}
