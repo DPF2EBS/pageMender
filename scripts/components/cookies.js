@@ -2,30 +2,57 @@
 define(function(require, exports, module) {
 	function getCookies(section,tabId){
 		chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'get', getContent:['cookies']}, function(response) {	
-			var html=[],cookieTemp=[],cookiesKey=['domain','name','value','expirationDate','path','hostOnly','httpOnly','secure','session','storeId'];
+			var html=[],
+				cookiesKey=['domain','name','value','expirationDate','path','hostOnly','httpOnly','secure','session','storeId'];
+
 			if(response&&response.constructor===Array&&response.length>0){
 				response.forEach(function(cookie, index){
-					cookieTemp=[];
-                    cookieTemp.push('<div class="ck-list Hide">');
-                    cookiesKey.forEach(function(key,kindex){
-                    	switch(key){
-                    		case 'expirationDate':
-                    			cookieTemp.push('<div class="ck-item"><span class="c-black">' + key + '</span> : <input type="text" class="c-blue" value="' + new Date(cookie[key]*1000)+'"></div>');
-                    		break;
-                    		case 'name':
-                    		case 'domain':
-                    			cookieTemp.push('<div class="ck-item"><span class="c-black">' + decodeURIComponent(key) + '</span> : <input type="text" class="c-blue" value="' + decodeURIComponent(cookie[key])+'" /></div>');
-                    		break;
-                    		case 'value':
-                    			cookieTemp.push('<div class="ck-item"><span class="c-black">' + decodeURIComponent(key) + '</span> : <input class="c-blue" value="' + decodeURIComponent(cookie[key])+'" /></div>');
-                    		break;
-                    		default:
-                    			cookieTemp.push('<div class="ck-item" style="display:none;"><span class="c-black">' + decodeURIComponent(key) + '</span> : <span class="c-blue">' + decodeURIComponent(cookie[key])+'</span></div>');
-                    		break;
-                    	}
-                    });
-                    cookieTemp.push('</div>');
-					html.push('<div class="ck-wrap"><a class="button ck-look"><span class="c-black">查看' + cookie['name'] + '</span></a><a class="button ck-edit operate Hide">编辑</a><a class="button ck-del operate Hide">删除</a>' + cookieTemp.join('') + '</div>');
+                    html.push('<dl class="ck-wrap cookie"><dt class="clearfix">'+
+                    	'<div class="ckname">'+decodeURIComponent(cookie.name)+'</div>'+
+							'<div class="content Hide">'+
+								'<label class="c-blue">name:</label><span>'+decodeURIComponent(cookie.name)+'</span>'+								
+								'<label class="c-blue">domain:</label><span>'+decodeURIComponent(cookie.domain)+'</span>'+
+								'<label class="c-blue">value:</label><span>'+decodeURIComponent(cookie.value)+'</span>'+
+							'</div>'+
+							'<div class="buttons">'+
+								'<a class="button">详细</a>'+
+								'<a class="button">编辑</a>'+
+								'<a class="button Hide">保存</a>'+
+								'<a class="button">删除</a>'+
+							'</div>'+
+						'</dt>'+
+						'<dd class="ck-list">'+
+							'<ul>'+
+								'<li class="ck-item">'+
+									'<label for="" class="c-black">name:</label>'+
+									'<input type="" value="'+decodeURIComponent(cookie.name)+'" />'+
+									'<label for="" class="c-black">domain:</label>'+
+									'<input type="" value="'+decodeURIComponent(cookie.domain)+'" />'+
+								'</li>'+
+								'<li class="ck-item">'+
+									'<label for="" class="c-black">expirationDate:</label>'+
+									'<input type="" value="'+decodeURIComponent(cookie.expirationDate)+'" />'+
+									'<label for="" class="c-black">path:</label>'+
+									'<input type="" value="'+decodeURIComponent(cookie.path)+'" />'+
+								'</li>'+
+								'<li class="ck-item">'+
+									'<label for="" class="c-black">value:</label>'+
+									'<textarea rows="5">'+decodeURIComponent(cookie.value)+'</textarea>'+		
+								'</li>'+
+								'<li class="ck-item">'+
+									'<label for="" class="c-black">hostOnly:</label>'+
+									'<span class="c-blue">'+decodeURIComponent(cookie.hostOnly)+'</span>'+
+									'<label for="" class="c-black">httpOnly:</label>'+
+									'<span class="c-blue">'+decodeURIComponent(cookie.httpOnly)+'</span>'+
+									'<label for="" class="c-black">secure:</label>'+
+									'<span class="c-blue">'+decodeURIComponent(cookie.secure)+'</span>'+
+									'<label for="" class="c-black">session:</label>'+
+									'<span class="c-blue">'+decodeURIComponent(cookie.session)+'</span>'+
+									'<label for="" class="c-black">storeId:</label>'+
+									'<span class="c-blue">'+decodeURIComponent(cookie.storeId)+'</span>'+
+								'</li>'+
+							'</ul>'+
+						'</dd></dl>');
 				});
 			}else{
 				html.push('抱歉，没找到与本页匹配的Cookies!');
@@ -34,35 +61,6 @@ define(function(require, exports, module) {
 			section.html(html.join(''));
 
 			// some interaction
-
-			var cookieItem = section.find('div.ck-wrap');
-			cookieItem.each(function(index) {
-				var _this = cookieItem.eq(index),
-					ckList = _this.find('div.ck-list');
-				_this.mouseenter(function() {
-					_this.find('a.operate').removeClass('Hide');
-				});
-				_this.mouseleave(function() {
-					_this.find('a.operate').addClass('Hide');
-				});
-				var look = _this.find('a.ck-look .c-black');
-				_this.find('a.ck-look').click(function() {
-					if(ckList.css('display') == 'block') {
-						look.text(look.text().replace(/收起/g, '查看'));
-						ckList.slideUp();
-					} else {
-						look.text(look.text().replace(/查看/g, '收起'));
-						ckList.slideDown();
-					}
-				});
-				_this.find('a.ck-edit').click(function() {
-					if(ckList.css('display') == 'none') { 
-						look.text(look.text().replace(/查看/g, '收起'));
-						ckList.slideDown();
-					}
-				});
-			});
-
 		});
 
 	}
