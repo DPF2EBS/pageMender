@@ -22,7 +22,7 @@ define(function(require, exports, module) {
 				//get no dom node
 				}else{
 					//refresh dom node data from background
-					if(reloaded<2){
+					if(reloaded<1){
 						html.push('<h3 class="right-topic">统计中...</h3>');
 						reloaded++;
 						setTimeout(function(){win.subMenu.eq(index).click();},1000);

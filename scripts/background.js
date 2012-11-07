@@ -81,8 +81,8 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
             case 'set':
                 returnBack=devtoolsAction.setContent(sendResponse,request.settingsConfig);
             break;
-            case 'clean':
-                returnBack=devtoolsAction.cleanCache(sendResponse,request.cleanConfig);
+            case 'clear':
+                returnBack=devtoolsAction.clearContent(sendResponse,request.clearConfig,request.tabId);
             break;
             case 'open':
                 returnBack=devtoolsAction.openURL(sendResponse,request.openConfig);
@@ -92,7 +92,10 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
             break;
             case 'contentSettings':
                 returnBack=devtoolsAction.contentSet(sendResponse,request.settingsConfig,request.tabId);
-            break;           
+            break;
+            case 'ajax':
+                returnBack=devtoolsAction.ajaxTest(sendResponse,request.ajaxConfig);
+            break;        
         }
 
         if(returnBack===true){
@@ -168,11 +171,73 @@ var devtoolsAction={
     },
 
     //clear cache
-    cleanCache:function(sendResponse,objConfig){
-        chrome.browsingData.remove(objConfig.removeOptions,objConfig.removeData,function(){
-            checkExtensionError();
-            sendResponse('finished');         
-        });
+    clearContent:function(sendResponse,objConfig,tabId){
+        switch(objConfig.type){
+            case 'cache':
+                chrome.browsingData.remove(objConfig.removeOptions,objConfig.removeData,function(){
+                    checkExtensionError();
+                    sendResponse('finished');         
+                });
+            break;
+            case 'form':
+                chrome.tabs.sendMessage(tabId, {from:'background',action:'clear',clearContent:objConfig.clearData}, function(response){                  
+                    checkExtensionError();
+                    // sendResponse('clear form message send');
+                });
+            break;
+        }        
+        return true;
+    },
+
+    //get ajax
+    ajaxTest:function(sendResponse,ajaxConfig){
+        var data='',timer;
+        for(var key in ajaxConfig.data){
+            data=data+'&'+key+'='+ajaxConfig.data[key];
+        }
+
+        if(ajaxConfig.method==='GET'&&data){
+            ajaxConfig.url+=(ajaxConfig.url.indexOf('?')<0?'?':'')+data;
+        }
+
+        console.log(ajaxConfig, data);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open(ajaxConfig.method, ajaxConfig.url, ajaxConfig.sync);
+
+        if(ajaxConfig.method==='POST'){
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        }
+
+        xhr.onreadystatechange = function() {
+            if(xhr.readyState == 4) {
+                clearTimeout(timer);
+
+                // console.log(xhr);
+                sendResponse(xhr.response);                
+            }
+        }
+
+        xhr.onerror=function(){
+            clearTimeout(timer);
+
+            // console.log('error', xhr);
+            sendResponse('加载失败[连接超时!]');
+        }
+
+        if(data&&ajaxConfig.method==='POST'){
+            console.log(data);
+            xhr.send(data);
+        }else{
+            xhr.send();
+        }
+
+        //set time out
+        timer=setTimeout(function(){
+            sendResponse('请求已取消[连接时间太长!]');
+            xhr.abort();
+        },5*1000);
+        
         return true;
     },
 
@@ -223,6 +288,7 @@ var devtoolsAction={
                 });
             }
         });
+
         return true;       
     },
 
