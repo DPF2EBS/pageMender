@@ -49,7 +49,16 @@ var config={
 				{
 					"name":"Ajax测试",
 					"module":"ajaxTester",
-					"contentHTML":'<div class="center"> <ul class="cache-clear"> <li> <label for="">URL地址：<input type="text" name="" id="" value="http://www.baidu.com/"/></label> <label for="">发送方式：<select><option value="GET">GET</option><option value="POST">POST</option></select></label> </li> <li> <label for="">数据：<input type="text" name="" id="" value="name=\"abc\""/></label><button class="button cache-btn">加载</button> </li> <li>请求结果：</li> <li><p>这里是结果</p><textarea>Http Response</textarea></li> </ul> </div>'
+					"contentHTML":'<h3 class="right-topic">Ajax测试</h3>\
+					<div class="btns ajax-wrap">\
+						<ul class="ajax-list">\
+							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select></li>\
+							<li><label for="">URL地址:</label><input type="text" name="" id="" value="http://www.baidu.com/"/></li>\
+							<li><label for="">传递数据:</label><input type="text" name="" id="" value="name="/></li>\
+							<li><button class="button ajax-btn">加载数据</button></li>\
+							<li><label for="">请求结果:</label><textarea cols="30" rows="4">Http Response</textarea></li>\
+						</ul>\
+					</div>'
 				},
 				{
 					"name":"标准验证",
