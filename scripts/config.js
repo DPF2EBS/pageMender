@@ -52,11 +52,10 @@ var config={
 					"contentHTML":'<h3 class="right-topic">Ajax测试</h3>\
 					<div class="btns ajax-wrap">\
 						<ul class="ajax-list">\
-							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select></li>\
-							<li><label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="http://www.baidu.com"/></li>\
-							<li><label for="">传递数据:</label><textarea cols="30" rows="4" placeholder="JSON Data eg:{key:value}"></textarea></li>\
-							<li><button>加载数据</button></li>\
-							<li><label for="">请求结果:</label><textarea cols="30" rows="4" placeholder="Ajax Response"></textarea></li>\
+							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="http://www.baidu.com"/></li>\
+							<li><label for="">传递数据:</label><textarea cols="60" rows="2" placeholder="JSON数据格式 如:{key:value}"></textarea></li>\
+							<li><button class="button ajax-btn">加载数据</button></li>\
+							<li><label for="">请求结果:</label><textarea cols="60" rows="2" placeholder="Ajax请求结果"></textarea></li>\
 						</ul>\
 					</div>'
 				},
