@@ -52,7 +52,7 @@ var config={
 					"contentHTML":'<h3 class="right-topic">Ajax测试</h3>\
 					<div class="btns ajax-wrap">\
 						<ul class="ajax-list">\
-							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select></li>\
+							<li><label for="">发送方式:</label><select><option value="GET">get</option><option value="POST">post</option></select></li>\
 							<li><label for="">URL地址:</label><input type="text" name="" id="" value="http://www.baidu.com/"/></li>\
 							<li><label for="">传递数据:</label><input type="text" name="" id="" value="name="/></li>\
 							<li><button class="button ajax-btn">加载数据</button></li>\

@@ -265,11 +265,11 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 .features-block label {font-size:14px;color:#888;}
 .personel-btns { padding:20px 30px;}
 /* ---------------------------- Ajax测试 -------------------------------*/
-.ajax-list li {line-height:40px;}
-.ajax-list li label {margin-right:10px;}
-.ajax-list li input, .ajax-list li textarea {border:1px solid #CCC;color:#666;font-size:13px;}
-.ajax-list li input {height:24px;padding:2px 3px;width:240px;}
+.ajax-list li {line-height:32px;}
+.ajax-list li label {margin-right:10px;display:inline-block;width:60px;}
+.ajax-list li input, .ajax-list li textarea {border:1px solid #CCC;color:#666;font-size:12px;}
+.ajax-list li input {height:20px;padding:2px 3px;width:200px;}
 .ajax-list li textarea { vertical-align:middle;}
-.ajax-wrap { padding:20px;margin-left:28%;}
-.ajax-btn {cursor: pointer;margin:10px; margin-left:120px;}
+.ajax-wrap { padding:16px;margin-left:38%;}
+.ajax-btn {cursor: pointer;margin:5px; margin-left:100px;padding:10px;}
 
