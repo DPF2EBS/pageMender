@@ -23,9 +23,10 @@ define(function(require, exports, module) {
 			chrome.extension.sendMessage(
 				{
 					from:'devtools',
-					action:'clean',
+					action:'clear',
 					tabId:tabId,
-					cleanConfig:{
+					clearConfig:{
+						type:'cache',
 						removeOptions: {
                 			"since": new Date().getTime()-1000*60*60*parseInt(cleanTime.val(),10)
             			},

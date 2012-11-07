@@ -1,16 +1,66 @@
 //get standard validation
 define(function(require, exports, module) {
 	return function(win,index,tabId){
-		var section=win.sections.eq(index);
-		win.subMenu.eq(index).click(function(){
-			chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'get',getContent:['tabURL']}, function(response) {
-				// var html=[];
-    //             html.push('<h3 class="right-topic">Ajax测试<h3>');
-				// html.push('<p class="sv-link"><a class="btn orange" href="http://jigsaw.w3.org/css-validator/validator?profile=css3&warning=0&uri='+response.tabURL+'" target="_blank">CSS Validator</a></p>');
-				// html.push('<p class="sv-link"><a class="btn orange" href="http://validator.w3.org/check?uri='+response.tabURL+'" target="_blank">HTML Validator</a></p>');
+		var section=win.sections.eq(index),
+			buttons,inputs,selects,textarea,
+			init=false,
+			ajaxLoading=false;
 
-				// section.html(html.join(''));
-			});		
+		
+		win.subMenu.eq(index).click(function(){
+			if(!init){
+				buttons=section.find('button');
+				inputs=section.find('input');
+				selects=section.find('select');
+				textarea=section.find('textarea');
+
+				buttons.eq(0).click(function(){
+					if(ajaxLoading){return false;}
+					
+					var d={};
+					if(!/\w+\.\w+/.test(inputs.eq(0).val())){
+						textarea.eq(1).val("请填写正确的URL地址");
+						inputs.eq(0).focus();
+						return false;
+					}
+
+					if(textarea.eq(0).val()!==''){
+						try{
+							d=JSON.parse(textarea.eq(0).val());
+
+							for(var key in d){
+								d[key]=encodeURIComponent(d[key]);
+							}
+						}catch(err){
+							textarea.eq(1).val("JSON数据填写不正确");
+							textarea.eq(0).focus();
+							return false;
+						}
+					}
+
+					buttons.eq(0).attr('disabled',true);
+					textarea.eq(1).val('数据加载中...');
+					ajaxLoading=true;
+
+					chrome.extension.sendMessage(
+						{
+							from:'devtools',
+							action:'ajax',
+							ajaxConfig:{
+				            	url:inputs.eq(0).val(),
+				            	method:selects.eq(0).val(),
+				            	data:d,
+				            	sync:true
+				        	}
+		            	},
+		            	function(response) {
+		            		ajaxLoading=false;
+							textarea.eq(1).val(response);
+							buttons.eq(0).attr('disabled',false);
+						}
+					);
+				});
+			}
 		});
 	}
 });

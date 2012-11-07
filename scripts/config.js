@@ -53,10 +53,10 @@ var config={
 					<div class="btns ajax-wrap">\
 						<ul class="ajax-list">\
 							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select></li>\
-							<li><label for="">URL地址:</label><input type="text" name="" id="" value="http://www.baidu.com/"/></li>\
-							<li><label for="">传递数据:</label><input type="text" name="" id="" value="name="/></li>\
-							<li><button class="button ajax-btn">加载数据</button></li>\
-							<li><label for="">请求结果:</label><textarea cols="30" rows="4">Http Response</textarea></li>\
+							<li><label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="http://www.baidu.com"/></li>\
+							<li><label for="">传递数据:</label><textarea cols="30" rows="4" placeholder="JSON Data eg:{key:value}"></textarea></li>\
+							<li><button>加载数据</button></li>\
+							<li><label for="">请求结果:</label><textarea cols="30" rows="4" placeholder="Ajax Response"></textarea></li>\
 						</ul>\
 					</div>'
 				},
@@ -65,9 +65,9 @@ var config={
 					"module":"standardValidator"
 				},
 				{
-					"name":"统计检查",
+					"name":"GA检查",
 					"module":"GAValidator",
-					"contentHTML":'<dl> <dt>GA</dt> <dd> <p>GA_POST_OK</p> <p>GA_GET_OK</p> <p>GA_test</p> <p>GA_waiting</p> </dd> <dt>Hippo</dt> <dd> <p>HI_POST_OK</p> <p>HI_GET_OK</p> <p>HI_test</p> <p>HI_waiting</p> </dd> </dl>'
+					"contentHTML":'<h3 class="right-topic">GA统计代码<h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
 				},
 				{
 					"name":"压缩检查",
@@ -76,7 +76,8 @@ var config={
 				},
 				{
 					"name":"表单清除",
-					"module":"clearForm"
+					"module":"clearForm",
+					"contentHTML":'<h3 class="right-topic">表单清理<h3><p class="sv-link"><a class="button" href="#" rel="formInput">清理Form表单</a></p><p class="sv-link"><a class="button" href="#" rel="allInput">清理所有表单</a></p>'
 				}
 			]
 		},
@@ -97,11 +98,11 @@ var config={
 		  "submenu":[
 			{
 				"name":"插件简介",
-				"contentHTML":'<div class="center"><br/><p class="main-title">欢迎您使用PageMender 1.1版本!</p><p class="main-intro">项目一期主要包含页面分析工具和系统工具，您可以利用它分析页面的一些基本特征，<br/>并且可以更加便捷地操作Chrome浏览器的一些默认设置，方便我们的测试和工作。<br/></p></div>'
+				"contentHTML":'<div class="center"><br/><p class="main-title">欢迎您使用PageMender 1.1版本!</p><p class="main-intro">PageMender由点评前端团队开发，它包含了一系列的页面分析和测试工具。<br/>功能选择主要面向[前端开发、QA、后端开发人员]，非常欢迎非技术人员也试用我们的插件。<br/>希望我们的努力能给您的工作提供方便，感谢您的支持！<br/><br/></p></div>'
 			},
 			{
 				"name":"联系我们",
-				"contentHTML":'<div class="center"><br /><p class="main-intro">可以通过Email与我们联系:<br /><a href="mailto:wxwdesign@dianping.com">程序BUG(wxwdesign@dianping.com)</a><br /><a href="mailto:yongliang.li@dianping.com">UI问题(yongliang.li@dianping.com)</a></p></div>'
+				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a href="mailto:wxwdesign@dianping.com">程序BUG(wxwdesign@dianping.com)</a><br /><a href="mailto:yongliang.li@dianping.com">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
 			},
 		  ]
 		},

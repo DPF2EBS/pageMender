@@ -68,6 +68,7 @@ function getDomNodes(allElements){
 
 //content process
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
+	console.log(request);
 	if(request.from==='background'){
         var returnBack;
         switch(request.action){
@@ -76,6 +77,9 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
             break;
             case 'get':
             	returnBack=contentAction.getContent(sendResponse,request.getContent);
+            break;
+            case 'clear':
+            	returnBack=contentAction.clearContent(sendResponse,request.clearContent);
             break;
         }
 
@@ -104,6 +108,38 @@ var contentAction={
 				}
 			});
 			return true;
+		}
+	},
+	clearContent:function(sendResponse,arrayClear){
+		switch(arrayClear[0]){
+			case 'allInput':
+				var	i=document.getElementsByTagName("input"),
+					t=document.getElementsByTagName("textarea");
+				Array.prototype.forEach.call(i,function(element){
+					if(element.type==='text'||element.type==='password'){
+						element.value='';
+					}
+				});
+				Array.prototype.forEach.call(t,function(element){
+					element.value='';
+				});
+			break;
+			case 'formInput':
+				var f=document.getElementsByTagName("form"),
+					i,t;
+				Array.prototype.forEach.call(f,function(ef){
+					i=ef.getElementsByTagName("input"),
+					t=ef.getElementsByTagName("textarea");
+					Array.prototype.forEach.call(i,function(element){
+						if(element.type==='text'||element.type==='password'){
+							element.value='';
+						}
+					});
+					Array.prototype.forEach.call(t,function(element){
+						element.value='';
+					});
+				});
+			break;
 		}
 	}
 };
