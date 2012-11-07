@@ -86,7 +86,13 @@ var config={
 				{
 					"name":"自动刷新",
 					"module":"autoReload",
-					"contentHTML":'<div class="center"> <div class="cache-clear"><label for="">间隔时间：<input type="text" name="" id="" value="5"/>秒</label> <label for="">循环次数：<input type="text" name="" id="" value="10"/>次</label> <button class="button cache-btn">开始刷新</button> <p class="c-orange" style="font-size:14px;">已刷新0次</p> </div> </div>'
+					"contentHTML":'<div class="center">\
+					<ul class="btns auto-reload">\
+						<li><label for="">间隔时间:&nbsp;<input type="text" name="" id="" value="3"/>&nbsp;秒</label></li>\
+						<li><label for="">循环次数:&nbsp;<input type="text" name="" id="" value="5"/>&nbsp;次</label></li>\
+						<li><button class="button cache-btn">开始刷新</button></li>\
+						<li><p class="c-orange" style="font-size:14px;">已刷新0次</p></li>\
+					</ul></div>'
 
 				}
 			]

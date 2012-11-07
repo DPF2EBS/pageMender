@@ -272,4 +272,8 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 .ajax-list li textarea { vertical-align:middle;}
 .ajax-wrap { padding:16px;margin-left:38%;}
 .ajax-btn {cursor: pointer;margin:5px; margin-left:100px;padding:10px;}
+/* ---------------------------- 自动刷新 -------------------------------*/
+.auto-reload {padding:5px 40px;}
+.auto-reload li {height:40px;line-height:40px;}
+.auto-reload input { padding:2px 3px;width:40px;border:1px solid #CCC;height:20px;}
 
