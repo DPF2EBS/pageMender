@@ -210,9 +210,10 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
 }
 .com p {line-height:24px;border-bottom:1px solid #EFEFEF;font-size:14px;}
-.com a {color:#08c;margin-left:5px;}
-.com a:hover {background-color:#1f5db1;color:#FFF;text-decoration:none;}
-.index { padding:0 5px 0 10px;width:30px;display:inline-block;font-weight:bold;color:#F60;}
+.com a {color:#08c;margin-left:5px;font-weight:500;}
+.com a:hover {background-color:#1f5db1;color:#FFF;text-decoration:none;} 
+.ga-item {color: #666;font-weight:500;}
+.ga-item .index, .com .index { padding:0 5px 0 10px;width:30px;display:inline-block;color:#F60;font-weight:500;}
 
 /* ---------------------------- 加载时间 -------------------------------*/
 .load-name {border-bottom:1px solid #BBB;color:#666;font-size:14px;}

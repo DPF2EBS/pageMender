@@ -15,10 +15,10 @@ define(function(require, exports, module) {
 							R.getContent(function(content){
 								var r=content.match(/pageTracker\._trackPageview\(.+?\)/g);
 								if(r&&r.length>0){
-									html.push('<br/><div class="com"><p><span class="index">[URL]</span><a href="'+R.url+'" target="_blank">'+R.url+'</a></p>');
+									html.push('<br/><div class="com"><p><span class="index">[URL]</span>&nbsp;<a href="'+R.url+'" target="_blank">'+R.url+'</a></p>');
 									r.forEach(function(re,index){
 										//re.replace(/pageTracker\._trackPageview\('|'\)/g,'');
-										html.push('<p><span class="index">('+(index+1)+')</span>'+re+'</p>');
+										html.push('<p class="ga-item"><span class="index">('+(index+1)+')</span>'+re+'</p>');
 									});
 									html.push("</div>");
 								}
