@@ -76,7 +76,7 @@ var config={
 				{
 					"name":"表单清除",
 					"module":"clearForm",
-					"contentHTML":'<h3 class="right-topic">表单清理<h3><p class="sv-link"><a class="button" href="#" rel="formInput">清理Form表单</a></p><p class="sv-link"><a class="button" href="#" rel="allInput">清理所有表单</a></p>'
+					"contentHTML":'<h3 class="right-topic">表单清理<h3><div class="clear-form"><p class="sv-link"><a class="button" href="#" rel="formInput">清理Form表单</a></p><p class="sv-link"><a class="button" href="#" rel="allInput">清理所有表单</a></p></div>'
 				}
 			]
 		},

@@ -15,7 +15,7 @@ define(function(require, exports, module) {
 					html.push('<h3 class="right-topic">节点数共计：<strong>'+(response['nodeLength']||'waiting...')+'</strong>&nbsp;个 <select id="dom-order"><option value="tagName">节点名称排序</option><option value="tagNumber">节点数量排序</option></select></h3><div class="cont-wrap">');
 
 					for(var key in response['nodeTags']){
-						html.push('<a class="button dom-tags"><span class="red-dot">' + response['nodeTags'][key] + '</span>' + key + '</a>');
+						html.push('<a class="btns dom-tags"><span class="red-dot">' + response['nodeTags'][key] + '</span>' + key + '</a>');
 					}
 
 					html.push('</div>');
@@ -62,10 +62,10 @@ define(function(require, exports, module) {
 
 					for(var key in data){
 						if(this.value!=='tagNumber'){
-							orderHTML.push('<a class="button dom-tags"><span class="red-dot">' + data[key] + '</span>' + key + '</a>');
+							orderHTML.push('<a class="btns dom-tags"><span class="red-dot">' + data[key] + '</span>' + key + '</a>');
 						}else{
 							data[key].forEach(function(item){
-								orderHTML.push('<a class="button dom-tags"><span class="red-dot">' + key + '</span>' + item + '</a>');
+								orderHTML.push('<a class="btns dom-tags"><span class="red-dot">' + key + '</span>' + item + '</a>');
 							});
 						}					
 					}

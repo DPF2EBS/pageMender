@@ -57,7 +57,7 @@ define(function(require, exports, module) {
     						bypassList: ["<local>"]
 						};
 					}
-					html.push('<fieldset class="button field-set" style="display:'+(t.mode==='system'?'none':'block')+';"><legend>代理设置</legend>');
+					html.push('<fieldset class="btns field-set" style="display:'+(t.mode==='system'?'none':'block')+';"><legend>代理设置</legend>');
 					var tt=t.rules,selects=[];
 					//rules
 					for(var k in tt){
@@ -104,7 +104,7 @@ define(function(require, exports, module) {
 					};
 
 				config.rules.bypassList=[].concat(textarea.eq(0).val().split(','));
-				config.rules.singleProxy={
+				config.rules.singleProxy = {
 					scheme: scheme.eq(0).val(),
       				host: input.eq(0).val(),
       				port:parseInt(input.eq(1).val(),10)
