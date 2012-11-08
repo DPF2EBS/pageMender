@@ -14,17 +14,22 @@
 	"permissions":[
    		"tabs",      	
      	"browsingData",
-      "contentSettings",
-      // "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
-      "proxy",
+      	"contentSettings",
+      	"notifications",
+      	"tts",
+      	// "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
+      	"proxy",
    		// "contextMenus",
 
    		"cookies",
    		"http://*/*",
-      "https://*/*"
+      	"https://*/*"
 
    		// "background"
    	],
+   	"web_accessible_resources": [
+    	"icons/DPTools-48.png"
+  	],
 
 	/**browser actions*/
 	"browser_action": {

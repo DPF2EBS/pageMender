@@ -7,12 +7,15 @@ var contentData={
         nodeTags:Object(JSON),
         nodeLength:Number,
     }*/
+    notice:localStorage.pageMenderNotifications?true:false,
+    voice:localStorage.pageMenderVoice?true:false
 },
 
 debugMode=true;
-// localStorage.pageMenderDebug;
 
-
+/*var notification = webkitNotifications.createHTMLNotification(
+  '/pages/notification.html'
+);*/
 
 function saveContentData(tabId, data){
     if(typeof data==='undefined'||tabId.constructor!==Number){return;}
@@ -50,6 +53,38 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
         request.data.tabURL=sender.tab.url;
 
         saveContentData(sender.tab.id, request.data);
+
+        if(request.data.tabURL.indexOf("dianping.com")>-1&&request.data.domReadyTime){
+            if(contentData.notice){
+                var domReadyNotice=webkitNotifications.createNotification(
+                    'icons/DPTools-48.png',
+                    request.data.tabURL,
+                    'DomReady='+request.data.domReadyTime+'秒 | DOM节点数='+request.data.nodeLength);
+
+                domReadyNotice.show();
+                setTimeout(function(){domReadyNotice.cancel()},10000);
+            }
+            
+            if(contentData.voice){
+                chrome.tts.speak('dorm ready '+request.data.domReadyTime+'秒 节点数'+request.data.nodeLength);
+            }
+        }
+        if(request.data.tabURL.indexOf("dianping.com")>-1&&contentData.notice&&request.data.loadTime){
+            if(contentData.notice){
+                 var onLoadNotice=webkitNotifications.createNotification(
+                    'icons/DPTools-48.png',
+                    request.data.tabURL,
+                    'onLoad='+request.data.loadTime+'秒');
+
+                onLoadNotice.show();
+                setTimeout(function(){onLoadNotice.cancel()},10000);
+            }
+
+            if(contentData.voice){
+                chrome.tts.stop();
+                chrome.tts.speak('加载完毕时间'+request.data.loadTime+'秒');
+            }
+        }
 
         // sendResponse({from: "background"});
 

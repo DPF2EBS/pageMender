@@ -42,8 +42,7 @@ define(function(require, exports, module) {
 									'<span class="c-blue"><input type="checkbox" '+(cookie.secure?'checked':'')+' /></span>'+
 									'<label for="" class="c-black">session:</label>'+
 									'<span class="c-blue"><input type="checkbox" '+(cookie.session?'checked':'')+' /></span>'+
-									'<label for="" class="c-black">storeId:</label>'+
-									'<span class="c-blue">'+cookie.storeId+'<input type="hidden" value="'+cookie.storeId+'"/></span>'+
+									'<span class="c-blue"><input type="hidden" value="'+cookie.storeId+'"/></span>'+
 								'</li>'+
 								'<li class="ck-item">'+
 									'<a class="button save">保存修改</a>'+

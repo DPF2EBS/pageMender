@@ -247,15 +247,17 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 	padding:5px 10px;text-shadow: 1px 1px 1px #FFF;color:#666;font-size:14px;font-weight:500;font-weight: bold;
 }
 /* ---------------------------- 代理设置 -------------------------------*/
-.proxy-sel { float:left;margin:10px 10px 15px 30px;font-weight: bold;text-shadow: 1px 1px 1px #FFF;font-size:14px;width:280px;border:1px solid #CCC;height:30px;line-height:30px;padding-left:20px;}
-.field-set {float:left;margin:5px;border:1px solid #CCC;padding:10px 30px;}
-.field-set legend {padding:10px 20px;color:#666;font-size:14px;text-shadow: 1px 1px 1px #FFF;font-weight:bold; }
-.proxy-btn { margin:0 80px;}
+.proxy-sel {margin:10px 10px 15px 30px;font-weight: bold;text-shadow: 1px 1px 1px #FFF; width:90%;font-size:14px;border:1px solid #CCC;line-height:30px;padding-left:20px;}
+.field-set {padding:10px 30px; background: none; border:0 none;}
 .select-stl {padding:1px;}
 .status-msg {margin-left:15px;color:#F60;}
 
+.field-set .button{padding:10px; margin:2px 0px 0px 6px;}
+.field-set textarea,.field-set button,.field-set label{vertical-align: top;}
+.field-set textarea{min-height: 30px; width:45%;}
+
 .proxy-item { height:32px; line-height:32px; display: inline-table;margin-right:20px;}
-.proxy-item label {padding-right:10px;}
+.field-set label {padding-right:10px;}
 .proxy-item input {padding:2px 3px;height:18px;}
 
 /* ---------------------------- 个性化功能设置 -------------------------------*/
@@ -269,11 +271,11 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 /* ---------------------------- Ajax测试 -------------------------------*/
 .ajax-list li {line-height:32px;}
 .ajax-list li label {margin-right:10px;display:inline-block;width:60px;}
-.ajax-list li input, .ajax-list li textarea {border:1px solid #CCC;color:#666;font-size:12px;}
+.ajax-list li input, .ajax-list li textarea {border:1px solid #CCC;color:#666;font-size:12px; padding:5px; line-height: 150%;}
 .ajax-list li input {height:20px;padding:2px 3px;width:200px;}
-.ajax-list li textarea { vertical-align:middle;border:1px solid #CCC;}
-.ajax-wrap { margin-left:5%; margin-right:5%; width:80%;padding-left:3%;padding-right:3%;}
-.ajax-btn {cursor: pointer;margin:5px 120px; padding:10px 100px;}
+.ajax-list li textarea { vertical-align:top; width:80%;}
+.ajax-wrap { margin-left:5%; margin-right:5%; width:80%;padding-left:3%;padding-right:3%; margin-top:6px;}
+.ajax-btn {cursor: pointer;margin:0px 0px 0px 10px;padding:4px 10px;}
 /* ---------------------------- 自动刷新 -------------------------------*/
 .auto-reload {padding:5px 40px; } 
 .auto-reload li {height:40px;line-height:40px;}
@@ -315,7 +317,7 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
   .cookie .content{float:left; line-height: 24px;}
   .cookie .ckname{float:left; line-height: 24px;}
   .cookie .content label{display:inline-block; padding:0px 4px 0px 0px;}
-  .cookie .content span{color:#6c6c6c; min-width:100px; height:24px; overflow: hidden; padding:0px 16px 0px 2px; white-space: nowrap; display: inline-block;}
+  .cookie .content span{color:#6c6c6c; min-width:100px;height:24px; overflow: hidden; padding:0px 16px 0px 2px;display: inline-block;}
   .cookie .buttons{float:right;}
   .cookie .ck-item{
     height:auto;

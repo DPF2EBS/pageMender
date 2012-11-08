@@ -5,11 +5,11 @@ $(document).ready(function(){
 		configData=config.getData();
 
 	configData.forEach(function(dataGroup, index){
-		if(dataGroup.dataType){return false;}
+		// if(dataGroup.dataType){return false;}
 		//featuresHTML.push('');
 		featuresHTML.push('<fieldset><legend><input type="checkbox" name="" id="" '+(!dataGroup.disabled?"checked":"")+'/>' + dataGroup.name + '</legend><ul>');
 		dataGroup.submenu.forEach(function(f,fIndex){
-			featuresHTML.push('<li class="button"><input type="checkbox" name="" id="" '+((!dataGroup.disabled&&!f.disabled)?"checked":"")+'/><label for="">'+f.name+'</label></li>');
+			featuresHTML.push('<li class="button"><input type="checkbox" name="'+(dataGroup.dataType?"other":"")+'" id="" '+((!dataGroup.disabled&&!f.disabled)?"checked":"")+'/><label for="">'+f.name+'</label></li>');
 		});
 		featuresHTML.push('</ul></fieldset>');
 	});
@@ -51,6 +51,8 @@ $(document).ready(function(){
 				child.each(function(ci){
 					if(!$(this).attr("checked")){
 						config.data[i].submenu[ci].disabled=true;
+					}else if($(this).attr("name")==='other'){
+						config.data[i].submenu[ci].disabled=false;
 					}
 				});
 			}
@@ -59,9 +61,9 @@ $(document).ready(function(){
 	});
 
 	buttons.eq(1).click(function(){
-		// localStorage.clear();
+		localStorage.clear();
 
-		localStorage.removeItem("pageMenderConfig");
+		// localStorage.removeItem("pageMenderConfig");
 
 		window.location.reload();
 	});

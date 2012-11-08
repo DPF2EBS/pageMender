@@ -50,12 +50,11 @@ var config={
 					"name":"Ajax测试",
 					"module":"ajaxTester",
 					"contentHTML":'<h3 class="right-topic">Ajax测试</h3>\
-					<div class="btns ajax-wrap">\
+					<div class="ajax-wrap">\
 						<ul class="ajax-list">\
-							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="http://www.baidu.com"/></li>\
-							<li><label for="">传递数据:</label><textarea cols="60" rows="2" placeholder="JSON数据格式 如:{key:value}"></textarea></li>\
-							<li><button class="button ajax-btn">加载数据</button></li>\
-							<li><label for="">请求结果:</label><textarea cols="60" rows="2" placeholder="Ajax请求结果"></textarea></li>\
+							<li><label for="">传递数据:</label><textarea cols="60" rows="2" placeholder="JSON数据格式{\'key\':\'value\'}"></textarea></li>\
+							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="URL Address"/><button class="ajax-btn">加载数据</button></li>\
+							<li><label for="">请求结果:</label><textarea cols="60" rows="6" placeholder="Ajax请求结果"></textarea></li>\
 						</ul>\
 					</div>'
 				},
@@ -68,11 +67,11 @@ var config={
 					"module":"GAValidator",
 					"contentHTML":'<h3 class="right-topic">GA统计代码<h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
 				},
-				{
-					"name":"压缩检查",
-					"disabled":true,
-					"module":"compressCheck"
-				},
+				// {
+				// 	"name":"压缩检查",
+				// 	"disabled":true,
+				// 	"module":"compressCheck"
+				// },
 				{
 					"name":"表单清除",
 					"module":"clearForm",
@@ -117,10 +116,12 @@ var config={
 			"dataType":1,
 			"submenu":[
 				{
-					"name":"桌面提醒"
+					"name":"桌面提醒",
+					"disabled":true
 				},
 				{
-					"name":"语音功能"
+					"name":"语音功能",
+					"disabled":true
 				}
 			]
 		}
@@ -142,6 +143,24 @@ var config={
 
 	//set config data
 	setData:function(data){
+		var bg=chrome.extension.getBackgroundPage();
+
 		localStorage.pageMenderConfig=JSON.stringify(data);
-	}
+		var other=data.data[data.data.length-1].submenu;
+		if(other[0].disabled===false){
+			localStorage.pageMenderNotifications='open';
+			bg.contentData.notice=true;
+		}else{
+			localStorage.removeItem("pageMenderNotifications");
+			delete bg.contentData.notice;
+		}
+
+		if(other[1].disabled===false){
+			localStorage.pageMenderVoice='open';
+			bg.contentData.voice=true;
+		}else{
+			localStorage.removeItem("pageMenderVoice");
+			delete bg.contentData.voice;
+		}
+    }
 };
