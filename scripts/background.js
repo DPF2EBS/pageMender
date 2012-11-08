@@ -79,7 +79,7 @@ chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
                 returnBack=devtoolsAction.getContent(sendResponse,request.getContent,request.tabId);
             break;
             case 'set':
-                returnBack=devtoolsAction.setContent(sendResponse,request.settingsConfig);
+                returnBack=devtoolsAction.setContent(sendResponse,request.settingsConfig,request.tabId);
             break;
             case 'clear':
                 returnBack=devtoolsAction.clearContent(sendResponse,request.clearConfig,request.tabId);
@@ -115,7 +115,7 @@ var devtoolsAction={
         if(arrayGet&&arrayGet[0]==='cookies'){
             chrome.cookies.getAll({url:contentData[tabId].tabURL}, function (cookies) {
                 // console.log(cookies);
-                sendResponse(cookies);
+                sendResponse({data:cookies,domain:contentData[tabId].domain});
             });
             return true;
         }
@@ -154,7 +154,7 @@ var devtoolsAction={
     },
 
     //set content
-    setContent:function(sendResponse,settingsConfig){
+    setContent:function(sendResponse,settingsConfig,tabId){
         switch(settingsConfig.target){
             case 'proxy':
                 // console.log('proxySetting',settingsConfig.options);
@@ -165,6 +165,23 @@ var devtoolsAction={
                         sendResponse({proxySetting:'success'});
                     }
                 );
+                return true;
+            break;
+            case 'cookie':
+                settingsConfig.data.url=contentData[tabId].tabURL;
+
+                if(settingsConfig.data.oldName&&settingsConfig.data.oldName!==settingsConfig.data.name){
+                    chrome.cookies.remove({name:settingsConfig.data.oldName,url:settingsConfig.data.url}, function(cookie){
+                        // console.log('remove',cookie);
+                    });
+                    
+                    delete settingsConfig.data.oldName;
+                }
+                
+                chrome.cookies.set(settingsConfig.data, function(cookie){
+                    // console.log('set',cookie);
+                    sendResponse('setCookieOK');
+                });
                 return true;
             break;
         }
@@ -183,6 +200,13 @@ var devtoolsAction={
                 chrome.tabs.sendMessage(tabId, {from:'background',action:'clear',clearContent:objConfig.clearData}, function(response){                  
                     checkExtensionError();
                     // sendResponse('clear form message send');
+                });
+            break;
+            case 'cookie':
+                objConfig.data.url=contentData[tabId].tabURL;
+                chrome.cookies.remove(objConfig.data, function(cookie){
+                    // console.log('remove',cookie);
+                    sendResponse('removeCookieOK');
                 });
             break;
         }        

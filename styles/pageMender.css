@@ -284,6 +284,8 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 /*-------------------------cookies add by wxwdesign-------------------*/
 .cookie{
     width:96%;
+    min-width: 760px;
+    font-size: 13px;
     margin:5px auto 10px;
     float:none;
     padding: 0px;
@@ -298,26 +300,36 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
   .cookie dt{
     font-weight:bold;
     font-size: 14px;
-    padding:8px;
+    padding:2px 8px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); 
     background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
     background: linear-gradient(to bottom,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+    cursor: pointer;
   }
-  .cookie .button{
-    margin:0px 4px;
+  .cookie .button,.button-cookie-add{
+    margin:0px 6px 0px 4px;
+    padding:0px 6px;
+    height:24px;
+    line-height: 24px;
   }
-  .cookie .content{float:left; line-height: 30px;}
-  .cookie .ckname{float:left; line-height: 30px;}
-  .cookie .content span{min-width:100px; max-width: 200px; height:30px; overflow: hidden; padding:0px 16px 0px 2px; white-space: nowrap; display: inline-block;}
+  .cookie .content{float:left; line-height: 24px;}
+  .cookie .ckname{float:left; line-height: 24px;}
+  .cookie .content label{display:inline-block; padding:0px 4px 0px 0px;}
+  .cookie .content span{color:#6c6c6c; min-width:100px; height:24px; overflow: hidden; padding:0px 16px 0px 2px; white-space: nowrap; display: inline-block;}
   .cookie .buttons{float:right;}
   .cookie .ck-item{
     height:auto;
+    padding: 2px 5px;
   }
   .cookie .c-black{
     display: inline-block;
-    min-width:120px;
+    min-width:80px;
     text-align: right;
+    padding:0px;
+    margin:0px;
   }
   .cookie button{vertical-align: middle;}
-  .cookie textarea,.cookie input{vertical-align: top; min-width: 300px; width:35%;}
+  .cookie textarea,.cookie input[type="text"]{vertical-align: top; min-width: 280px; width:38%;}
+  .cookie textarea{min-height: 20px;}
+  .cookie input[type='checkbox']{width:auto;min-width: auto; vertical-align: middle; margin:0px; padding:0px;}
 
