@@ -16,12 +16,15 @@ define(function(require, exports, module) {
 
 				buttons.eq(0).click(function(){
 					if(ajaxLoading){return false;}
-					
-					var d={};
-					if(!/\w+\.\w+/.test(inputs.eq(0).val())){
+
+					var d={},
+						url=inputs.eq(0).val();
+					if(!/\w+\.\w+/.test(url)){
 						textarea.eq(1).val("请填写正确的URL地址");
 						inputs.eq(0).focus();
 						return false;
+					}else if(!/^(http:\/\/|https:\/\/)/.test(url)){
+						inputs.eq(0).val('http://'+url);
 					}
 
 					if(textarea.eq(0).val()!==''){
