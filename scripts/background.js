@@ -11,7 +11,7 @@ var contentData={
     voice:localStorage.pageMenderVoice?true:false
 },
 
-debugMode=true;
+debugMode=false;
 
 /*var notification = webkitNotifications.createHTMLNotification(
   '/pages/notification.html'

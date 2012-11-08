@@ -106,13 +106,26 @@ var config={
 			},
 			{
 				"name":"联系我们",
-				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a href="mailto:wxwdesign@dianping.com">程序BUG(wxwdesign@dianping.com)</a><br /><a href="mailto:yongliang.li@dianping.com">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
+				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(wxwdesign@dianping.com)</a><br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
 			},
+			{
+				"name":"前端资源",
+				"contentHTML":'<div>\
+					<p class="main-intro">\
+						<a class="btns" href="http://f2e.dp/">F2E Wiki</a>\
+						<a class="btns" target="_blank" href="http://f2e.dp:8011/">NPW</a>\
+						<a class="btns" target="_blank" href="http://f2e.dp/face">Face</a>\
+						<a class="btns" target="_blank" href="http://f2e.dp/blog/">Blog</a>\
+						<a class="btns" target="_blank" href="http://zuji.dianpingoa.com/">足迹</a>\
+						<a class="btns" target="_blank" href="http://f2e.dp/face/open">Lib</a>\
+					</p>\
+				</div>'
+			}
 		  ]
 		},
 
 		{
-			"name":"其它",
+			"name":"其它[实验]",
 			"dataType":1,
 			"submenu":[
 				{
