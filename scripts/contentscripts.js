@@ -12,7 +12,7 @@
 		sendMessage({
 			'from':'contentscript',
 			'data':{
-				// 'domain':window.location.host,
+				'domain':window.location.host,
 				'domReadyTime':(pageLoadTime.domReady-pageLoadTime.domStart)/1000,
 				'nodeTags':getDomNodes(allElements),
 				'nodeLength':allElements.length
