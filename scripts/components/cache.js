@@ -1,6 +1,6 @@
 //cache control
 define(function(require, exports, module) {
-	return function(win,index){
+	return function(win,index,tabId){
 		var section=win.sections.eq(index),
 			links=section.find('a'),
 			btn=section.find('button'),
@@ -11,7 +11,7 @@ define(function(require, exports, module) {
 			var el=links.eq(i);
 			el.click(function(e){
 				e.preventDefault();
-				chrome.extension.sendMessage({from:'devtools',action:'open',openConfig:{url:el.attr('href'), active:true}});
+				chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'open',openConfig:{url:el.attr('href'), active:true}});
 			});
 		});
 
@@ -23,8 +23,10 @@ define(function(require, exports, module) {
 			chrome.extension.sendMessage(
 				{
 					from:'devtools',
-					action:'clean',
-					cleanConfig:{
+					action:'clear',
+					tabId:tabId,
+					clearConfig:{
+						type:'cache',
 						removeOptions: {
                 			"since": new Date().getTime()-1000*60*60*parseInt(cleanTime.val(),10)
             			},

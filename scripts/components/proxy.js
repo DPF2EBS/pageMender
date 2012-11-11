@@ -45,7 +45,7 @@ define(function(require, exports, module) {
 				if(t){
 					html.push('<h3 class="right-topic">当前代理模式：<span class="c-orange">' + mode[t.mode] + '</span></h3>');
 					
-					html.push('<div class="button proxy-sel"><input type="checkbox" value="" id="enable-proxy" '+(t.mode==='system'?'':'checked')+' />&nbsp;自定义代理<span id="enable-proxy-result" class="status-msg"></span></div>');
+					html.push('<div class="btns proxy-sel"><input type="checkbox" value="" id="enable-proxy" '+(t.mode==='system'?'':'checked')+' />&nbsp;自定义代理<span id="enable-proxy-result" class="status-msg"></span>');
 					
 					if(!t.rules){
 						t.rules={
@@ -57,7 +57,7 @@ define(function(require, exports, module) {
     						bypassList: ["<local>"]
 						};
 					}
-					html.push('<fieldset class="button field-set" style="display:'+(t.mode==='system'?'none':'block')+';"><legend>代理设置</legend>');
+					html.push('<fieldset class="field-set" style="display:'+(t.mode==='system'?'none':'block')+';">');
 					var tt=t.rules,selects=[];
 					//rules
 					for(var k in tt){
@@ -68,14 +68,12 @@ define(function(require, exports, module) {
 						for(var sc=0,scL=schemes.length;sc<scL;sc++){
 							selects.push('<option value="'+schemes[sc]+'" '+(tt[k]['scheme']===schemes[sc]?'selected':'')+'>'+schemes[sc]+'</option>');
 						}						
-						html.push('<li class="proxy-item"><label>传输协议:</label><select class="select-stl" name="scheme">'+selects.join('')+'</select></li>');
+						html.push('<li class="proxy-item"><label>协议:</label><select class="select-stl" name="scheme">'+selects.join('')+'</select></li>');
 						html.push('<li class="proxy-item"><label>主机:</label><input name="host" type="text" value="'+tt[k]['host']+'" /></li>');
 						html.push('<li class="proxy-item"><label>端口:</label><input name="port" type="text" value="'+tt[k]['port']+'" /></li>');
-						html.push('</ul>');
 					}
-					html.push('<div><label style="vertical-align: middle;">旁路:<textarea cols="23" rows="4" name="bypassList" style="vertical-align: middle;margin-left:24px;">'+tt['bypassList']+'</textarea></label></div>');
-					html.push('<div class="proxy-sty"><button class="button" id="save-proxy">保存</button></div>');
-					html.push('</fieldset>');		
+					html.push('<li><label>旁路:</label><textarea cols="23" rows="2" name="bypassList">'+tt['bypassList']+'</textarea><button class="button" id="save-proxy">保存</button></li></ul>');
+					html.push('</fieldset></div>');		
 				}
 			}else{
 				html.push('抱歉，无法读取代理设置!');
@@ -88,7 +86,7 @@ define(function(require, exports, module) {
 			enableProxy.change(function(){
 				if(this.checked){
 					// setProxy(section);
-					section.find('#enable-proxy-result').html('设置您所希望的代理吧!').fadeIn().delay(1000).fadeOut();
+					// section.find('#enable-proxy-result').html('设置您所希望的代理吧!').fadeIn().delay(1000).fadeOut();
 					section.find('fieldset').slideDown();
 				}else{
 					resetProxy(section);
@@ -105,7 +103,7 @@ define(function(require, exports, module) {
 					};
 
 				config.rules.bypassList=[].concat(textarea.eq(0).val().split(','));
-				config.rules.singleProxy={
+				config.rules.singleProxy = {
 					scheme: scheme.eq(0).val(),
       				host: input.eq(0).val(),
       				port:parseInt(input.eq(1).val(),10)
@@ -125,13 +123,13 @@ define(function(require, exports, module) {
 		};
 		chrome.extension.sendMessage({from:'devtools',action:'set', settingsConfig:{target:'proxy',options:config}}, function(response) {
 			if(response&&response.proxySetting==='success'){				
-				section.find('#enable-proxy-result').html('取消代理成功!').fadeIn().delay(1000).fadeOut();
+				// section.find('#enable-proxy-result').html('取消代理成功!').fadeIn().delay(1000).fadeOut();
 				section.find('h3>span').html('系统设置');
 			};
 		});
 	}
 
-	return function(win,index){
+	return function(win,index,tabId){
 		var section=win.sections.eq(index);
 		win.subMenu.eq(index).click(function(){
 			getProxy(section);

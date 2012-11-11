@@ -1,100 +1,81 @@
 //get requests
 define(function(require, exports, module) {
-	return function(win,index){
-		var section=win.sections.eq(index);
-
-        // 转化为汉字
-        function transforHZ (E) {
-            var HZ = '';
-            switch (E) {
-                case 'document':
-                    HZ = '文档';
-                    break;
-                case 'script':
-                    HZ = '脚本';
-                    break;
-                case 'stylesheet':
-                    HZ = '样式';
-                    break;
-                case 'xhr':
-                    HZ = '异步';
-                    break;
-                case 'image':
-                    HZ = '图片';
-                    break;
-                case 'other':
-                    HZ = '其它';
-                    break;
-            }
-            return HZ;
-        }
+	return function(win,index,tabId){
+		var section=win.sections.eq(index),
+			resData={
+				'document':{
+					name:'文档'
+				},
+				'stylesheet':{
+					name:'样式'
+				},
+				'script':{
+					name:'脚本'
+				},
+				'image':{
+					name:'图片'
+				},			
+				'xhr':{
+					name:'异步'
+				},				
+				'other':{
+					name:'其它'
+				}
+			};
 
 		win.subMenu.eq(index).click(function(e){
-		e.preventDefault();
+		    e.preventDefault();
 
 			chrome.devtools.inspectedWindow.getResources(function(resources){						
 				var count=resources.length,
+                    resourcesCount=0,
                     R,
                     res={},
-                    html=[],
-                    documentHtml = '', di = 0,
-                    scriptHtml = '', si = 0,
-                    styleHtml = '', sj = 0,
-                    xhrHtml = '', xi = 0,
-                    otherHtml = '', oi = 0,
-                    imageHtml = '', ii = 0;
+                    html=[]
+                    htmlCom=[];
 
 				for(var i=0;i<count;i++){
 					R = resources[i];
 					if (/^chrome/.test(R.url) || (R.url.indexOf(":") < 0 )) { continue; }
-					!res[R.type] ? (res[R.type] = 1) : res[R.type]++;
-                    switch(R.type) {
-                        case 'document':
-                            documentHtml += '<p><span class="index">(' + (++di) + ')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>';
-                            break;
-                        case 'script':
-                            scriptHtml += '<p><span class="index">(' + (++si) + ')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>';
-                            break;
-                        case 'stylesheet':
-                            styleHtml += '<p><span class="index">(' + (++sj) + ')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>';
-                            break;
-                        case 'image':
-                            imageHtml += '<p><span class="index">(' + (++ii) + ')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>';
-                            break;
-                        case 'xhr':
-                            xhrHtml += '<p><span class="index">(' + (++xi) + ')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>';
-                            break;
-                        case 'other':
-                            otherHtml += '<p><span class="index">(' + (++oi) + ')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>';
-                            break;
+                    resourcesCount++;
+
+                    if(!res[R.type]){
+                    	res[R.type] = 1;
+                    	resData[R.type].html=[];
+                    }else{
+                    	res[R.type]++;
                     }
+					resData[R.type].html.push('<p><span class="index">('+res[R.type]+')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>');
 				}
 
-                // resource types and count
+				html.push("<h3 class='right-topic'>网页加载资源：<strong>" + resourcesCount + '</strong>&nbsp;个</h3>');
                 html.push('<div class="center">');
-                for(var key in res) {
-                    if (key == 'script') {
-                        html.push('<a title="点击查看' + key + '详情" class="button req-inner-link active ' + key + '><span class="b font14">' + res[key] + '</span>&nbsp;|&nbsp;<span class="'+ key +'">' + transforHZ(key) + '</span></a>');
-                    } else {
-                        html.push('<a title="点击查看' + key + '详情" class="button req-inner-link ' + key + '><span class="b font14">' + res[key] + '</span>&nbsp;|&nbsp;<span class="'+ key +'">' + transforHZ(key) + '</span></a>');
-                    }
+                html.push('<a title="点击查看全部详情" class="button req-inner-link"><span class="b font14">' + resourcesCount + '</span>&nbsp;|&nbsp;<span>所有</span></a>');
+                for(var key in resData) {
+                	if(!res[key]){continue;}
+                	
+                    html.push('<a title="点击查看' + key + '详情" class="button req-inner-link"><span class="b font14">' + res[key] + '</span>&nbsp;|&nbsp;<span class="'+ key +'">' + resData[key].name + '</span></a>');
+                	
+                	htmlCom.push('<div class="com">' + resData[key].html.join('') + '</div>');
                 }
                 html.push('</div>');
-                html.push(('<div class="com Hide">' + documentHtml + '</div>') || '');
-                html.push(('<div class="com Hide">' + styleHtml + '</div>') || '');
-                html.push(('<div class="com">' + scriptHtml + '</div>') || '');
-                html.push(('<div class="com Hide">' + imageHtml + '</div>') || '');
-                html.push(('<div class="com Hide">' + xhrHtml + '</div>') || '');
-                html.push(('<div class="com Hide">' + otherHtml + '</div>') || '');
-
-
-				html=["<h3 class='right-topic'>网络请求数：<strong>" + resources.length + '</strong>&nbsp;个</h3>'].concat(html);
+                html=html.concat(htmlCom);			
 
 				section.html(html.join(''));
 
+                var com=section.find("div.com"),
+                    tabs=section.find("a.req-inner-link");
+                tabs.each(function(index){
+                    tabs.eq(index).click(function(){
+                        if(index===0){
+                            com.slideDown();
+                        }else{
+                            com.slideUp();
+                            com.eq(index-1).slideDown();
+                        }
+                    });                    
+                });
 			});
 		});
-
-
 	}
 });
