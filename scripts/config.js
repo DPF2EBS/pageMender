@@ -29,16 +29,17 @@ var config={
 					"name":"缓存控制",
 					"module":"cache",
 					"contentHTML":'<div class="center">\
-					<a class="button cache-link" href="chrome://cache" target="_blank">查看缓存</a>\
-					<a class="button cache-link" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\
-					<div class="cache-clear"><select name="" id="">\
-						<option value="1">过去一小时</option>\
-						<option value="24">最近一天</option> <option value="168">最近一周</option>\
-						<option value="672">最近四周</option>\
-						<option value="26280">所有</option></select>\
+					<div class="cache-clear Hide"><select name="" id="">\
+						<option value="26280">所有</option>\
+						<option value="1">过去一小时</option><option value="24">最近一天</option><option value="168">最近一周</option>\
+						<option value="672">最近四周</option></select>\
 						<button class="button cache-btn">清理缓存</button>\
 						<p class="c-orange" style="font-size:14px;"></p>\
-					</div></div>'
+					</div>\
+					<a class="button cache-link" href="chrome://cache" target="_blank">查看缓存</a>\
+					<a class="button cache-link" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\
+					<a class="button cache-link" href="#">清理缓存</a>\
+					</div>'
 				},
 				{
 					"name":"代理设置",
