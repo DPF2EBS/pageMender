@@ -87,10 +87,10 @@ define(function(require, exports, module) {
 				if(this.checked){
 					// setProxy(section);
 					// section.find('#enable-proxy-result').html('设置您所希望的代理吧!').fadeIn().delay(1000).fadeOut();
-					section.find('fieldset').slideDown();
+					section.find('fieldset').show();
 				}else{
 					resetProxy(section);
-					section.find('fieldset').slideUp();
+					section.find('fieldset').hide();
 				};
 			});
 
