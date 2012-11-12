@@ -69,8 +69,7 @@ i{
 }
 .Hide { display: none;}
 /*-----------aside-------------*/
-aside.left{position:fixed; top:0px;width:220px; background-color:#D6DDE5; height:100%; overflow: auto;z-index: 20;  border-right:#adadad 1px solid;-webkit-box-shadow: 1px 0px 15px #999;box-shadow: 1px 0px 15px #999;
-}
+aside.left{position:fixed; top:0px;width:220px; background-color:#D6DDE5; height:100%; overflow: auto;z-index: 20;  border-right:#adadad 1px solid;-webkit-box-shadow: 1px 0px 15px #999;box-shadow: 1px 0px 15px #999;}
 
 .item-lists{padding:0px 0px 10px;}
 .item-lists ul{list-style: none;}
@@ -94,7 +93,6 @@ article.right section, article.right .welcome {display: none; margin-left: 220px
 article.right .welcome{display: block;}
 article section a{text-decoration: none;}
 article section a:hover{text-decoration:underline;}
-
 
 /*-------------------scroll-bar[by Google]------------------------*/
 
@@ -219,26 +217,27 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
 .load-desc {padding: 15px 30px;margin-top:30px;margin-right:60px;}
 
 /* ---------------------------- Cookie管理 -------------------------------*/
-.ck-list {width:100%;}
+.ck-list {width:100%;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
+  background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);}
 .ck-wrap { float:left;width:45%;margin-left:20px;background-color:#FFF;border:1px solid #CCC;margin:5px;padding:5px;}
 .ck-wrap a {cursor: pointer;}
 .ck-wrap .ck-look {text-align: center;}
-.ck-list .ck-item { margin:-1px;display:block;height:30px;line-height:30px;border:1px solid #CCC;padding:5px;padding-left:15px;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
-    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
-}
-.ck-list .ck-item input { padding:3px;border:1px solid #CCC;min-width:200px;line-height: 18px;color:#444;font-size: 14px;}
+.ck-list .ck-item { margin:-1px;display:block;height:30px;line-height:30px;border:1px solid #CCC;padding:5px;padding-left:15px;}
+.ck-list .ck-item input { padding:2px;border:1px solid #CCC;min-width:200px;line-height: 18px;color:#666;font-size: 12px;}
+.ck-list .ck-item label { font-family:'Arial', 'Courier', 'consolas';color:#666;font-weight: normal;padding-right: 6px;}
+.ck-list .ck-item textarea {padding:2px;border:1px solid #CCC;color:#666;font-size: 12px;}
 .c-gray {color:#666;}
 .c-blue {color:#08c;}
 .c-red {color:#D20909;}
 .c-orange {color:#F60;}
 .c-black {color:#444;}
 /* ---------------------------- 缓存管理 -------------------------------*/
-.cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:20px;}
+.cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:10px;}
 .cache-link:hover,.sv-link:hover {text-decoration:none;}
 .cache-btn {padding:6px 10px;}
-.cache-clear { margin-left:28px;margin-top:5px;}
+.cache-clear { margin:10px 100px;margin-top:5px;}
 .cache-clear select {padding:2px;}
+.cache-button {padding:15px 20px;cursor: pointer;}
 .sv-link {float:left;height:30px;line-height:30px;}
 /* ---------------------------- 脚本禁用 -------------------------------*/ 
 .script-line {height:30px; line-height: 30px;margin:20px;vertical-align: baseline;
@@ -286,7 +285,7 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
     width:96%;
     min-width: 760px;
     font-size: 13px;
-    margin:0px auto 0px;
+    margin:5px auto 10px;
     float:none;
     padding: 0px;
     height: auto;
@@ -299,16 +298,20 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
     clear: both;
     visibility: hidden;
   }
-  .cookie dt{
-    font-weight:bold;
+  .cookie dt.line-style0 {
     font-size: 14px;
-    padding:4px 8px;    
-    cursor: pointer;    
+    padding:2px 8px;
+    cursor: pointer;
+    /*border:1px solid #EFEFEF;*/
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f5f5f5), color-stop(1, #e0e0e0) );
+    background-image: linear-gradient(to bottom, #FAFAFA 0px, #DCDCDC 100%);
   }
-  .clist:nth-child(odd){
-  	border-left: rgb(252,255,244) 1px solid;
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1)));
-    background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+  .cookie dt.line-style1 {
+    font-size: 14px;
+    padding:2px 8px;
+    cursor: pointer;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
+    background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
   }
   .clist:nth-child(even){
 	background: rgb(252,255,244); /* Old browsers */
@@ -322,10 +325,10 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
     height:24px;
     line-height: 24px;
   }
-  .cookie .content{float:left; line-height: 24px;}
-  .cookie .ckname{float:left; line-height: 24px;}
-  .cookie .content label{display:inline-block; padding:0px 4px 0px 0px; min-width: 80px;}
-  .cookie .content span{color:#6c6c6c; min-width:100px;height:24px; overflow: hidden; padding:0px 16px 0px 2px;display: inline-block;}
+  .cookie .content{float:left; line-height: 30px;}
+  .cookie .ckname{float:left; line-height: 30px;color:#08c;text-shadow:1px 1px 1px #FFF;}
+  .cookie .content label{display:inline-block; padding:0px 4px 0px 0px;color:#08c;text-shadow:1px 1px 1px #FFF;}
+  .cookie .content span{color:#6c6c6c; min-width:100px;height:30px; overflow: hidden; padding:0px 16px 0px 10px;display: inline-block;}
   .cookie .buttons{float:right;}
   .cookie .ck-item{
     height:auto;
@@ -338,8 +341,8 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
     padding:0px;
     margin:0px;
   }
+  .ctitle {font-weight: normal;font-family:'Arial', 'Courier', 'consolas';}
   .cookie button{vertical-align: middle;}
   .cookie textarea,.cookie input[type="text"]{vertical-align: top; min-width: 280px; width:38%;}
   .cookie textarea{min-height: 20px;}
   .cookie input[type='checkbox']{width:auto;min-width: auto; vertical-align: middle; margin:0px; padding:0px;}
-
