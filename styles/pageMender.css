@@ -78,7 +78,7 @@ aside.left{
   background-color:#D6DDE5; 
   height:100%;
   overflow-x: hidden;
-  overflow-y:scroll;
+  overflow-y:auto;
   zoom:101%;
   z-index: 20;  
   border-right:#adadad 1px solid;
