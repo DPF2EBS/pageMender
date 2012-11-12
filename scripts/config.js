@@ -31,7 +31,7 @@ var config={
 					"contentHTML":'<div class="center">\
 					<a class="button link cache-link" href="chrome://cache" target="_blank">查看缓存</a>\
 					<a class="button btn cache-link" href="#">清理缓存</a>\
-					<a class="button link cache-link" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\					
+					<a class="button link cache-link" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\
 					<div class="cache-clear"><select name="" id="" class="Hide">\
 						<option value="26280">所有</option>\
 						<option value="1">过去一小时</option><option value="24">最近一天</option><option value="168">最近一周</option>\
