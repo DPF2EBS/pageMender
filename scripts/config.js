@@ -30,13 +30,11 @@ var config={
 					"module":"cache",
 					"contentHTML":'<div class="center">\
 					<div class="cache-clear">\
-						<button class="button cache-button cache-btn">清理所有缓存</button>\
-						<button class="button cache-button" value="1">清除过去一小时缓存</button>\
-						<button class="button cache-button" value="24">清除最近一天缓存</button>\
-						<button class="button cache-button" value="168">清除最近一周缓存</button>\
-						<button class="button cache-button" value="672">清除最近四周缓存</button>\
+						<a class="button cache-button">清理所有缓存</a>\
+						<a class="button cache-link cache-button" href="chrome://cache" target="_blank">查看缓存</a>\
+						<a class="button cache-link cache-button" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\
 						<p class="c-orange" style="font-size:14px;"></p>\
-					</div><a class="button cache-link" href="chrome://cache" target="_blank">查看缓存</a><a class="button cache-link" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a></div>'
+					</div></div>'
 				},
 				{
 					"name":"代理设置",

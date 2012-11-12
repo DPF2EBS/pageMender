@@ -218,7 +218,7 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
     width:96%;
     min-width: 760px;
     font-size: 13px;
-    margin:5px auto 10px;
+    margin:5px auto 5px;
     float:none;
     padding: 0px;
   }
@@ -252,8 +252,8 @@ background:-webkit-linear-gradient(top center , rgba(0, 0, 0, 0.12), rgba(0, 0, 
   }
   .cookie .content{float:left; line-height: 30px;}
   .cookie .ckname{float:left; line-height: 30px;color:#08c;text-shadow:1px 1px 1px #FFF;}
-  .cookie .content label{display:inline-block; padding:0px 4px 0px 0px;color:#08c;text-shadow:1px 1px 1px #FFF;}
-  .cookie .content span{color:#6c6c6c; min-width:100px;height:30px; overflow: hidden; padding:0px 16px 0px 10px;display: inline-block;}
+  .cookie .content label{display:inline-block; padding:0px 4px 0px 0px;color:#08c;text-shadow:1px 1px 1px #FFF;float: left;}
+  .cookie .content span{color:#6c6c6c; min-width:100px;height:30px;line-height: 30px;float: left; overflow: hidden; padding:0px 16px 0px 10px;display: inline-block;}
   .cookie .buttons{float:right;}
   .cookie .ck-item{
     height:auto;
