@@ -45,7 +45,7 @@ define(function(require, exports, module) {
 				if(t){
 					html.push('<h3 class="right-topic">当前代理模式：<span class="c-orange">' + mode[t.mode] + '</span></h3>');
 					
-					html.push('<div class="btns proxy-sel"><input type="checkbox" value="" id="enable-proxy" '+(t.mode==='system'?'':'checked')+' />&nbsp;自定义代理<span id="enable-proxy-result" class="status-msg"></span>');
+					html.push('<div class="btns proxy-sel"><label><input type="checkbox" value="" id="enable-proxy" '+(t.mode==='system'?'':'checked')+' />&nbsp;自定义代理</label><span id="enable-proxy-result" class="status-msg"></span>');
 					
 					if(!t.rules){
 						t.rules={
@@ -87,10 +87,10 @@ define(function(require, exports, module) {
 				if(this.checked){
 					// setProxy(section);
 					// section.find('#enable-proxy-result').html('设置您所希望的代理吧!').fadeIn().delay(1000).fadeOut();
-					section.find('fieldset').slideDown();
+					section.find('fieldset').show();
 				}else{
 					resetProxy(section);
-					section.find('fieldset').slideUp();
+					section.find('fieldset').hide();
 				};
 			});
 
