@@ -30,7 +30,7 @@ var config={
 					"module":"cache",
 					"contentHTML":'<div class="center">\
 					<div class="cache-clear">\
-						<a class="button cache-button">清理所有缓存</a>\
+						<a class="button cache-button" id="clearAll">清理所有缓存</a>\
 						<a class="button cache-link cache-button" href="chrome://cache" target="_blank">查看缓存</a>\
 						<a class="button cache-link cache-button" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\
 						<p class="c-orange" style="font-size:14px;"></p>\
@@ -96,7 +96,7 @@ var config={
 						<li><label for="">间隔时间:&nbsp;<input type="text" name="" id="" value="3"/>&nbsp;秒</label></li>\
 						<li><label for="">循环次数:&nbsp;<input type="text" name="" id="" value="5"/>&nbsp;次</label></li>\
 						<li><button class="button cache-btn">开始刷新</button></li>\
-						<li><p class="c-orange" style="font-size:14px;">已刷新0次</p></li>\
+						<li><p class="c-orange" style="font-size:14px;"></p></li>\
 					</ul></div>'
 
 				}

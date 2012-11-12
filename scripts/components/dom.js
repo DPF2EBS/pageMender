@@ -42,33 +42,42 @@ define(function(require, exports, module) {
 							var keys=[],result={},dataTemp={};
 							for(var k in data){
 								if(result[data[k]]){
+									//{Number:[tagNames]}
 									result[data[k]].push(k);
 								}else{
+									//keys==>Number Array
 									keys.push(data[k]);
 									result[data[k]]=[k];
 								}
 							}
 
-							keys.sort(function(a,b){return a-b;});
+							keys.sort(function(a,b){return b-a});
 
-							for(var i=0,L=keys.length;i<L;i++){
+							dataTemp.keys=keys;
+							dataTemp.result=result;
+
+							/*for(var i=0,L=keys.length;i<L;i++){
 								dataTemp[keys[i]]=result[keys[i]];
-							}
+							}*/
+
 							nodeData.tagNumber=dataTemp;
 						}
 
-						data=nodeData.tagNumber;	
+						data=nodeData.tagNumber;
 					}
 
-					for(var key in data){
-						if(this.value!=='tagNumber'){
+					
+					if(this.value!=='tagNumber'){
+						for(var key in data){
 							orderHTML.push('<a class="btns dom-tags"><span class="red-dot">' + data[key] + '</span>' + key + '</a>');
-						}else{
-							data[key].forEach(function(item){
-								orderHTML.push('<a class="btns dom-tags"><span class="red-dot">' + key + '</span>' + item + '</a>');
-							});
-						}					
-					}
+						}							
+					}else{
+						data.keys.forEach(function(number){
+							data.result[number].forEach(function(tagName){
+								orderHTML.push('<a class="btns dom-tags"><span class="red-dot">' + number + '</span>' + tagName + '</a>');
+							});							
+						});
+					}					
 
 					section.find('div.cont-wrap').html(orderHTML.join(''));
 				});
