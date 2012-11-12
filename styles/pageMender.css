@@ -267,7 +267,7 @@ background-image:url(../icons/body-bg.png);
 .personel-btns { padding:20px 30px;}
 /* ---------------------------- Ajax测试 -------------------------------*/
 .ajax-list li {line-height:32px;}
-.ajax-list li label {margin-right:10px;display:inline-block;width:60px;}
+.ajax-list li label {margin-right:10px;display:inline-block;width:60px;font-family:'Microsoft YaHei', 'Courier', 'consolas';font-size:13px;color: #444;}
 .ajax-list li input, .ajax-list li textarea {border:1px solid #CCC;color:#666;font-size:12px; padding:5px; line-height: 150%;}
 .ajax-list li input {height:20px;padding:2px 3px;width:200px;}
 .ajax-list li textarea { vertical-align:top; width:80%;}
