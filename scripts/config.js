@@ -61,7 +61,7 @@ var config={
 					"name":"Ajax测试",
 					"module":"ajaxTester",
 					"contentHTML":'<h3 class="right-topic">Ajax测试</h3>\
-					<div class="ajax-wrap">\
+					<div class="ajax-wrap btns">\
 						<ul class="ajax-list">\
 							<li><label for="">传递数据:</label><textarea cols="60" rows="2" placeholder="JSON数据格式{\'key\':\'value\'}"></textarea></li>\
 							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="URL Address"/><button class="ajax-btn">加载数据</button></li>\
@@ -100,8 +100,8 @@ var config={
 					<ul class="btns auto-reload">\
 						<li><label for="">间隔时间:&nbsp;<input type="text" name="" id="" value="3"/>&nbsp;秒</label></li>\
 						<li><label for="">循环次数:&nbsp;<input type="text" name="" id="" value="5"/>&nbsp;次</label></li>\
-						<li><button class="button cache-btn">开始刷新</button></li>\
-						<li><p class="c-orange" style="font-size:14px;"></p></li>\
+						<li><button class="button" style="margin:0px;">开始刷新</button></li>\
+						<li class="last"><p class="c-orange" style="font-size:14px;"></p></li>\
 					</ul></div>'
 
 				}

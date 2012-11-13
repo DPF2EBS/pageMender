@@ -77,9 +77,9 @@ aside.left{position:fixed; top:0px;width:220px; background-color:#D6DDE5; height
 .item-lists dt {border-width:0px 0px 1px 0px; color:#2d2d2d; border-color:#ADADAD; border-style:solid;  line-height: 32px;  padding:0px 0px 0px 30px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,240,240,1)), color-stop(100%,rgba(212,212,212,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  rgba(240,240,240,1) 0%,rgba(212,212,212,1) 100%); /* Chrome10+,Safari5.1+ */
-    cursor: pointer;font-family: 'Microsoft YaHei', 'arial'; }
+    cursor: pointer;font-family: 'Microsoft YaHei', 'arial';font-size: 13px; }
 .item-lists li{line-height:24px;}
-.item-lists li a{ padding:0px 0px 0px 70px; display:block;text-decoration: none; color:#444;font-size:12px;line-height:24px;}
+.item-lists li a{ padding:0px 0px 0px 70px; display:block;text-decoration: none; color:#444;font-size:12px;line-height:24px;font-family: 'Microsoft YaHei', 'arial';}
 .item-lists li a:hover, .item-lists li.active a,
 .item-lists li.active a:hover{color: #EFEFEF;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(0%,rgba(255,255,255,1)), color-stop(0%,rgba(91,146,212,1)), color-stop(100%,rgba(25,87,173,1))); /* Chrome,Safari4+ */
@@ -212,8 +212,8 @@ background-image:url(../icons/body-bg.png);
 .ga-item .index, .com .index { padding:0 5px 0 10px;width:30px;display:inline-block;color:#F60;font-weight:500;}
 
 /* ---------------------------- 加载时间 -------------------------------*/
-.load-name {border-bottom:1px solid #BBB;color:#666;font-size:14px;}
-.load-time {color:#F60;font-size:14px;}
+.load-name {border-bottom:1px solid #BBB;color:#666;font-size:12px;}
+.load-time {color:#08c;font-size:14px;font-family:'Arial', 'Courier', 'consolas';}
 .load-desc {padding: 15px 30px;margin-top:30px;margin-right:60px;}
 
 /* ---------------------------- Cookie管理 -------------------------------*/
@@ -268,16 +268,17 @@ border-left: 6px solid #CCC;
 .personel-btns { padding:20px 30px;}
 /* ---------------------------- Ajax测试 -------------------------------*/
 .ajax-list li {line-height:32px;}
-.ajax-list li label {margin-right:10px;display:inline-block;width:60px;font-family:'Microsoft YaHei', 'Courier', 'consolas';font-size:13px;color: #444;}
+.ajax-list li label {margin-right:10px;display:inline-block;width:60px;font-family:'Microsoft YaHei', 'Courier', 'consolas';font-size:12px;color: #666;}
 .ajax-list li input, .ajax-list li textarea {border:1px solid #CCC;color:#666;font-size:12px; padding:5px; line-height: 150%;}
 .ajax-list li input {height:20px;padding:2px 3px;width:200px;}
 .ajax-list li textarea { vertical-align:top; width:80%;}
-.ajax-wrap { margin-left:5%; margin-right:5%; width:80%;padding-left:3%;padding-right:3%; margin-top:6px;}
+.ajax-wrap { margin-left:5%; margin-right:5%; width:80%;padding-left:3%;padding-right:3%; margin-top:6px;margin-top: 20px;}
 .ajax-btn {cursor: pointer;margin:0px 0px 0px 10px;padding:4px 10px;}
 /* ---------------------------- 自动刷新 -------------------------------*/
-.auto-reload {padding:5px 40px; } 
+.auto-reload {padding:5px 40px;width: 30%;} 
 .auto-reload li {height:40px;line-height:40px;}
-.auto-reload input { padding:2px 3px;width:40px;border:1px solid #CCC;height:20px;}
+.auto-reload li.last {height: 20px; line-height: 20px;}
+.auto-reload input { padding:2px 4px;width:40px;border:1px solid #CCC;height:22px;}
 /* ------------------------------ 标准验证 -----------------------------*/
 .standard-validator, .clear-form { margin-left:35%;}
 
