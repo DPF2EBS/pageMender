@@ -2,8 +2,8 @@
 define(function(require, exports, module) {
 	return function(win,index,tabId){
 		var section=win.sections.eq(index),
-			links=section.find('a'),
-			btn=section.find('button'),
+			links=section.find('a.link'),
+			btn=section.find('a.btn'),
 			status=section.find('p'),
 			cleanTime=section.find('select').eq(0);
 
@@ -39,6 +39,7 @@ define(function(require, exports, module) {
 					if(response&&response==='finished'){
 						btn.removeAttr("disabled");
 						status.html('清理完成！');
+						setTimeout(function(){status.html('');},2000);
 					}
 				}
 			);		
