@@ -176,10 +176,11 @@ article section a:hover{text-decoration:underline;}
                       inset -1px -1px 0px  rgba(0,0,0,0.07);
 }
 
-.welcome {margin:30px auto;text-align: center;}
+.welcome {margin:12px auto;text-align: center;}
 .welcome p {line-height:30px;color:#666;text-shadow: 1px 1px 1px #FFF;}
 .main-title {font-size:16px;}
 .main-intro {font-size:14px;line-height: 30px;}
+.main-intro a {font-size: 14px;}
 .center {text-align: center;}
 /* ----------------------- DOM节点数  ------------------------- */
 .right-topic { height:30px;text-align:center;line-height:30px;text-shadow:1px 1px 1px #FFFFFF;-webkit-box-shadow: 0px 1px 10px #999;box-shadow: 0px 1px 10px #999;
@@ -272,7 +273,7 @@ border-left: 6px solid #CCC;
 .ajax-list li input, .ajax-list li textarea {border:1px solid #CCC;color:#666;font-size:12px; padding:5px; line-height: 150%;}
 .ajax-list li input {height:20px;padding:2px 3px;width:200px;}
 .ajax-list li textarea { vertical-align:top; width:80%;}
-.ajax-wrap { margin-left:5%; margin-right:5%; width:80%;padding-left:3%;padding-right:3%; margin-top:6px;margin-top: 20px;}
+.ajax-wrap { margin-left:5%; margin-right:5%; width:80%;padding-left:3%;padding-right:3%; margin-top:6px;margin-top: 12px;}
 .ajax-btn {cursor: pointer;margin:0px 0px 0px 10px;padding:4px 10px;}
 /* ---------------------------- 自动刷新 -------------------------------*/
 .auto-reload {padding:5px 40px;width: 30%;} 
@@ -345,5 +346,5 @@ border-left: 6px solid #CCC;
   .cookie textarea,.cookie input[type="text"]{vertical-align: top; min-width: 280px; width:38%;}
   .cookie textarea{min-height: 20px;}
   .cookie input[type='checkbox']{width:auto;min-width: auto; vertical-align: middle; margin:0px; padding:0px;}
-  .info {text-shadow:1px 1px 1px #FFF;margin-top:30px;margin-left:20%;margin-right:20%;text-align: left;line-height: 30px;padding:30px;}
+  .info {text-shadow:1px 1px 1px #FFF;margin-top:12px;margin-left:20%;margin-right:20%;text-align: left;line-height: 30px;padding:30px;}
   .lft {margin-left:220px;}
