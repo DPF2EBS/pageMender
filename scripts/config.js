@@ -61,7 +61,7 @@ var config={
 					"name":"Ajax测试",
 					"module":"ajaxTester",
 					"contentHTML":'<h3 class="right-topic">Ajax测试</h3>\
-					<div class="ajax-wrap">\
+					<div class="ajax-wrap btns">\
 						<ul class="ajax-list">\
 							<li><label for="">传递数据:</label><textarea cols="60" rows="2" placeholder="JSON数据格式{\'key\':\'value\'}"></textarea></li>\
 							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="URL Address"/><button class="ajax-btn">加载数据</button></li>\
@@ -76,7 +76,7 @@ var config={
 				{
 					"name":"GA检查",
 					"module":"GAValidator",
-					"contentHTML":'<h3 class="right-topic">GA统计代码<h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
+					"contentHTML":'<h3 class="right-topic">GA统计代码</h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
 				},
 				// {
 				// 	"name":"压缩检查",
@@ -86,7 +86,7 @@ var config={
 				{
 					"name":"表单清除",
 					"module":"clearForm",
-					"contentHTML":'<h3 class="right-topic">表单清理<h3><div class="clear-form"><p class="sv-link"><a class="button" href="#" rel="formInput">清理Form表单</a></p><p class="sv-link"><a class="button" href="#" rel="allInput">清理所有表单</a></p></div>'
+					"contentHTML":'<h3 class="right-topic">表单清理</h3><div class="clear-form"><p class="sv-link"><a class="button" href="#" rel="formInput">清理Form表单</a></p><p class="sv-link"><a class="button" href="#" rel="allInput">清理所有表单</a></p></div>'
 				}
 			]
 		},
@@ -100,8 +100,8 @@ var config={
 					<ul class="btns auto-reload">\
 						<li><label for="">间隔时间:&nbsp;<input type="text" name="" id="" value="3"/>&nbsp;秒</label></li>\
 						<li><label for="">循环次数:&nbsp;<input type="text" name="" id="" value="5"/>&nbsp;次</label></li>\
-						<li><button class="button cache-btn">开始刷新</button></li>\
-						<li><p class="c-orange" style="font-size:14px;"></p></li>\
+						<li><button class="button" style="margin:0px;">开始刷新</button></li>\
+						<li class="last"><p class="c-orange" style="font-size:14px;"></p></li>\
 					</ul></div>'
 
 				}
@@ -113,8 +113,8 @@ var config={
 		  "submenu":[
 			{
 				"name":"插件简介",
-				"contentHTML":'<div class="center welcome">\
-					<p class="main-intro">PageMender由点评前端团队开发，它包含了一系列的页面分析和测试工具。<br/>功能选择主要面向[前端开发、QA、后端开发人员]，非常欢迎非技术人员也试用我们的插件。<br/>希望我们的努力能给您的工作提供方便，感谢您的支持！<br/>\
+				"contentHTML":'<h3 class="right-topic">插件简介</h3><div class="center info btns">\
+					<p class="main-intro">PageMender由点评前端团队开发，它包含了一系列的页面分析和测试工具。功能选择主要面向[前端开发、QA、后端开发人员]，非常欢迎非技术人员也试用我们的插件。希望我们的努力能给您的工作提供方便，感谢您的支持！<br/>\
 					</p></div>'
 			},
 			{
