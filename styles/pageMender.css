@@ -219,12 +219,12 @@ background-image:url(../icons/body-bg.png);
 
 /* ---------------------------- Cookie管理 -------------------------------*/
 .ck-list {width:100%;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
-border-left: 6px solid #CCC;
+border-left: 10px solid #CCC;
   background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);}
-.ck-wrap { float:left;width:45%;margin-left:20px;background-color:#FFF;border:1px solid #CCC;margin:5px;padding:5px;}
+.ck-wrap { float:left;width:45%;margin-left:20px;background-color:#FFF;border:1px solid #CCC;border-left:0 none;margin:5px;padding:5px;}
 .ck-wrap a {cursor: pointer;}
 .ck-wrap .ck-look {text-align: center;}
-.ck-list .ck-item { margin:-1px;display:block;height:30px;line-height:30px;border:1px solid #CCC;padding:5px;padding-left:15px;}
+.ck-list .ck-item { margin:-1px;display:block;height:30px;line-height:30px;border:1px solid #CCC;border-left:0 none;padding:5px;padding-left:15px;}
 .ck-list .ck-item input { padding:2px;border:1px solid #CCC;min-width:200px;line-height: 18px;color:#666;font-size: 12px;}
 .ck-list .ck-item label { font-family:'Arial', 'Courier', 'consolas';color:#666;font-weight: normal;padding-right: 6px;}
 .ck-list .ck-item textarea {padding:2px;border:1px solid #CCC;color:#666;font-size: 12px;}
@@ -305,7 +305,7 @@ border-left: 6px solid #CCC;
     font-size: 14px;
     padding:2px 8px;
     cursor: pointer;
-    border-left:6px solid #FF8B00;
+    border-left:10px solid #FF8B00;
     /*border:1px solid #EFEFEF;*/
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f5f5f5), color-stop(1, #e0e0e0) );
     background-image: linear-gradient(to bottom, #FAFAFA 0px, #DCDCDC 100%);
@@ -313,7 +313,7 @@ border-left: 6px solid #CCC;
   .cookie dt.line-style1 {
     font-size: 14px;
     padding:2px 8px;
-    border-left: 6px solid #9bcA23;
+    border-left: 10px solid #9bcA23;
     cursor: pointer;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
