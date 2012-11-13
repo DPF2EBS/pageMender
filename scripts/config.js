@@ -119,7 +119,7 @@ var config={
 			},
 			{
 				"name":"联系我们",
-				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="button" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(wxwdesign@dianping.com)</a><br /><a class="button" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
+				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(xinwei.wang@dianping.com)</a><br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
 			},
 			{
 				"name":"前端资源",
