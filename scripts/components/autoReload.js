@@ -19,9 +19,10 @@ define(function(require, exports, module) {
 
 			buttons.eq(0).unbind().click(function(){
 				clearTimeout(timer);
-				buttons.eq(0).click(runReload);
+				buttons.eq(0).unbind().click(runReload).html('开始刷新');
 
 				status.html("刷新已终止！");
+				setTimeout(function(){status.html('');},2000);
 				inputs.attr("disabled",false);
 			}).html("停止刷新");
 		};
@@ -46,6 +47,8 @@ define(function(require, exports, module) {
 							timer=setTimeout(function(){reload(interv,times);},interv*1000);
 						}else{
 							status.html("刷新完毕！");
+							buttons.eq(0).unbind().click(runReload).html('开始刷新');
+							setTimeout(function(){status.html('');},2000);
 							inputs.attr("disabled",false);
 						}
 					}

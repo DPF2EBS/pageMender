@@ -28,7 +28,18 @@ var config={
 				{
 					"name":"缓存控制",
 					"module":"cache",
-					"contentHTML":'<div class="center"><a class="button cache-link" href="chrome://cache" target="_blank">查看缓存</a><a class="button cache-link" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a><div class="cache-clear"><select name="" id=""> <option value="1">过去一小时</option> <option value="24">最近一天</option> <option value="168">最近一周</option> <option value="672">最近四周</option> </select> <button class="button cache-btn">清理缓存</button><p class="c-orange" style="font-size:14px;"></p></div></div>'
+					"contentHTML":'<div class="center">\
+					<a class="button btn cache-link" href="#">清理所有缓存</a>\
+					<a class="button link cache-link" href="chrome://cache" target="_blank">查看缓存</a>\
+					<a class="button link cache-link" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\
+					<div class="cache-clear"><select name="" id="" class="Hide">\
+						<option value="26280">所有</option>\
+						<option value="1">过去一小时</option><option value="24">最近一天</option><option value="168">最近一周</option>\
+						<option value="672">最近四周</option></select>\
+						<button class="button cache-btn Hide">清理缓存</button>\
+						<p class="c-orange" style="font-size:14px;"></p>\
+					</div>\
+					</div>'
 				},
 				{
 					"name":"代理设置",
@@ -90,7 +101,7 @@ var config={
 						<li><label for="">间隔时间:&nbsp;<input type="text" name="" id="" value="3"/>&nbsp;秒</label></li>\
 						<li><label for="">循环次数:&nbsp;<input type="text" name="" id="" value="5"/>&nbsp;次</label></li>\
 						<li><button class="button cache-btn">开始刷新</button></li>\
-						<li><p class="c-orange" style="font-size:14px;">已刷新0次</p></li>\
+						<li><p class="c-orange" style="font-size:14px;"></p></li>\
 					</ul></div>'
 
 				}
@@ -102,22 +113,24 @@ var config={
 		  "submenu":[
 			{
 				"name":"插件简介",
-				"contentHTML":'<div class="center"><br/><p class="main-title">欢迎您使用PageMender 1.1版本!</p><p class="main-intro">PageMender由点评前端团队开发，它包含了一系列的页面分析和测试工具。<br/>功能选择主要面向[前端开发、QA、后端开发人员]，非常欢迎非技术人员也试用我们的插件。<br/>希望我们的努力能给您的工作提供方便，感谢您的支持！<br/><br/></p></div>'
+				"contentHTML":'<div class="center welcome">\
+					<p class="main-intro">PageMender由点评前端团队开发，它包含了一系列的页面分析和测试工具。<br/>功能选择主要面向[前端开发、QA、后端开发人员]，非常欢迎非技术人员也试用我们的插件。<br/>希望我们的努力能给您的工作提供方便，感谢您的支持！<br/>\
+					</p></div>'
 			},
 			{
 				"name":"联系我们",
-				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(wxwdesign@dianping.com)</a><br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
+				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(xinwei.wang@dianping.com)</a><br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
 			},
 			{
 				"name":"前端资源",
-				"contentHTML":'<div>\
+				"contentHTML":'<div class="center">\
 					<p class="main-intro">\
-						<a class="btns" href="http://f2e.dp/">F2E Wiki</a>\
-						<a class="btns" target="_blank" href="http://f2e.dp:8011/">NPW</a>\
-						<a class="btns" target="_blank" href="http://f2e.dp/face">Face</a>\
-						<a class="btns" target="_blank" href="http://f2e.dp/blog/">Blog</a>\
-						<a class="btns" target="_blank" href="http://zuji.dianpingoa.com/">足迹</a>\
-						<a class="btns" target="_blank" href="http://f2e.dp/face/open">Lib</a>\
+						<a class="button" href="http://f2e.dp/">F2E Wiki</a>\
+						<a class="button" target="_blank" href="http://f2e.dp:8011/">NPW</a>\
+						<a class="button" target="_blank" href="http://f2e.dp/face">Face</a>\
+						<a class="button" target="_blank" href="http://f2e.dp/blog/">Blog</a>\
+						<a class="button" target="_blank" href="http://zuji.dianpingoa.com/">足迹</a>\
+						<a class="button" target="_blank" href="http://f2e.dp/face/open">Lib</a>\
 					</p>\
 				</div>'
 			}

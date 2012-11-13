@@ -5,42 +5,45 @@ define(function(require, exports, module) {
 			var cookieDomain=response.domain,
 				// cookiesKey=['domain','name','value','expirationDate','path','hostOnly','httpOnly','secure','session','storeId'];
 				html=[];
-
+			var oddOrEven = function (i) {
+				return i%2;
+			};
 			if(response&&response.data&&response.data.constructor===Array&&response.data.length>0){
 				html.push('<h3 class="right-topic">Cookies管理 <a class="button button-cookie-add" href="#">添加Cookie</a><h3>');
 				html.push('<dl class="ck-wrap cookie Hide new-cookie"><dt class="clearfix"><div class="ckname">New Cookie</div></dt><dd class="ck-list"><ul><li class="ck-item"> <label for="" class="c-black">name:</label><input type="text" value="" /><label for="" class="c-black">domain:</label><input type="text" value="" /></li><li class="ck-item"><label for="" class="c-black">value:</label><textarea rows="1"></textarea><label for="" class="c-black">expires:</label><input type="text" value="" /></li><li class="ck-item"> <label for="" class="c-black">hostOnly:</label><span class="c-blue"><input type="checkbox" /></span><label for="" class="c-black">httpOnly:</label><span class="c-blue"><input type="checkbox" /></span><label for="" class="c-black">secure:</label><span class="c-blue"><input type="checkbox" /></span><label for="" class="c-black">session:</label><span class="c-blue"><input type="checkbox" /></span><div class="buttons"><span class="status-msg Hide">添加成功</span><a class="button save-add">保存Cookie</a> <a class="button cancel-add">取消添加</a> </div> </li> </ul> </dd> </dl>');
 
 				response.data.forEach(function(cookie, index){
-                    html.push('<dl class="ck-wrap cookie clist"><dt class="clearfix ctitle">'+
+					var lineColor = oddOrEven(index);
+                    html.push('<dl class="ck-wrap cookie clist"><dt class="clearfix ctitle line-style' + lineColor + '">'+
                     	'<div class="ckname Hide">'+decodeURIComponent(cookie.name)+'</div>'+
 							'<div class="content">'+
-								'<label>'+decodeURIComponent(cookie.name)+':</label><span>'+decodeURIComponent(cookie.value)+'</span>'+
+								'<label>'+decodeURIComponent(cookie.name)+'</label><span>'+decodeURIComponent(cookie.value)+'</span>'+
 							'</div>'+
 						'</dt>'+
 						'<dd class="ck-list ccontent Hide">'+
 							'<ul>'+
 								'<li class="ck-item">'+
-									'<label for="" class="c-black">name:</label>'+
+									'<label for="" class="c-black">name</label>'+
 									'<input type="text" value="'+decodeURIComponent(cookie.name)+'" />'+
-									'<label for="" class="c-black">domain:</label>'+
+									'<label for="" class="c-black">domain</label>'+
 									'<input type="text" disabled value="'+decodeURIComponent(cookie.domain)+'" />'+
 								'</li>'+
 								'<li class="ck-item">'+
-									'<label for="" class="c-black">expires:</label>'+
+									'<label for="" class="c-black">expires</label>'+
 									'<input type="text" value="'+getDateStr(new Date(cookie.expirationDate*1000))+'" />'+
-									'<label for="" class="c-black">path:</label>'+
+									'<label for="" class="c-black">path</label>'+
 									'<input type="text" disabled value="'+decodeURIComponent(cookie.path)+'" />'+
 								'</li>'+
 								'<li class="ck-item">'+
-									'<label for="" class="c-black">value:</label>'+
+									'<label for="" class="c-black">value</label>'+
 									'<textarea rows="3">'+decodeURIComponent(cookie.value)+'</textarea>'+									
-									'<label for="" class="c-black">hostOnly:</label>'+
+									'<label for="" class="c-black">hostOnly</label>'+
 									'<span class="c-blue"><input type="checkbox" '+(cookie.hostOnly?'checked':'')+' /></span>'+
-									'<label for="" class="c-black">httpOnly:</label>'+
+									'<label for="" class="c-black">httpOnly</label>'+
 									'<span class="c-blue"><input type="checkbox" '+(cookie.httpOnly?'checked':'')+' /></span>'+
-									'<label for="" class="c-black">secure:</label>'+
+									'<label for="" class="c-black">secure</label>'+
 									'<span class="c-blue"><input type="checkbox" '+(cookie.secure?'checked':'')+' /></span>'+
-									'<label for="" class="c-black">session:</label>'+
+									'<label for="" class="c-black">session</label>'+
 									'<span class="c-blue"><input type="checkbox" '+(cookie.session?'checked':'')+' /></span>'+
 									'<span class="c-blue"><input type="hidden" value="'+cookie.storeId+'"/></span>'+
 								'</li>'+
