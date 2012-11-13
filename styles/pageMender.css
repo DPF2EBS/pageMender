@@ -214,7 +214,7 @@ background-image:url(../icons/body-bg.png);
 
 /* ---------------------------- 加载时间 -------------------------------*/
 .load-name {border-bottom:1px solid #BBB;color:#666;font-size:13px;font-family:'Courier', 'consolas';}
-.load-time {color:#444;font-size:14px;font-family:'Courier', 'consolas';}
+.load-time {color:#666;font-size:14px;font-family:'Courier', 'consolas';}
 .load-desc {padding: 15px 30px;margin-top:30px;margin-right:60px;}
 
 /* ---------------------------- Cookie管理 -------------------------------*/
