@@ -71,7 +71,7 @@ var config={
 				{
 					"name":"GA检查",
 					"module":"GAValidator",
-					"contentHTML":'<h3 class="right-topic">GA统计代码<h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
+					"contentHTML":'<h3 class="right-topic">GA统计代码</h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
 				},
 				// {
 				// 	"name":"压缩检查",
@@ -81,7 +81,7 @@ var config={
 				{
 					"name":"表单清除",
 					"module":"clearForm",
-					"contentHTML":'<h3 class="right-topic">表单清理<h3><div class="clear-form"><p class="sv-link"><a class="button" href="#" rel="formInput">清理Form表单</a></p><p class="sv-link"><a class="button" href="#" rel="allInput">清理所有表单</a></p></div>'
+					"contentHTML":'<h3 class="right-topic">表单清理</h3><div class="clear-form"><p class="sv-link"><a class="button" href="#" rel="formInput">清理Form表单</a></p><p class="sv-link"><a class="button" href="#" rel="allInput">清理所有表单</a></p></div>'
 				}
 			]
 		},
@@ -108,8 +108,8 @@ var config={
 		  "submenu":[
 			{
 				"name":"插件简介",
-				"contentHTML":'<div class="center welcome">\
-					<p class="main-intro">PageMender由点评前端团队开发，它包含了一系列的页面分析和测试工具。<br/>功能选择主要面向[前端开发、QA、后端开发人员]，非常欢迎非技术人员也试用我们的插件。<br/>希望我们的努力能给您的工作提供方便，感谢您的支持！<br/>\
+				"contentHTML":'<h3 class="right-topic">插件简介</h3><div class="center info btns">\
+					<p class="main-intro">PageMender由点评前端团队开发，它包含了一系列的页面分析和测试工具。功能选择主要面向[前端开发、QA、后端开发人员]，非常欢迎非技术人员也试用我们的插件。希望我们的努力能给您的工作提供方便，感谢您的支持！<br/>\
 					</p></div>'
 			},
 			{
