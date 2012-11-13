@@ -29,12 +29,17 @@ var config={
 					"name":"缓存控制",
 					"module":"cache",
 					"contentHTML":'<div class="center">\
-					<div class="cache-clear">\
-						<a class="button cache-button" id="clearAll">清理所有缓存</a>\
-						<a class="button cache-link cache-button" href="chrome://cache" target="_blank">查看缓存</a>\
-						<a class="button cache-link cache-button" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\
+					<a class="button btn cache-link" href="#">清理所有缓存</a>\
+					<a class="button link cache-link" href="chrome://cache" target="_blank">查看缓存</a>\
+					<a class="button link cache-link" href="chrome://chrome/settings/clearBrowserData" target="_blank">更多选项</a>\
+					<div class="cache-clear"><select name="" id="" class="Hide">\
+						<option value="26280">所有</option>\
+						<option value="1">过去一小时</option><option value="24">最近一天</option><option value="168">最近一周</option>\
+						<option value="672">最近四周</option></select>\
+						<button class="button cache-btn Hide">清理缓存</button>\
 						<p class="c-orange" style="font-size:14px;"></p>\
-					</div></div>'
+					</div>\
+					</div>'
 				},
 				{
 					"name":"代理设置",
@@ -114,7 +119,7 @@ var config={
 			},
 			{
 				"name":"联系我们",
-				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="button" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(wxwdesign@dianping.com)</a><br /><a class="button" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
+				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(xinwei.wang@dianping.com)</a><br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
 			},
 			{
 				"name":"前端资源",
