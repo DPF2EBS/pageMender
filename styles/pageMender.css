@@ -233,6 +233,7 @@ border-left: 10px solid #CCC;
 .c-red {color:#D20909;}
 .c-orange {color:#F60;}
 .c-black {color:#444;}
+.c-green {color:#6dCA23;}
 /* ---------------------------- 缓存管理 -------------------------------*/
 .cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:10px;}
 .cache-link:hover,.sv-link:hover {text-decoration:none;}
@@ -282,6 +283,9 @@ border-left: 10px solid #CCC;
 .auto-reload input { padding:2px 4px;width:40px;border:1px solid #CCC;height:22px;}
 /* ------------------------------ 标准验证 -----------------------------*/
 .standard-validator, .clear-form { margin-left:35%;}
+
+/*------------------------压缩检查-----------------------------------*/
+.bottom-tips{margin:0px 30px 10px 30px;}
 
 /*-------------------------cookies add by wxwdesign-------------------*/
 .cookie{

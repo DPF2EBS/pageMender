@@ -2,17 +2,17 @@
 define(function(require, exports, module) {
 	return function(win,index,tabId){
 		var section=win.sections.eq(index),
-			buttons,inputs,selects,textarea,
+			buttons,inputs,selects,textarea,status,
 			init=false,
 			ajaxLoading=false;
-
-		
+			
 		win.subMenu.eq(index).click(function(){
 			if(!init){
 				buttons=section.find('button');
 				inputs=section.find('input');
 				selects=section.find('select');
 				textarea=section.find('textarea');
+				status=section.find("#result-status");
 
 				buttons.eq(0).click(function(){
 					if(ajaxLoading){return false;}
@@ -58,8 +58,21 @@ define(function(require, exports, module) {
 		            	},
 		            	function(response) {
 		            		ajaxLoading=false;
-							textarea.eq(1).val(response);
+							textarea.eq(1).val(response);							
 							buttons.eq(0).attr('disabled',false);
+
+							//newlines>2&&text.length/newlines>156 or newlines<2
+							if(typeof response==='string'){
+								var r=response.match(/[\r\n]/g),
+									compressed=true;
+								if(r&&r.length>2){
+									compressed=response.length/r.length>156;
+								}
+
+								status.text(compressed?" 返回代码已压缩":'');
+
+								setTimeout(function(){status.text('')},2000);
+							}
 						}
 					);
 				});

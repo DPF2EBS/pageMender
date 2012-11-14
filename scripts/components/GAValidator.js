@@ -13,8 +13,12 @@ define(function(require, exports, module) {
 					resources.forEach(function(R){
 						if((R.type==='document'&&response.tabURL.indexOf(R.url)!==-1)||(R.type==='script'&&/\w+\.\w+/.test(R.url)&&!/^chrome/.test(R.url))){
 							R.getContent(function(content){
-								var r=content.match(/pageTracker\._trackPageview\(.+?\)/g);
-								if(r&&r.length>0){
+								var r=content.match(/pageTracker\._trackPageview\(.+?\)/g),
+									r2=content.match(/track=".+?"/g);
+
+								if((r&&r.length>0)||(r2&&r2.length>0)){
+									if(r2&&r2.length>0){r=r.concat(r2);}
+
 									html.push('<br/><div class="com"><p><span class="index">[URL]</span>&nbsp;<a href="'+R.url+'" target="_blank">'+R.url+'</a></p>');
 									r.forEach(function(re,index){
 										//re.replace(/pageTracker\._trackPageview\('|'\)/g,'');
