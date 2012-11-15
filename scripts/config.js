@@ -64,7 +64,7 @@ var config={
 					<div class="ajax-wrap btns">\
 						<ul class="ajax-list">\
 							<li><label for="">传递数据:</label><textarea cols="60" rows="2" placeholder="JSON数据格式{\'key\':\'value\'}"></textarea></li>\
-							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="URL Address"/><button class="ajax-btn">加载数据</button></li>\
+							<li><label for="">发送方式:</label><select><option value="GET">GET</option><option value="POST">POST</option></select>&nbsp;&nbsp;&nbsp;&nbsp;<label for="">URL地址:</label><input type="text" name="" id="" value="" placeholder="URL Address"/><button class="ajax-btn">加载数据</button><span class="c-orange" id="result-status"></span></li>\
 							<li><label for="">请求结果:</label><textarea cols="60" rows="6" placeholder="Ajax请求结果"></textarea></li>\
 						</ul>\
 					</div>'
@@ -78,11 +78,10 @@ var config={
 					"module":"GAValidator",
 					"contentHTML":'<h3 class="right-topic">GA统计代码</h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
 				},
-				// {
-				// 	"name":"压缩检查",
-				// 	"disabled":true,
-				// 	"module":"compressCheck"
-				// },
+				{
+					"name":"压缩检查",
+					"module":"compressCheck"
+				},
 				{
 					"name":"表单清除",
 					"module":"clearForm",
@@ -119,13 +118,13 @@ var config={
 			},
 			{
 				"name":"联系我们",
-				"contentHTML":'<div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(xinwei.wang@dianping.com)</a><br /><a class="btns" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
+				"contentHTML":'<h3 class="right-topic">联系我们</h3><div class="center"><br /><p class="main-intro">如果您在使用中有什么问题，可以通过Email与我们联系:<br /><a class="button" href="http://mail.google.com/mail/?view=cm&fs=1&to=xinwei.wang@dianping.com&su=pageMender-Bug&body=&ui=2" target="_blank">程序BUG(xinwei.wang@dianping.com)</a><br /><a class="button" href="http://mail.google.com/mail/?view=cm&fs=1&to=yongliang.li@dianping.com&su=pageMender-UI-Bug&body=&cc=xinwei.wang@diang.com&ui=2" target="_blank">UI界面问题(yongliang.li@dianping.com)</a></p></div>'
 			},
 			{
 				"name":"前端资源",
-				"contentHTML":'<div class="center">\
+				"contentHTML":'<h3 class="right-topic">前端资源</h3><div class="center">\
 					<p class="main-intro">\
-						<a class="button" href="http://f2e.dp/">F2E Wiki</a>\
+						<a class="button" target="_blank" href="http://f2e.dp/">F2E Wiki</a>\
 						<a class="button" target="_blank" href="http://f2e.dp:8011/">NPW</a>\
 						<a class="button" target="_blank" href="http://f2e.dp/face">Face</a>\
 						<a class="button" target="_blank" href="http://f2e.dp/blog/">Blog</a>\

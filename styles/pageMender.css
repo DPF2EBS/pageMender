@@ -21,7 +21,7 @@ i{
 	margin-left: 55px;
 	margin-top: 7px;
 	border-style: solid;
-	border-color: transparent transparent transparent #444444;
+	border-color: transparent transparent transparent #CCC;
 	border-width: 4px;
 	font-size:0px;
 	width:0;
@@ -77,9 +77,9 @@ aside.left{position:fixed; top:0px;width:220px; background-color:#D6DDE5; height
 .item-lists dt {border-width:0px 0px 1px 0px; color:#2d2d2d; border-color:#ADADAD; border-style:solid;  line-height: 32px;  padding:0px 0px 0px 30px;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(240,240,240,1)), color-stop(100%,rgba(212,212,212,1))); /* Chrome,Safari4+ */
     background: -webkit-linear-gradient(top,  rgba(240,240,240,1) 0%,rgba(212,212,212,1) 100%); /* Chrome10+,Safari5.1+ */
-    cursor: pointer;font-family: 'Microsoft YaHei', 'arial';font-size: 13px; }
+    cursor: pointer;font-family:'Microsoft YaHei', 'Courier', 'consolas';font-size: 12px; }
 .item-lists li{line-height:24px;}
-.item-lists li a{ padding:0px 0px 0px 70px; display:block;text-decoration: none; color:#444;font-size:12px;line-height:24px;font-family: 'Microsoft YaHei', 'arial';}
+.item-lists li a{ padding:0px 0px 0px 70px; display:block;text-decoration: none; color:#444;font-size:12px;line-height:24px;font-family:'Microsoft YaHei', 'Courier', 'consolas';}
 .item-lists li a:hover, .item-lists li.active a,
 .item-lists li.active a:hover{color: #EFEFEF;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.2);
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(0%,rgba(255,255,255,1)), color-stop(0%,rgba(91,146,212,1)), color-stop(100%,rgba(25,87,173,1))); /* Chrome,Safari4+ */
@@ -176,10 +176,11 @@ article section a:hover{text-decoration:underline;}
                       inset -1px -1px 0px  rgba(0,0,0,0.07);
 }
 
-.welcome {margin:30px auto;text-align: center;}
+.welcome {margin:12px auto;text-align: center;}
 .welcome p {line-height:30px;color:#666;text-shadow: 1px 1px 1px #FFF;}
 .main-title {font-size:16px;}
 .main-intro {font-size:14px;line-height: 30px;}
+.main-intro a {font-size: 14px;}
 .center {text-align: center;}
 /* ----------------------- DOM节点数  ------------------------- */
 .right-topic { height:30px;text-align:center;line-height:30px;text-shadow:1px 1px 1px #FFFFFF;-webkit-box-shadow: 0px 1px 10px #999;box-shadow: 0px 1px 10px #999;
@@ -212,18 +213,18 @@ background-image:url(../icons/body-bg.png);
 .ga-item .index, .com .index { padding:0 5px 0 10px;width:30px;display:inline-block;color:#F60;font-weight:500;}
 
 /* ---------------------------- 加载时间 -------------------------------*/
-.load-name {border-bottom:1px solid #BBB;color:#666;font-size:12px;}
-.load-time {color:#08c;font-size:14px;font-family:'Arial', 'Courier', 'consolas';}
+.load-name {border-bottom:1px solid #BBB;color:#666;font-size:13px;font-family:'Courier', 'consolas';}
+.load-time {color:#666;font-size:14px;font-family:'Courier', 'consolas';}
 .load-desc {padding: 15px 30px;margin-top:30px;margin-right:60px;}
 
 /* ---------------------------- Cookie管理 -------------------------------*/
 .ck-list {width:100%;background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
-border-left: 6px solid #CCC;
+border-left: 10px solid #CCC;
   background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);}
-.ck-wrap { float:left;width:45%;margin-left:20px;background-color:#FFF;border:1px solid #CCC;margin:5px;padding:5px;}
+.ck-wrap { float:left;width:45%;margin-left:20px;background-color:#FFF;border:1px solid #CCC;border-left:0 none;margin:5px;padding:5px;}
 .ck-wrap a {cursor: pointer;}
 .ck-wrap .ck-look {text-align: center;}
-.ck-list .ck-item { margin:-1px;display:block;height:30px;line-height:30px;border:1px solid #CCC;padding:5px;padding-left:15px;}
+.ck-list .ck-item { margin:-1px;display:block;height:30px;line-height:30px;border:1px solid #CCC;border-left:0 none;padding:5px;padding-left:15px;}
 .ck-list .ck-item input { padding:2px;border:1px solid #CCC;min-width:200px;line-height: 18px;color:#666;font-size: 12px;}
 .ck-list .ck-item label { font-family:'Arial', 'Courier', 'consolas';color:#666;font-weight: normal;padding-right: 6px;}
 .ck-list .ck-item textarea {padding:2px;border:1px solid #CCC;color:#666;font-size: 12px;}
@@ -232,6 +233,7 @@ border-left: 6px solid #CCC;
 .c-red {color:#D20909;}
 .c-orange {color:#F60;}
 .c-black {color:#444;}
+.c-green {color:#6dCA23;}
 /* ---------------------------- 缓存管理 -------------------------------*/
 .cache-link, .sv-link { padding-left:10px;margin-left:30px; text-decoration:none;margin-top:10px;}
 .cache-link:hover,.sv-link:hover {text-decoration:none;}
@@ -272,7 +274,7 @@ border-left: 6px solid #CCC;
 .ajax-list li input, .ajax-list li textarea {border:1px solid #CCC;color:#666;font-size:12px; padding:5px; line-height: 150%;}
 .ajax-list li input {height:20px;padding:2px 3px;width:200px;}
 .ajax-list li textarea { vertical-align:top; width:80%;}
-.ajax-wrap { margin-left:5%; margin-right:5%; width:80%;padding-left:3%;padding-right:3%; margin-top:6px;margin-top: 20px;}
+.ajax-wrap { margin-left:5%; margin-right:5%; width:80%;padding-left:3%;padding-right:3%; margin-top:6px;margin-top: 12px;}
 .ajax-btn {cursor: pointer;margin:0px 0px 0px 10px;padding:4px 10px;}
 /* ---------------------------- 自动刷新 -------------------------------*/
 .auto-reload {padding:5px 40px;width: 30%;} 
@@ -281,6 +283,9 @@ border-left: 6px solid #CCC;
 .auto-reload input { padding:2px 4px;width:40px;border:1px solid #CCC;height:22px;}
 /* ------------------------------ 标准验证 -----------------------------*/
 .standard-validator, .clear-form { margin-left:35%;}
+
+/*------------------------压缩检查-----------------------------------*/
+.bottom-tips{margin:0px 30px 10px 30px;}
 
 /*-------------------------cookies add by wxwdesign-------------------*/
 .cookie{
@@ -304,7 +309,7 @@ border-left: 6px solid #CCC;
     font-size: 14px;
     padding:2px 8px;
     cursor: pointer;
-    border-left:6px solid #FF8B00;
+    border-left:10px solid #FF8B00;
     /*border:1px solid #EFEFEF;*/
     background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f5f5f5), color-stop(1, #e0e0e0) );
     background-image: linear-gradient(to bottom, #FAFAFA 0px, #DCDCDC 100%);
@@ -312,7 +317,7 @@ border-left: 6px solid #CCC;
   .cookie dt.line-style1 {
     font-size: 14px;
     padding:2px 8px;
-    border-left: 6px solid #9bcA23;
+    border-left: 10px solid #9bcA23;
     cursor: pointer;
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(252,252,252,1)), color-stop(29%,rgba(252,252,252,1)), color-stop(68%,rgba(248,248,248,1)), color-stop(100%,rgba(243,243,243,1)));
     background: -webkit-linear-gradient(top,  rgba(252,252,252,1) 0%,rgba(252,252,252,1) 29%,rgba(248,248,248,1) 68%,rgba(243,243,243,1) 100%);
@@ -345,5 +350,5 @@ border-left: 6px solid #CCC;
   .cookie textarea,.cookie input[type="text"]{vertical-align: top; min-width: 280px; width:38%;}
   .cookie textarea{min-height: 20px;}
   .cookie input[type='checkbox']{width:auto;min-width: auto; vertical-align: middle; margin:0px; padding:0px;}
-  .info {text-shadow:1px 1px 1px #FFF;margin-top:30px;margin-left:20%;margin-right:20%;text-align: left;line-height: 30px;padding:30px;}
+  .info {text-shadow:1px 1px 1px #FFF;margin-top:12px;margin-left:20%;margin-right:20%;text-align: left;line-height: 30px;padding:30px;}
   .lft {margin-left:220px;}

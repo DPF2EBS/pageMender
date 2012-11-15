@@ -205,10 +205,12 @@ var devtoolsAction={
             case 'cookie':
                 settingsConfig.data.url=contentData[tabId].tabURL;
 
-                if(settingsConfig.data.oldName&&settingsConfig.data.oldName!==settingsConfig.data.name){
-                    chrome.cookies.remove({name:settingsConfig.data.oldName,url:settingsConfig.data.url}, function(cookie){
-                        // console.log('remove',cookie);
-                    });
+                if(settingsConfig.data.oldName){
+                    if(settingsConfig.data.oldName!==settingsConfig.data.name){
+                        chrome.cookies.remove({name:settingsConfig.data.oldName,url:settingsConfig.data.url}, function(cookie){
+                            console.log('remove',cookie);
+                        });
+                    }
                     
                     delete settingsConfig.data.oldName;
                 }
