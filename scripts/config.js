@@ -124,7 +124,7 @@ var config={
 				"name":"前端资源",
 				"contentHTML":'<h3 class="right-topic">前端资源</h3><div class="center">\
 					<p class="main-intro">\
-						<a class="button" href="http://f2e.dp/">F2E Wiki</a>\
+						<a class="button" target="_blank" href="http://f2e.dp/">F2E Wiki</a>\
 						<a class="button" target="_blank" href="http://f2e.dp:8011/">NPW</a>\
 						<a class="button" target="_blank" href="http://f2e.dp/face">Face</a>\
 						<a class="button" target="_blank" href="http://f2e.dp/blog/">Blog</a>\
