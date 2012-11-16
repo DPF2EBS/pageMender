@@ -76,7 +76,7 @@ var config={
 				{
 					"name":"GA检查",
 					"module":"GAValidator",
-					"contentHTML":'<h3 class="right-topic">GA统计代码</h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
+					"contentHTML":'<h3 class="right-topic">GA/Hippo统计代码</h3><br/><div class="com"><p><span class="index"></span>加载中...</p></div>'
 				},
 				{
 					"name":"压缩检查",
