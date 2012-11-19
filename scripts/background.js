@@ -390,3 +390,19 @@ chrome.tabs.onRemoved.addListener(function(tabId,removeInfo) {
 /*chrome.windows.onFocusChanged.addListener(function(windowId) {
     console.log(windowId);
 });*/
+
+//add installed events
+chrome.runtime.onInstalled.addListener(function() {
+    chrome.tabs.create({
+        // index:,
+        // openerTabId:,
+        url:'pages/options.html',
+        // pinned:,
+        // windowId:,
+        active:true,
+    },function(){
+        // console.log(arguments);
+
+        localStorage.setItem("installed","success");
+    });
+});

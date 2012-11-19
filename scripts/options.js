@@ -1,3 +1,15 @@
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-36435133-1']);
+_gaq.push(['_trackPageview','options.html']);
+
+(function() {
+  var ga = document.createElement('script'); 
+  ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(ga, s);
+})();
+
 $(document).ready(function(){
 	var featureSet=$('#features'),
 		buttons=$('#button>a'),
@@ -71,4 +83,13 @@ $(document).ready(function(){
 	buttons.eq(2).click(function(){
 		window.close();
 	});
+
+
+	setTimeout(function(){
+		if(localStorage.getItem("installed")==="success"){
+			localStorage.removeItem("installed");
+
+			$('#success-info').removeClass('Hide');
+		}
+	},100);
 });

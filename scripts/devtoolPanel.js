@@ -1,3 +1,15 @@
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-36435133-1']);
+_gaq.push(['_trackPageview','devtoolPanel.html']);
+
+(function() {
+  var ga = document.createElement('script'); 
+  ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(ga, s);
+})();
+
 //get left menus
 var panelDt,
 	panelDd,
@@ -37,6 +49,9 @@ function bindEvents(){
 		$(this).click(function(){
 			subMenu.removeClass('active');
 			$(this).addClass('active');
+
+			// _gaq.push(['_trackPageview','devtoolPanel.html']);
+			_gaq.push(['_trackEvent', $(this).attr("rel") , 'clicked']);
 
 			sections.slideUp();
 			sections.eq(i).slideDown();

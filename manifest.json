@@ -1,59 +1,50 @@
 {
-	"name":"Page Mender(Alpha)",
-	"description":"extension for developers and test engineers.",
-	"version":"1.2",
-	/**icons*/
-	"icons":{
-		"128": "icons/DPTools-128.png",
-		"64": "icons/DPTools-64.png",
-		"48": "icons/DPTools-48.png",
-		"32": "icons/DPTools-32.png",
-		"16": "icons/DPTools-16.png"
-	},
+    "name": "Page Mender(Alpha)",
+    "description": "extension for developers and test engineers.",
+    "version": "1.2",
+    /**icons*/
+    "icons": {
+        "128": "icons/DPTools-128.png",
+        "64": "icons/DPTools-64.png",
+        "48": "icons/DPTools-48.png",
+        "32": "icons/DPTools-32.png",
+        "16": "icons/DPTools-16.png"
+    },
 
-	"permissions":[
-   		"tabs",      	
-     	"browsingData",
-      	"contentSettings",
-      	"notifications",
-      	"tts",
-      	// "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
-      	"proxy",
-   		// "contextMenus",
+    "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 
-   		"cookies",
-   		"http://*/*",
-      	"https://*/*"
+    "permissions": ["tabs", "browsingData", "contentSettings", "notifications", "tts",
+    // "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
+    "proxy",
+    // "contextMenus",
+    "cookies", "http://*/*", "https://*/*"
 
-   		// "background"
-   	],
-   	"web_accessible_resources": [
-    	"icons/DPTools-48.png"
-  	],
+    // "background"
+    ],
+    "web_accessible_resources": ["icons/DPTools-48.png"],
 
-	/**browser actions*/
-	"browser_action": {
-    	"default_icon": "icons/DPTools-19.png",
-    	"default_popup": "pages/popup.html",
-    	"default_title": "page Mender"
-   	},
+    /**browser actions*/
+    "browser_action": {
+        "default_icon": "icons/DPTools-19.png",
+        "default_popup": "pages/popup.html",
+        "default_title": "page Mender"
+    },
 
-   	/**background page*/
-   	"background":{
-   		"scripts":["scripts/background.js"]
-   	},
+    /**background page*/
+    "background": {
+        "persistent": false,
+        "scripts": ["scripts/background.js"]
+    },
 
-   	/**content scripts*/
-   	"content_scripts":[{
-   		"matches": ["http://*/*","https://*/*"],
-    	"run_at":"document_start",
-    	"js": [
-    		"scripts/contentscripts.js"
-    	]
-   	}],
+    /**content scripts*/
+    "content_scripts": [{
+        "matches": ["http://*/*", "https://*/*"],
+        "run_at": "document_start",
+        "js": ["scripts/contentscripts.js"]
+    }],
 
     "options_page": "pages/options.html",
 
-	"devtools_page": "pages/devtools.html",
-	"manifest_version": 2
+    "devtools_page": "pages/devtools.html",
+    "manifest_version": 2
 }
