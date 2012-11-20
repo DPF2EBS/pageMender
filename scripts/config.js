@@ -126,10 +126,11 @@ var config={
 					<p class="main-intro">\
 						<a class="button" target="_blank" href="http://f2e.dp/">F2E Wiki</a>\
 						<a class="button" target="_blank" href="http://f2e.dp:8011/">NPW</a>\
+						<a class="button" target="_blank" href="http://venus.dp/site/">Chart(Venus)</a>\
 						<a class="button" target="_blank" href="http://f2e.dp/face">Face</a>\
 						<a class="button" target="_blank" href="http://f2e.dp/blog/">Blog</a>\
 						<a class="button" target="_blank" href="http://zuji.dianpingoa.com/">足迹</a>\
-						<a class="button" target="_blank" href="http://f2e.dp/face/open">Lib</a>\
+						<a class="button" target="_blank" href="http://f2e.dp/face/open">Lab</a>\
 					</p>\
 				</div>'
 			}
