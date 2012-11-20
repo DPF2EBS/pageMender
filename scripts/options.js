@@ -90,6 +90,8 @@ $(document).ready(function(){
 			localStorage.removeItem("installed");
 
 			$('#success-info').removeClass('Hide');
+
+			_gaq.push(['_trackPageview','installed']);
 		}
 	},100);
 });

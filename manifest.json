@@ -12,6 +12,7 @@
     },
 
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
+    "update_url": "http://venus.dp:8080/update/updates.xml",
 
     "permissions": ["tabs", "browsingData", "contentSettings", "notifications", "tts",
     // "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
