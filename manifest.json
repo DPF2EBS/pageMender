@@ -2,6 +2,7 @@
     "name": "Page Mender(Alpha)",
     "description": "extension for developers and test engineers.",
     "version": "1.2",
+    "minimum_chrome_version": "20.0.1132.57",
     /**icons*/
     "icons": {
         "128": "icons/DPTools-128.png",
@@ -14,13 +15,19 @@
     "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
     "update_url": "http://venus.dp:8080/update/updates.xml",
 
-    "permissions": ["tabs", "browsingData", "contentSettings", "notifications", "tts",
-    // "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
-    "proxy",
-    // "contextMenus",
-    "cookies", "http://*/*", "https://*/*"
-
-    // "background"
+    "permissions": [
+        "tabs", 
+        "browsingData", 
+        "contentSettings", 
+        "notifications",
+        "tts",
+        // "experimental", //Tips: 需要启动浏览器“实验性扩展程序 API”，chrome://flags/
+        "proxy",
+        // "contextMenus",
+        "cookies", 
+        "http://*/*", 
+        "https://*/*"
+        // "background"
     ],
     "web_accessible_resources": ["icons/DPTools-48.png"],
 
