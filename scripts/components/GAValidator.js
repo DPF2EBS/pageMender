@@ -6,8 +6,8 @@ define(function(require, exports, module) {
 		win.subMenu.eq(index).click(function(){
 			chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'get',getContent:['tabURL']}, function(response) {
 				chrome.devtools.inspectedWindow.getResources(function(resources){
-					var html=[];
-					html.push('<h3 class="right-topic">GA/Hippo统计代码<h3>');
+					var html=[],gaList={};
+					html.push('<h3 class="right-topic">GA/Hippo统计代码<a class="button button-cookie-add search-ga" href="#">查找GA</a><a class="button button-cookie-add export-download" href="#">导出GA</a><h3>');
 
 					//each resources
 					resources.forEach(function(R){
@@ -16,7 +16,7 @@ define(function(require, exports, module) {
 								var r=content.match(/pageTracker\._trackPageview\(.+?\)/g), //GA normal
 									r2=content.match(/track=".+?"/g), //GA attribute
 
-									r3=content.match(/try\{(document\.)?hippo((\.\w+)?\(.+\))\}/g),	//Hippo in header
+									r3=content.match(/try\{(document\.)?hippo((\.\w+)?\(.+?\))\}/g),	//Hippo in header
 									r4=content.match(/(document\.)?hippo((\.\w+)?\(.+?\))+/g); //Hippo normal
 
 								if((r&&r.length>0)||(r2&&r2.length>0)||(r3&&r3.length>0)||(r4&&r4.length>0)){
@@ -30,6 +30,7 @@ define(function(require, exports, module) {
 										});
 									}
 									if(r4&&r4.length>0){r=r.concat(r4);}
+									gaList[R.url]=r;
 
 									html.push('<br/><div class="com"><p><span class="index">[URL]</span>&nbsp;<a href="'+R.url+'" target="_blank">'+R.url+'</a></p>');
 									r.forEach(function(re,index){
@@ -47,6 +48,21 @@ define(function(require, exports, module) {
 							html.push('<br/><div class="com"><p><span class="index"></span>没有找到GA统计代码</p></div>');
 						}
 						section.html(html.join(''));
+
+						section.find('.search-ga').unbind().click(function(e){
+							e.preventDefault();
+							chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'set',settingsConfig:{
+								target:'ga',
+								data:{'ga':html}
+							}});
+						});
+
+						//export GA and Hippo
+						window.URL = window.webkitURL || window.URL;
+						window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
+						var bb = new BlobBuilder();
+			        		bb.append(JSON.stringify(gaList));
+						section.find('.export-download').attr('download',"GA-"+tabId+'.txt').attr('href',window.URL.createObjectURL(bb.getBlob('text/plain')));
 					},500);
 				});
 			});

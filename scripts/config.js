@@ -49,6 +49,27 @@ var config={
 				{
 					"name":"脚本禁用",
 					"module":"contentSettings"
+				},
+				{
+					"name":"系统资源",
+					"module":"systemLink",
+					"contentHTML":'<h3 class="right-topic">系统资源</h3><div class="center">\
+						<p class="main-intro">\
+							<a class="button" target="_blank" href="chrome://chrome/extensions/">扩展程序</a>\
+							<a class="button" target="_blank" href="chrome://chrome/history/">历史记录</a>\
+							<a class="button" target="_blank" href="chrome://downloads/">下载内容</a>\
+							<a class="button" target="_blank" href="chrome://bookmarks/">书签管理</a>\
+							<a class="button" target="_blank" href="chrome://chrome/settings/">系统设置</a>\
+							<a class="button" target="_blank" href="chrome://net-internals/">网络信息</a>\
+							<a class="button" target="_blank" href="chrome://memory-redirect/">内存信息</a>\
+							<a class="button" target="_blank" href="chrome://dns/">路由信息</a>\
+							<a class="button" target="_blank" href="chrome://plugins/">插件设置</a>\
+							<a class="button" target="_blank" href="chrome://sync/">同步信息</a>\
+							<a class="button" target="_blank" href="chrome://histograms/">直方图</a>\
+							<a class="button" target="_blank" href="chrome://flags/">实验功能</a>\
+							<a class="button" target="_blank" href="chrome://about/">关于</a>\
+						</p>\
+					</div>'
 				}
 			]
 		},

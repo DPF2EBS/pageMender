@@ -1,20 +1,64 @@
-//cookies manage
-define(function(require, exports, module) {
-	function getCookies(section,tabId){
-		chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'get', getContent:['cookies']}, function(response) {
-			var cookieDomain=response.domain,
-				// cookiesKey=['domain','name','value','expirationDate','path','hostOnly','httpOnly','secure','session','storeId'];
-				html=[];
-			var oddOrEven = function (i) {
-				return i%2;
-			};
-			if(response&&response.data&&response.data.constructor===Array&&response.data.length>0){
-				html.push('<h3 class="right-topic">Cookies管理 <a class="button button-cookie-add" href="#">添加Cookie</a><a class="button button-cookie-add search-cookies" href="search.html?cookies|'+tabId+'" target="_blank">查找Cookie</a><a class="button button-cookie-add export-download" href="#">导出</a><h3>');
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-36435133-1']);
+_gaq.push(['_trackPageview','options.html']);
+
+(function() {
+  var ga = document.createElement('script'); 
+  ga.type = 'text/javascript'; ga.async = true;
+  ga.src = 'https://ssl.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(ga, s);
+})();
+
+function getDateStr(d) {
+	if(!d.getFullYear()) {
+		return '';
+	}
+	return d.getFullYear() + '-' + format(d.getMonth() + 1) + '-' + format(d.getDate()) + ' ' + format(d.getHours()) + ':' + format(d.getMinutes()) + ':' + format(d.getSeconds());
+}
+
+function format(n) {
+	return n < 10 ? '0' + n : n;
+}
+
+$(document).ready(function(){
+	var titleData={
+			'cookies':'Cookies',
+			'ga':'GA and Hippo'
+		},
+		bgWin=chrome.extension.getBackgroundPage(),
+		featuresHTML=[],
+		// configData=config.getData(),
+		resourceType=window.location.search.replace("?","").split("|"),
+		tab={
+			id:resourceType[1],
+			url:bgWin.contentData[resourceType[1]].tabURL,
+			domain:bgWin.contentData[resourceType[1]].domain
+		};
+
+	//dom
+		buttons=$('#button>a'),
+		fieldTitle=$('#j-field-title'),
+		section=$('section').eq(0);
+
+	//init page
+	document.title=titleData[resourceType[0]];
+	fieldTitle.html(titleData[resourceType[0]]+' ['+tab.url+']');
+
+	if(resourceType[0]==='cookies'){
+		fieldTitle.html(titleData[resourceType[0]]+' ['+tab.url+']<a class="button button-cookie-add" href="#">添加Cookie</a>');
+		chrome.cookies.getAll({url:tab.url}, function (cookies) {
+            // console.log(cookies);
+            var cookieDomain=tab.domain,
+            	tabId=tab.id,
+            	html=[],
+				response=cookies;
+
+			if(response&&response.constructor===Array&&response.length>0){
 				html.push('<dl class="ck-wrap cookie Hide new-cookie"><dt class="clearfix line-style0"><div class="ckname">新Cookie</div></dt><dd class="ck-list"><ul><li class="ck-item"> <label for="" class="c-black">name:</label><input type="text" value="" /><label for="" class="c-black">domain:</label><input type="text" value="" /></li><li class="ck-item"><label for="" class="c-black">value:</label><textarea rows="1"></textarea><label for="" class="c-black">expires:</label><input type="text" value="" /></li><li class="ck-item"> <label for="" class="c-black">hostOnly:</label><span class="c-blue"><input type="checkbox" /></span><label for="" class="c-black">httpOnly:</label><span class="c-blue"><input type="checkbox" /></span><label for="" class="c-black">secure:</label><span class="c-blue"><input type="checkbox" /></span><label for="" class="c-black">session:</label><span class="c-blue"><input type="checkbox" /></span><div class="buttons"><span class="status-msg Hide">添加成功</span><a class="button save-add">保存Cookie</a> <a class="button cancel-add">取消添加</a> </div> </li> </ul> </dd> </dl>');
 
-				response.data.forEach(function(cookie, index){
-					var lineColor = oddOrEven(index);
-                    html.push('<dl class="ck-wrap cookie clist"><dt class="clearfix ctitle line-style' + lineColor + '">'+
+				response.forEach(function(cookie, index){
+                    html.push('<dl class="ck-wrap cookie clist"><dt class="clearfix ctitle line-style' + (index%2) + '">'+
                     	'<div class="ckname Hide">'+decodeURIComponent(cookie.name)+'</div>'+
 							'<div class="content">'+
 								'<label>'+decodeURIComponent(cookie.name)+'</label><span>'+decodeURIComponent(cookie.value)+'</span>'+
@@ -152,7 +196,7 @@ define(function(require, exports, module) {
 				newCookieInputs=newCookie.find("input"),
 				newCookieTextarea=newCookie.find("textarea"),
 				newCookieStatus=newCookie.find(".status-msg");
-			section.find('.button-cookie-add').eq(0).click(function(){
+			$('.button-cookie-add').eq(0).click(function(){
 				if(newCookie.hasClass("Hide")){
 					newCookie.slideDown();
 
@@ -197,34 +241,24 @@ define(function(require, exports, module) {
 							if(response==='setCookieOK'){
 								newCookieStatus.removeClass("Hide");
 								setTimeout(function(){
-									getCookies(section,tabId);
+									// getCookies(section,tabId);
+									window.location.reload();
 								},1000);
 							}
 						}
 					);
 			});
-
-			//export cookies
-			window.URL = window.webkitURL || window.URL;
-			window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
-			var bb = new BlobBuilder();
-        		bb.append(JSON.stringify(response.data));
-			section.find('.export-download').attr('download',"cookies-"+tabId+(cookieDomain?'-'+cookieDomain:'')+'.txt').attr('href',window.URL.createObjectURL(bb.getBlob('text/plain')));
-		});
+        });
+	}else if(resourceType[0]==='ga'){
+		// console.log('ga');
+		var GAhtml=bgWin.contentData[tab.id].ga;
+		section.html(GAhtml.join(''));
 	}
 
-	function getDateStr(d){
-		if(!d.getFullYear()){return '';}
-		return d.getFullYear()+'-'+format(d.getMonth()+1)+'-'+format(d.getDate())+' '+format(d.getHours())+':'+format(d.getMinutes())+':'+format(d.getSeconds());
-	}
-	function format(n){
-		return n<10?'0'+n:n;
-	}
+	//buttons
+	buttons.eq(2).click(function(){
+		window.close();
+	});
 
-	return function(win,index,tabId){
-		var section=win.sections.eq(index);
-		win.subMenu.eq(index).click(function(){
-			getCookies(section,tabId);
-		});
-	}
+	_gaq.push(['_trackPageview','search']);
 });

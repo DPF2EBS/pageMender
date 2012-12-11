@@ -68,7 +68,7 @@ function getDomNodes(allElements){
 
 //content process
 chrome.extension.onMessage.addListener(function(request, sender, sendResponse) {
-	console.log(request);
+	// console.log(request);
 	if(request.from==='background'){
         var returnBack;
         switch(request.action){

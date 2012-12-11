@@ -4,11 +4,11 @@
 		return false;
 	}
 
-	if(config.debug){
+	/*if(config.debug){
 		localStorage.pageMenderDebug=1;
 	}else{
 		localStorage.pageMenderDebug=0;
-	}
+	}*/
 
 	//create "PageMender" panel
 	chrome.devtools.panels.create("PageMender", "icons/DPTools-dev.png", "pages/devtoolPanel.html", function(panel, info) {

@@ -35,7 +35,6 @@ function bindEvents(){
 				arrow.removeClass('arrow-right').addClass('arrow-down');
 			},
 			function(){
-
 				//show sub menus
 				panelDd.eq(i).slideUp();
 				//change menu arrow direction

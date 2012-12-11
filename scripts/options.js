@@ -84,7 +84,6 @@ $(document).ready(function(){
 		window.close();
 	});
 
-
 	setTimeout(function(){
 		if(localStorage.getItem("installed")==="success"){
 			localStorage.removeItem("installed");

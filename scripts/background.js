@@ -149,7 +149,7 @@ var devtoolsAction={
     getContent:function(sendResponse,arrayGet,tabId){
         if(arrayGet&&arrayGet[0]==='cookies'){
             chrome.cookies.getAll({url:contentData[tabId].tabURL}, function (cookies) {
-                // console.log(cookies);
+                // console.log(tabId,contentData[tabId],cookies);
                 sendResponse({data:cookies,domain:contentData[tabId].domain});
             });
             return true;
@@ -168,7 +168,7 @@ var devtoolsAction={
             return true;
         }
 
-        if(arrayGet[0]==='nodeTags'&&!contentData[tabId].nodeTags){
+        if(arrayGet[0]==='nodeTags'/*&&!contentData[tabId].nodeTags*/){
             chrome.tabs.sendMessage(tabId, {from:'background',action:'get',getContent:['dom']}, function(response){
                 // console.log('dom from cotent:',response);
                 saveContentData(tabId, response.data);
@@ -221,6 +221,17 @@ var devtoolsAction={
                 });
                 return true;
             break;
+            case 'ga':
+                settingsConfig.data.ga.shift();
+                // console.log(settingsConfig.data);
+                saveContentData(tabId,settingsConfig.data);
+                // sendResponse('setGAOk');
+
+                chrome.tabs.create({
+                    url:'pages/search.html?ga|'+tabId,
+                    active:true
+                });
+            break;
         }
     },
 
@@ -230,7 +241,7 @@ var devtoolsAction={
             case 'cache':
                 chrome.browsingData.remove(objConfig.removeOptions,objConfig.removeData,function(){
                     checkExtensionError();
-                    sendResponse('finished');         
+                    sendResponse('finished');
                 });
             break;
             case 'form':
