@@ -17,7 +17,10 @@ define(function(require, exports, module) {
 				},			
 				'xhr':{
 					name:'异步'
-				},				
+				},
+				'font':{
+					name:'字体',
+				},	
 				'other':{
 					name:'其它'
 				}
@@ -26,7 +29,7 @@ define(function(require, exports, module) {
 		win.subMenu.eq(index).click(function(e){
 		    e.preventDefault();
 
-			chrome.devtools.inspectedWindow.getResources(function(resources){						
+			chrome.devtools.inspectedWindow.getResources(function(resources){					
 				var count=resources.length,
                     resourcesCount=0,
                     R,
@@ -39,18 +42,21 @@ define(function(require, exports, module) {
 					if (/^chrome/.test(R.url) || (R.url.indexOf(":") < 0 )) { continue; }
                     resourcesCount++;
 
+
                     if(!res[R.type]){
                     	res[R.type] = 1;
                     	resData[R.type].html=[];
                     }else{
                     	res[R.type]++;
                     }
+
 					resData[R.type].html.push('<p><span class="index">('+res[R.type]+')</span><a href="' + R.url + '" target="_blank">' + R.url + '</a></p>');
 				}
 
 				html.push("<h3 class='right-topic'>网页加载资源：<strong>" + resourcesCount + '</strong>&nbsp;个</h3>');
                 html.push('<div class="center">');
                 html.push('<a title="点击查看全部详情" class="button req-inner-link"><span class="b font14">' + resourcesCount + '</span>&nbsp;|&nbsp;<span>所有</span></a>');
+
                 for(var key in resData) {
                 	if(!res[key]){continue;}
                 	

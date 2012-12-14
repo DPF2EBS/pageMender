@@ -352,3 +352,24 @@ border-left: 10px solid #CCC;
   .cookie input[type='checkbox']{width:auto;min-width: auto; vertical-align: middle; margin:0px; padding:0px;}
   .info {text-shadow:1px 1px 1px #FFF;margin-top:12px;margin-left:20%;margin-right:20%;text-align: left;line-height: 30px;padding:30px;}
   .lft {margin-left:220px;}
+
+  /*----------------features_version-------------------------*/
+  ul.features_version li{
+    padding:8px 5px;
+  }
+  ul.features_version,ul.features_version li{
+    list-style: decimal inside;
+  }
+  .features_version .add{
+    color:#006600;
+  }
+  .features_version .update{
+    color:#FF6600;
+  }
+  .features_version .delete{
+    color:#990000;
+  }
+  .features-tips{padding:5px 8px 5px;}
+  .features-tips label{font-size: 12px;}
+  .features-tips input{vertical-align: middle;}
+

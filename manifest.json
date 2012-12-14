@@ -1,7 +1,7 @@
 {
-    "name": "Page Mender(Alpha)",
+    "name": "Page Mender",
     "description": "extension for developers and test engineers.",
-    "version": "1.2",
+    "version": "1.2.1",
     "minimum_chrome_version": "20.0.1132.57",
     /**icons*/
     "icons": {

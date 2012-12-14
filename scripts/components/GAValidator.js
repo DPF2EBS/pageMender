@@ -7,7 +7,7 @@ define(function(require, exports, module) {
 			chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'get',getContent:['tabURL']}, function(response) {
 				chrome.devtools.inspectedWindow.getResources(function(resources){
 					var html=[],gaList={};
-					html.push('<h3 class="right-topic">GA/Hippo统计代码<a class="button button-cookie-add search-ga" href="#">查找GA</a><a class="button button-cookie-add export-download" href="#">导出GA</a><h3>');
+					html.push('<h3 class="right-topic">GA/Hippo统计代码<a class="button button-cookie-add search-ga" href="#">查找</a><h3>');
 
 					//each resources
 					resources.forEach(function(R){
@@ -53,16 +53,9 @@ define(function(require, exports, module) {
 							e.preventDefault();
 							chrome.extension.sendMessage({from:'devtools',tabId:tabId,action:'set',settingsConfig:{
 								target:'ga',
-								data:{'ga':html}
+								data:{'ga':html,'gaList':gaList}
 							}});
 						});
-
-						//export GA and Hippo
-						window.URL = window.webkitURL || window.URL;
-						window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
-						var bb = new BlobBuilder();
-			        		bb.append(JSON.stringify(gaList));
-						section.find('.export-download').attr('download',"GA-"+tabId+'.txt').attr('href',window.URL.createObjectURL(bb.getBlob('text/plain')));
 					},500);
 				});
 			});

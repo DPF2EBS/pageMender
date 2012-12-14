@@ -208,7 +208,9 @@ var devtoolsAction={
                 if(settingsConfig.data.oldName){
                     if(settingsConfig.data.oldName!==settingsConfig.data.name){
                         chrome.cookies.remove({name:settingsConfig.data.oldName,url:settingsConfig.data.url}, function(cookie){
-                            console.log('remove',cookie);
+                            if(debugMode){
+                                console.log('remove',cookie);
+                            }
                         });
                     }
                     
@@ -272,7 +274,9 @@ var devtoolsAction={
             ajaxConfig.url+=(ajaxConfig.url.indexOf('?')<0?'?':'')+data;
         }
 
-        console.log(ajaxConfig, data);
+        if(debugMode){
+            console.log(ajaxConfig, data);
+        }
 
         var xhr = new XMLHttpRequest();
         xhr.open(ajaxConfig.method, ajaxConfig.url, ajaxConfig.sync);
@@ -298,7 +302,9 @@ var devtoolsAction={
         }
 
         if(data&&ajaxConfig.method==='POST'){
-            console.log(data);
+            if(debugMode){
+                console.log(data);
+            }
             xhr.send(data);
         }else{
             xhr.send();
@@ -404,16 +410,24 @@ chrome.tabs.onRemoved.addListener(function(tabId,removeInfo) {
 
 //add installed events
 chrome.runtime.onInstalled.addListener(function() {
+    //update success
+    /*if(!localStorage.getItem("pageMenderUpdateNotice")){
+        chrome.tabs.create({
+            url:'pages/update.html',
+            active:true
+        });
+    }*/
+
+    //installed success
     chrome.tabs.create({
         // index:,
         // openerTabId:,
         url:'pages/options.html',
         // pinned:,
         // windowId:,
-        active:true,
+        active:true
     },function(){
         // console.log(arguments);
-
         localStorage.setItem("installed","success");
     });
 });

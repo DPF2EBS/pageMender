@@ -53,6 +53,7 @@ var config={
 				{
 					"name":"系统资源",
 					"module":"systemLink",
+					"disabled":true,
 					"contentHTML":'<h3 class="right-topic">系统资源</h3><div class="center">\
 						<p class="main-intro">\
 							<a class="button" target="_blank" href="chrome://chrome/extensions/">扩展程序</a>\
@@ -67,7 +68,6 @@ var config={
 							<a class="button" target="_blank" href="chrome://sync/">同步信息</a>\
 							<a class="button" target="_blank" href="chrome://histograms/">直方图</a>\
 							<a class="button" target="_blank" href="chrome://flags/">实验功能</a>\
-							<a class="button" target="_blank" href="chrome://about/">关于</a>\
 						</p>\
 					</div>'
 				}
@@ -194,7 +194,7 @@ var config={
 
 		localStorage.pageMenderConfig=JSON.stringify(data);
 		var other=data.data[data.data.length-1].submenu;
-		if(other[0].disabled===false){
+		if(!other[0].disabled){
 			localStorage.pageMenderNotifications='open';
 			bg.contentData.notice=true;
 		}else{
@@ -202,7 +202,7 @@ var config={
 			delete bg.contentData.notice;
 		}
 
-		if(other[1].disabled===false){
+		if(!other[1].disabled){
 			localStorage.pageMenderVoice='open';
 			bg.contentData.voice=true;
 		}else{

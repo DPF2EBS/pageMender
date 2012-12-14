@@ -21,6 +21,9 @@ function format(n) {
 	return n < 10 ? '0' + n : n;
 }
 
+window.URL = window.webkitURL || window.URL;
+window.BlobBuilder = window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder;
+
 $(document).ready(function(){
 	var titleData={
 			'cookies':'Cookies',
@@ -34,7 +37,11 @@ $(document).ready(function(){
 			id:resourceType[1],
 			url:bgWin.contentData[resourceType[1]].tabURL,
 			domain:bgWin.contentData[resourceType[1]].domain
-		};
+		},
+
+	//blob download
+		bb = new BlobBuilder(),
+		downloadLink,
 
 	//dom
 		buttons=$('#button>a'),
@@ -43,10 +50,10 @@ $(document).ready(function(){
 
 	//init page
 	document.title=titleData[resourceType[0]];
-	fieldTitle.html(titleData[resourceType[0]]+' ['+tab.url+']');
+	// fieldTitle.html(titleData[resourceType[0]]+' ['+tab.url+']');
 
 	if(resourceType[0]==='cookies'){
-		fieldTitle.html(titleData[resourceType[0]]+' ['+tab.url+']<a class="button button-cookie-add" href="#">添加Cookie</a>');
+		fieldTitle.html(titleData[resourceType[0]]+' ['+tab.url+']<a class="button button-cookie-add" href="#">添加</a><a class="button button-cookie-add export-download" href="#">导出</a>');
 		chrome.cookies.getAll({url:tab.url}, function (cookies) {
             // console.log(cookies);
             var cookieDomain=tab.domain,
@@ -248,11 +255,34 @@ $(document).ready(function(){
 						}
 					);
 			});
+
+			//export cookies
+    		bb.append(JSON.stringify(cookies));
+    		downloadLink=$('.export-download').eq(0);
+			downloadLink.attr('download',"cookies-"+tabId+(cookieDomain?'-'+cookieDomain:'')+'.txt');
+			downloadLink.attr('href',window.URL.createObjectURL(bb.getBlob('text/plain'))).click(function(){
+				setTimeout(function(){
+					window.URL.revokeObjectURL(downloadLink.attr("href"));
+					downloadLink.remove();
+				},1500);
+			});
         });
 	}else if(resourceType[0]==='ga'){
+		fieldTitle.html(titleData[resourceType[0]]+' ['+tab.url+']<a class="button button-cookie-add export-download" href="#">导出</a>');
 		// console.log('ga');
 		var GAhtml=bgWin.contentData[tab.id].ga;
 		section.html(GAhtml.join(''));
+
+		//export GA and Hippo
+		bb.append(JSON.stringify(bgWin.contentData[tab.id].gaList));
+		downloadLink=$('.export-download').eq(0);
+		downloadLink.attr('download',"GA-"+tab.id+'.txt');
+		downloadLink.attr('href',window.URL.createObjectURL(bb.getBlob('text/plain'))).click(function(){
+			setTimeout(function(){
+				window.URL.revokeObjectURL(downloadLink.attr("href"));
+				downloadLink.remove();
+			},1500);
+		});
 	}
 
 	//buttons

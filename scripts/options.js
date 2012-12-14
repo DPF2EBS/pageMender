@@ -61,11 +61,18 @@ $(document).ready(function(){
 				child=checkLi.eq(i).find("input");
 
 				child.each(function(ci){
-					if(!$(this).attr("checked")){
+					if($(this).attr("checked")){
+						if(config.data[i].submenu[ci].disabled){
+							delete config.data[i].submenu[ci].disabled;
+						}
+					}else{
+						config.data[i].submenu[ci].disabled=true;
+					}
+					/*if(!$(this).attr("checked")){
 						config.data[i].submenu[ci].disabled=true;
 					}else if($(this).attr("name")==='other'){
 						config.data[i].submenu[ci].disabled=false;
-					}
+					}*/
 				});
 			}
 		});
