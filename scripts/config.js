@@ -152,6 +152,7 @@ var config={
 						<a class="button" target="_blank" href="http://f2e.dp/blog/">Blog</a>\
 						<a class="button" target="_blank" href="http://zuji.dianpingoa.com/">足迹</a>\
 						<a class="button" target="_blank" href="http://f2e.dp/face/open">Lab</a>\
+						<a class="button" target="_blank" href="http://jstest.dianpingoa.com/">TestSwarm</a>\
 					</p>\
 				</div>'
 			}
